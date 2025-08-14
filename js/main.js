@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // 初始化轮播
+    initCarousel();
+    
     // 平滑滚动
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
@@ -185,6 +188,104 @@ document.addEventListener('DOMContentLoaded', function() {
 // 获取报价按钮功能
 function getQuote() {
     window.location.href = 'contact.html';
+}
+
+// 轮播功能
+let currentSlideIndex = 0;
+let slides, indicators, autoSlideInterval;
+
+function initCarousel() {
+    slides = document.querySelectorAll('.carousel-slide');
+    indicators = document.querySelectorAll('.indicator');
+    
+    if (slides.length === 0) return;
+    
+    // 自动轮播
+    startAutoSlide();
+    
+    // 添加点击事件到每个slide
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', function() {
+            const service = slide.getAttribute('data-service');
+            jumpToService(service);
+        });
+    });
+    
+    // 鼠标悬停暂停自动轮播
+    const heroCarousel = document.querySelector('.hero-carousel');
+    if (heroCarousel) {
+        heroCarousel.addEventListener('mouseenter', function() {
+            clearInterval(autoSlideInterval);
+        });
+        
+        heroCarousel.addEventListener('mouseleave', function() {
+            startAutoSlide();
+        });
+    }
+}
+
+function showSlide(index) {
+    if (!slides || slides.length === 0) return;
+    
+    // 移除所有active类
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // 添加active类到当前slide
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    currentSlideIndex = index;
+}
+
+function nextSlide() {
+    if (!slides || slides.length === 0) return;
+    const nextIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(nextIndex);
+    resetAutoSlide();
+}
+
+function previousSlide() {
+    if (!slides || slides.length === 0) return;
+    const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
+    resetAutoSlide();
+}
+
+function currentSlide(index) {
+    showSlide(index - 1);
+    resetAutoSlide();
+}
+
+function startAutoSlide() {
+    if (!slides || slides.length === 0) return;
+    autoSlideInterval = setInterval(() => {
+        nextSlide();
+    }, 4000); // 每4秒切换一次
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+function jumpToService(service) {
+    // 跳转到服务页面的具体内容
+    let targetUrl = 'services.html';
+    
+    switch(service) {
+        case 'huance':
+            targetUrl = 'services.html#huance';
+            break;
+        case 'huanxie':
+            targetUrl = 'services.html#huanxie';
+            break;
+        case 'huanze':
+            targetUrl = 'services.html#huanze';
+            break;
+    }
+    
+    window.location.href = targetUrl;
 }
 
 // 返回顶部功能
