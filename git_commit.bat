@@ -1,0 +1,9 @@
+@echo off
+echo 正在初始化Git仓库...
+git init
+echo 添加所有文件...
+git add .
+echo 提交更改...
+git commit -m "初始化网站项目 - 云南悦恩环保技术咨询有限公司官网"
+echo 完成！
+pause

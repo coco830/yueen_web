@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>服务项目 - 环保管家</title>
-    <meta name="description" content="环保管家提供环境影响评价、排污许可申报、污染治理工程、环境检测等专业环保服务">
+    <title>服务项目 - 云南悦恩环保技术咨询有限公司</title>
+    <meta name="description" content="云南悦恩环保技术咨询有限公司提供环策、环协、环责三大核心服务体系，为企业提供全方位的环保解决方案">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/services.css">
 </head>
@@ -14,19 +14,28 @@
         <div class="container">
             <div class="header-container">
                 <div class="logo">
-                    <a href="index.html">环保管家</a>
+                    <a href="index.html">
+                        <img src="logo.png" alt="云南悦恩环保技术咨询有限公司" class="logo-img">
+                        <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
+                        <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                    </a>
                 </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="container">
                 <nav class="nav-menu">
-                    <ul>
+                    <ul class="nav-list">
                         <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link">关于我们</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link active">服务项目</a></li>
                         <li class="nav-item"><a href="cases.html" class="nav-link">成功案例</a></li>
                         <li class="nav-item"><a href="news.html" class="nav-link">新闻中心</a></li>
+                        <li class="nav-item"><a href="jobs.html" class="nav-link">人才招聘</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">联系我们</a></li>
                     </ul>
                 </nav>
-                <a href="contact.html" class="btn get-quote">获取报价</a>
+                <a href="contact.html" class="btn get-quote" onclick="getQuote()">获取报价</a>
                 <div class="mobile-toggle">☰</div>
             </div>
         </div>
@@ -35,120 +44,208 @@
     <!-- 服务总览 -->
     <section class="section services-overview">
         <div class="container">
-            <h1 class="section-title">专业环保服务</h1>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">🌱</div>
-                        <h3 class="service-name">环境影响评价</h3>
+            <h1 class="section-title">三大核心服务体系</h1>
+            <p class="section-subtitle">云南悦恩环保独创的分层服务体系，满足企业不同阶段的环保需求</p>
+            
+            <!-- 环策服务 -->
+            <div id="huance" class="service-detail">
+                <div class="service-header">
+                    <div class="service-icon">🧠</div>
+                    <h2 class="service-name">环策（环保工作策略模式）</h2>
+                </div>
+                <div class="service-intro">
+                    <p class="service-description">
+                        <strong>高阶专家智囊，为企业关键决策保驾护航</strong>
+                    </p>
+                    <p class="service-description">
+                        "环策"是一项被动响应式的高端专家咨询服务。它不介入企业的日常执行，而是在企业面临重大、复杂或突发性环保问题时，提供权威、精准的决策支持和解决方案，帮助企业在战略层面"做对选择，规避风险"。
+                    </p>
+                    <p class="service-description">
+                        <strong>责任说明：</strong>悦恩环保对咨询意见的专业性负责。因企业是最终的决策与执行主体，我们不承担因企业自行实施决策而产生的后续责任。
+                    </p>
+                </div>
+                
+                <div class="service-content">
+                    <h3 class="content-title">服务内容</h3>
+                    <div class="content-item">
+                        <h4>政策法规深度解读</h4>
+                        <p>在新政出台时，精准研判其对企业的影响并提供应对策略。</p>
                     </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            为建设项目提供专业的环境影响评价服务，确保项目符合环保要求，降低环境风险。
-                        </p>
-                        <ul class="service-features">
-                            <li>环评报告书/表编制</li>
-                            <li>环评现状监测</li>
-                            <li>环评技术评估</li>
-                            <li>环评验收服务</li>
-                            <li>环评后评价</li>
-                        </ul>
+                    <div class="content-item">
+                        <h4>重大项目前期咨询</h4>
+                        <p>为新、改、扩建项目提供选址、工艺等方面的专家建议，规避审批风险。</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>复杂环境问题应对</h4>
+                        <p>协助企业制定合法、合规、经济、高效的整改方案。</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>突发环境事件应急咨询</h4>
+                        <p>提供远程专家指导，将事故影响降至最低。</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">📋</div>
-                        <h3 class="service-name">排污许可申报</h3>
+                
+                <div class="service-advantages">
+                    <h3 class="advantages-title">服务优势</h3>
+                    <ul class="advantages-list">
+                        <li>高端专家团队，提供权威决策支持</li>
+                        <li>快速响应机制，应对紧急环保问题</li>
+                        <li>定制化解决方案，满足企业个性化需求</li>
+                        <li>战略层面规避风险，降低环保合规成本</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 环协服务 -->
+            <div id="huanxie" class="service-detail">
+                <div class="service-header">
+                    <div class="service-icon">📋</div>
+                    <h2 class="service-name">环协（环保工作协助模式）</h2>
+                </div>
+                <div class="service-intro">
+                    <p class="service-description">
+                        <strong>主动介入式、SOP驱动的日常运营伙伴</strong>
+                    </p>
+                    <p class="service-description">
+                        "环协"是悦恩环保服务体系的基石，我们将承诺转化为行动，深度介入企业的日常环保管理，成为企业最可靠的"执行官"。我们的服务严格遵循从"精准诊断"到"定制计划"再到"协同执行"的SOP闭环管理流程，确保服务全程专业、规范、高效。
+                    </p>
+                    <p class="service-description">
+                        <strong>责任承诺：</strong>以企业在合同约定范围内，全面、及时的配合为基本前提。悦恩承诺：在此前提下，若因我方服务疏忽或专业能力不足，直接导致企业产生环保行政罚款等，因环保相关工作所导致的直接经济损失，该损失由悦恩环保承担。
+                    </p>
+                </div>
+                
+                <div class="service-content">
+                    <h3 class="content-title">服务内容</h3>
+                    
+                    <div class="content-item">
+                        <h4>1. 环保手续合规性日常管理</h4>
+                        <p>全年关注企业环保相关手续与实际经营情况的关联性，发现隐患及时提醒企业，并及时协助完善。</p>
                     </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            提供排污许可证申请、变更、延续等全流程服务，确保企业合法排污。
-                        </p>
-                        <ul class="service-features">
-                            <li>排污许可证申请</li>
-                            <li>排污许可证变更</li>
-                            <li>排污许可证延续</li>
-                            <li>执行报告编制</li>
-                            <li>台账管理指导</li>
+                    
+                    <div class="content-item">
+                        <h4>2. 企业环保现状排查</h4>
+                        <p>每月至少1次到达企业现场，进行隐患排查。（包括但不限于环保手续、污染源治理设施、生产台账、管理台账、运行台账、现场管理、人员管理、环保相关系统核对、周边环境影响调查等），如遇突发情况，根据企业需求，到达现场协助企业完成相关工作。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>3. 环保相关证照管理</h4>
+                        <p>关注证照有效情况，如发现隐患，及时协助企业完成排污许可证、排水许可证、辐射安全许可证、放射诊疗许可证等环保相关证照的信息变更及办理，不产生企业需承担的费用。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>4. 环保相关文本编制及备案</h4>
+                        <p>帮助企业完成文本编制及备案（如涉及其他第三方服务：检测、专家评审等费用，由企业自行承担）。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>5. 环保相关系统管理</h4>
+                        <p>按时准确完成企业环保相关系统公示、填报等工作，确保符合生态环境部门要求。包含但不限于：</p>
+                        <ul class="system-list">
+                            <li>全国污染源监测信息管理与共享平台</li>
+                            <li>云南省医疗废物在线监管信息平台</li>
+                            <li>全国核技术利用辐射安全申报系统</li>
+                            <li>全国排污许可信息管理平台</li>
+                            <li>全国固体废物和化学品管理信息系统</li>
+                            <li>云南省重点污染源自动监测数据分析系统</li>
+                            <li>企业环境信息依法披露系统（云南）</li>
+                            <li>生态环境统计业务系统</li>
                         </ul>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>6. 自行监测合理开展及指导管理</h4>
+                        <p>依据现行法规、条款、标准、要求，协助企业调整自行监测指标、频次，确保企业自行监测工作符合生态环境部门要求，开展准确有效。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>7. 建立完善的环境管理台账</h4>
+                        <p>每月对企业环境管理台账进行整理，补充缺失台账，确保环境管理台账的完整，不因其他工作环节的需求和使用产生影响。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>8. 环保历史档案建立（一企一档）</h4>
+                        <p>收集备份环保相关基础资料、自行监测报告、整改资料，提供历史环保资料查询服务，每年编制环保实际情况总结报告。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>9. 一般固废、危废管理及处置指导</h4>
+                        <p>监督与协调危废处置单位，确保企业的危废处置合规。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>10. 建立电子信息化管理</h4>
+                        <p>建立环保智能信息化管理平台（免费使用），确保企业从管理层到执行层，可以实时了解、监督环保工作的开展情况。助力企业实现移动办公、实时监控和环保现状预警。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>11. 质量、成本控制</h4>
+                        <p>协助企业合理控制成本和把控质量，确保工作的开展有效。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>12. 环保技术咨询服务</h4>
+                        <p>帮助企业开展环保培训、突发环境事件应急演练、环保相关问题的解答等工作。</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">🏭</div>
-                        <h3 class="service-name">污染治理工程</h3>
+                
+                <div class="service-advantages">
+                    <h3 class="advantages-title">服务优势</h3>
+                    <ul class="advantages-list">
+                        <li>标准化SOP流程，确保服务质量</li>
+                        <li>深度介入日常管理，成为企业可靠的执行官</li>
+                        <li>全面覆盖环保管理各个方面，无死角服务</li>
+                        <li>信息化管理平台，实现实时监控和预警</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 环责服务 -->
+            <div id="huanze" class="service-detail">
+                <div class="service-header">
+                    <div class="service-icon">🛡️</div>
+                    <h2 class="service-name">环责（环保工作全责模式）</h2>
+                </div>
+                <div class="service-intro">
+                    <p class="service-description">
+                        <strong>战略性、全权托管式的终极解决方案</strong>
+                    </p>
+                    <p class="service-description">
+                        "环责"是我们为核心战略客户规划的顶级服务模式。在此模式下，企业将环保管理职能（在合同约定范围内）完全托管给悦恩环保，实现真正的"零操心"。我们将拥有更高的管理权限，同时也将承担最全面的环保责任。在此模式下，悦恩环保将全面承担合同范围内因环保问题所导致的一切直接经济损失，无论企业是否参与。
+                    </p>
+                </div>
+                
+                <div class="service-content">
+                    <h3 class="content-title">服务内容</h3>
+                    
+                    <div class="content-item">
+                        <h4>1. 包含"环协"所有服务内容</h4>
+                        <p>环责模式包含环协模式的所有服务内容，并在此基础上提供更全面的服务和保障。</p>
                     </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            提供废气、废水、固废等污染治理工程的设计、施工、调试一体化服务。
-                        </p>
-                        <ul class="service-features">
-                            <li>废气治理工程</li>
-                            <li>废水处理工程</li>
-                            <li>固废处置工程</li>
-                            <li>噪声治理工程</li>
-                            <li>土壤修复工程</li>
-                        </ul>
+                    
+                    <div class="content-item">
+                        <h4>2. AI预测性分析与主动干预</h4>
+                        <p>AI平台将基于长期积累的数据，进行预测性分析，提前预判潜在的设备故障或合规风险，并主动进行干预。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>3. 全面责任承担</h4>
+                        <p>悦恩环保将全面承担合同范围内因环保问题所导致的一切直接经济损失，无论企业是否参与。</p>
+                    </div>
+                    
+                    <div class="content-item">
+                        <h4>4. 高级管理权限</h4>
+                        <p>在环责模式下，悦恩环保拥有更高的环保管理权限，能够更有效地进行环保决策和实施。</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">🔬</div>
-                        <h3 class="service-name">环境检测</h3>
-                    </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            具备CMA资质的专业检测机构，提供全方位的环境检测服务。
-                        </p>
-                        <ul class="service-features">
-                            <li>水质检测</li>
-                            <li>大气检测</li>
-                            <li>土壤检测</li>
-                            <li>噪声检测</li>
-                            <li>室内空气检测</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">📊</div>
-                        <h3 class="service-name">环保咨询</h3>
-                    </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            提供环保政策解读、合规性评估、环保管理体系建设等咨询服务。
-                        </p>
-                        <ul class="service-features">
-                            <li>环保政策咨询</li>
-                            <li>合规性评估</li>
-                            <li>环保管理培训</li>
-                            <li>清洁生产审核</li>
-                            <li>碳排放核查</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">💻</div>
-                        <h3 class="service-name">智慧环保平台</h3>
-                    </div>
-                    <div class="service-body">
-                        <p class="service-description">
-                            基于物联网和大数据技术的智慧环保管理平台，实现环保数字化管理。
-                        </p>
-                        <ul class="service-features">
-                            <li>在线监测系统</li>
-                            <li>数据分析平台</li>
-                            <li>智能预警系统</li>
-                            <li>移动端应用</li>
-                            <li>报表自动生成</li>
-                        </ul>
-                    </div>
+                
+                <div class="service-advantages">
+                    <h3 class="advantages-title">服务优势</h3>
+                    <ul class="advantages-list">
+                        <li>企业实现环保管理"零操心"</li>
+                        <li>全面承担环保责任，降低企业风险</li>
+                        <li>AI预测性分析，提前预防环保问题</li>
+                        <li>为核心战略客户提供的顶级服务模式</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -212,16 +309,17 @@
                         <li><a href="services.html">服务项目</a></li>
                         <li><a href="cases.html">成功案例</a></li>
                         <li><a href="news.html">新闻中心</a></li>
+                        <li><a href="jobs.html">人才招聘</a></li>
                         <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3 class="footer-title">联系信息</h3>
                     <ul class="footer-contact">
-                        <li><i>📍</i> 北京市朝阳区环保大厦15层</li>
-                        <li><i>📞</i> 400-888-9999</li>
-                        <li><i>✉️</i> info@huanbaogj.com</li>
-                        <li><i>🕒</i> 周一至周五 9:00-18:00</li>
+                        <li><i>📍</i> 云南省昆明市西山区明波立交桥西侧宏盛达滇池柏悦1幢1001、1008</li>
+                        <li><i>📞</i> 0871-67174013</li>
+                        <li><i>✉️</i> 78520450@qq.com</li>
+                        <li><i>🕒</i> 周一至周五 8:30-17:50</li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -233,7 +331,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 环保管家. All Rights Reserved.</p>
+                <p>&copy; 2025 云南悦恩环保技术咨询有限公司 (Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd). All Rights Reserved.</p>
             </div>
         </div>
     </footer>

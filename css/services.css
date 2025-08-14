@@ -7,6 +7,15 @@
   padding-top: 100px;
 }
 
+.section-subtitle {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 50px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* 服务卡片样式（首页） */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -19,7 +28,8 @@
   border-radius: 8px;
   overflow: hidden;
   transition: var(--transition);
-  cursor: pointer;
+  padding: 20px;
+  text-align: center;
 }
 
 .service-card:hover {
@@ -28,48 +38,134 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-header {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 20px;
-  text-align: center;
-}
-
 .service-icon {
   font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.service-title, .service-name {
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
-.service-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.service-body {
-  padding: 20px;
-}
-
-.service-description {
+.service-desc, .service-description {
   color: #666;
   margin-bottom: 15px;
 }
 
-.service-features {
-  list-style: none;
+.service-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 0.9rem;
 }
 
-.service-features li {
-  padding: 5px 0;
-  position: relative;
+/* 服务详情页样式 */
+.service-detail {
+  margin-bottom: 80px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-detail .service-header {
+  background-color: transparent;
+  color: var(--dark-gray);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.service-detail .service-icon {
+  font-size: 3rem;
+  margin-right: 20px;
+  margin-bottom: 0;
+  background-color: var(--primary-color);
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-detail .service-name {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.service-intro {
+  margin-bottom: 30px;
+  border-left: 4px solid var(--primary-color);
   padding-left: 20px;
 }
 
-.service-features li::before {
+.service-intro .service-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.service-content {
+  margin-bottom: 30px;
+}
+
+.content-title, .advantages-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.content-title::after, .advantages-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.content-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.content-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--dark-gray);
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+}
+
+.advantages-list li {
+  padding: 10px 0;
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.1rem;
+}
+
+.advantages-list li::before {
   content: '✓';
   position: absolute;
   left: 0;
   color: var(--primary-color);
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* 服务流程 */

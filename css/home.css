@@ -51,6 +51,9 @@
   transition: var(--transition);
   text-align: center;
   padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card:hover {
@@ -79,6 +82,24 @@
 
 .service-desc {
   color: #666;
+  margin-bottom: 20px;
+}
+
+.service-btn {
+  margin-top: auto;
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+  background-color: #3d8b40;
+  transform: translateY(-2px);
 }
 
 /* 关于我们简介区 */
@@ -110,8 +131,18 @@
 }
 
 .about-desc {
-  margin-bottom: 30px;
-  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.about-features {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.about-features li {
+  margin-bottom: 10px;
+  line-height: 1.6;
 }
 
 /* 成功案例精选区 */

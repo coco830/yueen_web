@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们 - 环保管家</title>
-    <meta name="description" content="了解环保管家的发展历程、专业团队和企业资质，我们致力于为客户提供专业的环保服务">
+    <title>关于我们 - 云南悦恩环保技术咨询有限公司</title>
+    <meta name="description" content="了解云南悦恩环保技术咨询有限公司的发展历程、专业团队和企业资质，我们致力于为客户提供专业的环保服务">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/image-viewer.css">
 </head>
 <body>
     <!-- 页头 -->
@@ -14,19 +15,28 @@
         <div class="container">
             <div class="header-container">
                 <div class="logo">
-                    <a href="index.html">环保管家</a>
+                    <a href="index.html">
+                        <img src="logo.png" alt="云南悦恩环保技术咨询有限公司" class="logo-img">
+                        <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
+                        <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                    </a>
                 </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="container">
                 <nav class="nav-menu">
-                    <ul>
+                    <ul class="nav-list">
                         <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
                         <li class="nav-item"><a href="about.html" class="nav-link active">关于我们</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link">服务项目</a></li>
                         <li class="nav-item"><a href="cases.html" class="nav-link">成功案例</a></li>
                         <li class="nav-item"><a href="news.html" class="nav-link">新闻中心</a></li>
+                        <li class="nav-item"><a href="jobs.html" class="nav-link">人才招聘</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">联系我们</a></li>
                     </ul>
                 </nav>
-                <a href="contact.html" class="btn get-quote">获取报价</a>
+                <a href="contact.html" class="btn get-quote" onclick="getQuote()">获取报价</a>
                 <div class="mobile-toggle">☰</div>
             </div>
         </div>
@@ -43,21 +53,24 @@
     <section class="section company-intro">
         <div class="container">
             <div class="intro-content">
-                <h2 class="intro-title">环保管家 - 您的绿色发展伙伴</h2>
+                <h2 class="intro-title">云南悦恩环保 - 责任共担，技术驱动</h2>
                 <p class="intro-text">
-                    环保管家成立于2015年，是一家专注于环保服务的专业机构。公司总部位于北京，在上海、广州、深圳、成都等地设有分支机构，业务覆盖全国主要城市。
+                    云南悦恩环保技术咨询有限公司（简称"悦恩环保"），成立于2019年，是一家以"责任共担、技术驱动"为核心理念的创新型环保服务企业。作为全国首家通过中国质量认证中心（CQC）"环保管家"服务认证的机构，我们致力于为企业提供从顶层战略咨询到日常运营执行的一站式、可信赖的解决方案，矢志成为"政府监管服务商、企业服务总包商"，最终实现"让家园的生态环境能长期美好"的愿景。
                 </p>
                 <p class="intro-text">
-                    我们专注于为企业提供环保咨询、污染治理、环境检测、排污许可申报等一站式环保服务。经过多年的发展，公司已成为行业内具有重要影响力的环保服务提供商。
+                    <strong>我们的独特优势：</strong>
                 </p>
                 <p class="intro-text">
-                    <strong>企业使命：</strong>致力于为客户提供专业、高效的环保解决方案，推动企业绿色可持续发展。
+                    <strong>开创性的服务体系：</strong> 我们独创了由"环策"（高阶专家智囊）、"环协"（SOP驱动的日常协理）与"环责"（全权责任托管展望）构成的分层服务体系。该体系颠覆了传统咨询模式，通过与客户签订责任共担协议，将自身利益与企业的环保合规成果深度绑定，用结果为服务正名。
                 </p>
                 <p class="intro-text">
-                    <strong>企业愿景：</strong>成为中国领先的环保服务综合提供商，为建设美丽中国贡献力量。
+                    <strong>先进的技术平台：</strong> 我们自主研发"悦恩智慧环保"平台，将大数据与人工智能（AI）深度融入服务。通过服务小程序、云端数据中心、AI专家智能体、"人机共写"平台等技术工具，我们将传统依赖个人经验的模式，升级为标准化、数字化、智能化的现代服务体系，极大地提升了服务效率与精准度。
                 </p>
                 <p class="intro-text">
-                    <strong>核心价值观：</strong>专业、诚信、创新、责任
+                    <strong>深刻的行业洞察：</strong> 我们拥有一支由创始人姚晓先生领导，技术、行政核心合伙人协同驱动的专业团队。我们深刻理解企业在环保管理中的痛点，并以"伙伴式"的服务理念在环保服务领域形成了强大的口碑和优势。
+                </p>
+                <p class="intro-text">
+                    <strong>明确的社会价值：</strong> 悦恩环保致力于成为政府高效监管的"前沿哨兵"和"效率放大器"，通过我们的专业服务，延伸监管触角、化解企业风险，最终构建一个"政府省心、企业安心、社会放心"的"三方共赢"环境治理新生态。
                 </p>
             </div>
         </div>
@@ -124,38 +137,154 @@
     <section class="section qualifications">
         <div class="container">
             <h2 class="section-title">企业资质荣誉</h2>
-            <div class="qual-grid">
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">环保工程专业承包资质</div>
+            
+            <div class="qual-category">
+                <h3 class="category-title">管理体系认证</h3>
+                <div class="qual-grid">
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/质量管理体系9001（中文）.jpg" alt="ISO9001质量管理体系认证">
+                        </div>
+                        <div class="qual-title">ISO9001质量管理体系认证</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环境管理体系14001（中文）.jpg" alt="ISO14001环境管理体系认证">
+                        </div>
+                        <div class="qual-title">ISO14001环境管理体系认证</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/职业健康安全管理体系45001（中文）.jpg" alt="ISO45001职业健康安全管理体系认证">
+                        </div>
+                        <div class="qual-title">ISO45001职业健康安全管理体系认证</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环保管家CQC证书中文.jpg" alt="环保管家CQC认证">
+                        </div>
+                        <div class="qual-title">环保管家CQC认证</div>
+                    </div>
                 </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">环境影响评价资质</div>
+            </div>
+            
+            <div class="qual-category">
+                <h3 class="category-title">企业资质证书</h3>
+                <div class="qual-grid">
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/营业执照-正本.jpg" alt="营业执照">
+                        </div>
+                        <div class="qual-title">营业执照</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/2.云南省科技型中小企业备案证书.jpg" alt="云南省科技型中小企业备案证书">
+                        </div>
+                        <div class="qual-title">云南省科技型中小企业备案证书</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/污水运维服务等级认证证书.jpg" alt="污水运维服务等级认证证书">
+                        </div>
+                        <div class="qual-title">污水运维服务等级认证证书</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/企业信用评价.jpg" alt="企业信用评价证书">
+                        </div>
+                        <div class="qual-title">企业信用评价证书</div>
+                    </div>
                 </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">环境检测CMA资质</div>
+            </div>
+            
+            <div class="qual-category">
+                <h3 class="category-title">软件著作权</h3>
+                <div class="qual-grid">
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环保管家管理平台软件.jpg" alt="环保管家管理平台软件">
+                        </div>
+                        <div class="qual-title">环保管家管理平台软件</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环保管家客户管理系统.jpg" alt="环保管家客户管理系统">
+                        </div>
+                        <div class="qual-title">环保管家客户管理系统</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环保管家智能污水处理监控与运维服务平台.jpg" alt="环保管家智能污水处理监控与运维服务平台">
+                        </div>
+                        <div class="qual-title">环保管家智能污水处理监控与运维服务平台</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业资质一/环保管家无人值守污水处理一体化设备远程管控平台.jpg" alt="环保管家无人值守污水处理一体化设备远程管控平台">
+                        </div>
+                        <div class="qual-title">环保管家无人值守污水处理一体化设备远程管控平台</div>
+                    </div>
                 </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">ISO9001质量管理体系</div>
-                </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">ISO14001环境管理体系</div>
-                </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">优秀环保服务机构</div>
-                </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">环保科技创新奖</div>
-                </div>
-                <div class="qual-item">
-                    <div class="qual-image" style="background-color: #ddd;"></div>
-                    <div class="qual-title">绿色发展贡献奖</div>
+            </div>
+            
+            <div class="qual-category">
+                <h3 class="category-title">专利证书</h3>
+                <div class="qual-grid">
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/1.一种便携式总余氯水质检测装置+2023201028899_01.png" alt="一种便携式总余氯水质检测装置">
+                        </div>
+                        <div class="qual-title">一种便携式总余氯水质检测装置</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/2.一种污水检测取样箱+2022231737847_01.png" alt="一种污水检测取样箱">
+                        </div>
+                        <div class="qual-title">一种污水检测取样箱</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/3.一种啤酒废水处理用格栅机+2024200121908_01.png" alt="一种啤酒废水处理用格栅机">
+                        </div>
+                        <div class="qual-title">一种啤酒废水处理用格栅机</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/4.一种医疗污水二级沉淀装置+2023234854688_01.png" alt="一种医疗污水二级沉淀装置">
+                        </div>
+                        <div class="qual-title">一种医疗污水二级沉淀装置</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/5.一种啤酒厂废水除臭用引风装置+2024205845944_01.png" alt="一种啤酒厂废水除臭用引风装置">
+                        </div>
+                        <div class="qual-title">一种啤酒厂废水除臭用引风装置</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/6.一种医疗污水膜处理设备+2024200281748_01.png" alt="一种医疗污水膜处理设备">
+                        </div>
+                        <div class="qual-title">一种医疗污水膜处理设备</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/7.一种啤酒废水处理用污泥脱水装置+2024204366637_01.png" alt="一种啤酒废水处理用污泥脱水装置">
+                        </div>
+                        <div class="qual-title">一种啤酒废水处理用污泥脱水装置</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/8.一种砖厂废气脱硫塔+2024204108264_01.png" alt="一种砖厂废气脱硫塔">
+                        </div>
+                        <div class="qual-title">一种砖厂废气脱硫塔</div>
+                    </div>
+                    <div class="qual-item">
+                        <div class="qual-image">
+                            <img src="企业专利/9.一种砖厂除尘装置+2024204684235_01.png" alt="一种砖厂除尘装置">
+                        </div>
+                        <div class="qual-title">一种砖厂除尘装置</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,16 +302,17 @@
                         <li><a href="services.html">服务项目</a></li>
                         <li><a href="cases.html">成功案例</a></li>
                         <li><a href="news.html">新闻中心</a></li>
+                        <li><a href="jobs.html">人才招聘</a></li>
                         <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3 class="footer-title">联系信息</h3>
                     <ul class="footer-contact">
-                        <li><i>📍</i> 北京市朝阳区环保大厦15层</li>
-                        <li><i>📞</i> 400-888-9999</li>
-                        <li><i>✉️</i> info@huanbaogj.com</li>
-                        <li><i>🕒</i> 周一至周五 9:00-18:00</li>
+                        <li><i>📍</i> 云南省昆明市西山区明波立交桥西侧宏盛达滇池柏悦1幢1001、1008</li>
+                        <li><i>📞</i> 0871-67174013</li>
+                        <li><i>✉️</i> 78520450@qq.com</li>
+                        <li><i>🕒</i> 周一至周五 8:30-17:50</li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -194,11 +324,19 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 环保管家. All Rights Reserved.</p>
+                <p>&copy; 2025 云南悦恩环保技术咨询有限公司 (Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd). All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- 图片查看模态框 -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="imageCaption"></div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/image-viewer.js"></script>
 </body>
 </html>
