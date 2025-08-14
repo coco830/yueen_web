@@ -1,0 +1,154 @@
+/* 服务项目页面样式 */
+
+/* 服务总览 */
+.services-overview {
+  background-color: var(--white);
+  margin-top: 80px;
+  padding-top: 100px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--white);
+  border: 2px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.service-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 20px;
+  text-align: center;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.service-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.service-body {
+  padding: 20px;
+}
+
+.service-description {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.service-features {
+  list-style: none;
+}
+
+.service-features li {
+  padding: 5px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* 服务流程 */
+.service-process {
+  background-color: var(--light-gray);
+}
+
+.process-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.process-step {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 15px;
+}
+
+.step-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.process-arrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin: 0 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .process-steps {
+    flex-direction: column;
+  }
+  
+  .process-arrow {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .service-header {
+    padding: 15px;
+  }
+  
+  .service-body {
+    padding: 15px;
+  }
+}

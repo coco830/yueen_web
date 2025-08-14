@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 环保管家</title>
+    <meta name="description" content="联系环保管家，获取专业的环保服务咨询和报价">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- 页头 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">环保管家</a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">关于我们</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">服务项目</a></li>
+                        <li class="nav-item"><a href="cases.html" class="nav-link">成功案例</a></li>
+                        <li class="nav-item"><a href="news.html" class="nav-link">新闻中心</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link active">联系我们</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="btn get-quote">获取报价</a>
+                <div class="mobile-toggle">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 联系我们主体 -->
+    <section class="contact-page">
+        <div class="container">
+            <h1 class="section-title">联系我们</h1>
+            <div class="contact-container">
+                <!-- 联系信息 -->
+                <div class="contact-info">
+                    <h2 class="contact-title">联系方式</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>公司地址</h4>
+                            <p>北京市朝阳区环保大厦15层<br>邮编：100020</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>联系电话</h4>
+                            <p>服务热线：400-888-9999<br>
+                            业务咨询：010-8888-1234<br>
+                            技术支持：010-8888-5678</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>电子邮箱</h4>
+                            <p>业务咨询：info@huanbaogj.com<br>
+                            技术支持：support@huanbaogj.com<br>
+                            人力资源：hr@huanbaogj.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>官方网站</h4>
+                            <p>www.huanbaogj.com</p>
+                        </div>
+                    </div>
+
+                    <!-- 工作时间 -->
+                    <div class="business-hours">
+                        <h3 class="hours-title">工作时间</h3>
+                        <ul class="hours-list">
+                            <li><span class="day">周一至周五</span><span class="time">9:00 - 18:00</span></li>
+                            <li><span class="day">周六</span><span class="time">9:00 - 17:00</span></li>
+                            <li><span class="day">周日</span><span class="time">休息</span></li>
+                            <li><span class="day">法定节假日</span><span class="time">休息</span></li>
+                        </ul>
+                        <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            * 紧急情况请拨打24小时服务热线：400-888-9999
+                        </p>
+                    </div>
+
+                    <!-- 地图 -->
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <p>📍 公司位置地图</p>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">北京市朝阳区环保大厦15层</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 在线留言表单 -->
+                <div class="contact-form">
+                    <h2 class="form-title">在线留言</h2>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">您的姓名 *</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company" class="form-label">公司名称</label>
+                                <input type="text" id="company" name="company" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">联系电话 *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">邮箱地址 *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service" class="form-label">服务需求</label>
+                            <select id="service" name="service" class="form-input">
+                                <option value="">请选择服务类型</option>
+                                <option value="eia">环境影响评价</option>
+                                <option value="permit">排污许可申报</option>
+                                <option value="treatment">污染治理工程</option>
+                                <option value="monitoring">环境检测</option>
+                                <option value="consulting">环保咨询</option>
+                                <option value="platform">智慧环保平台</option>
+                                <option value="other">其他服务</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">详细需求 *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="请详细描述您的项目需求、时间要求等信息..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3 class="footer-title">快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="services.html">服务项目</a></li>
+                        <li><a href="cases.html">成功案例</a></li>
+                        <li><a href="news.html">新闻中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">联系信息</h3>
+                    <ul class="footer-contact">
+                        <li><i>📍</i> 北京市朝阳区环保大厦15层</li>
+                        <li><i>📞</i> 400-888-9999</li>
+                        <li><i>✉️</i> info@huanbaogj.com</li>
+                        <li><i>🕒</i> 周一至周五 9:00-18:00</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">关注我们</h3>
+                    <div class="qrcode">
+                        <div style="width: 100px; height: 100px; background-color: #ddd; display: flex; align-items: center; justify-content: center; color: #666;">微信二维码</div>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px;">扫码关注公众号</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 环保管家. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
