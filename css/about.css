@@ -1,21 +1,167 @@
 /* 关于我们页面样式 */
 
+/* 局部字体与抗锯齿，仅作用于本页 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555555;
+  background-color: #F9F9F9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 标题样式统一 */
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #555555;
+  margin-bottom: 1.5rem;
+}
+
+/* 关于我们页头可读性增强：仅本页生效 */
+.header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
+.header-container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  position: static;
+  left: auto;
+  top: auto;
+}
+
+.logo a {
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-img {
+  margin-right: 15px;
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .logo-text,
+.header .logo-subtitle {
+  color: #000000;
+  text-shadow: none;
+}
+
+.header .logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.header .logo-subtitle {
+  font-size: 0.7rem;
+  color: #64748B;
+  font-weight: 400;
+}
+
+/* 调整导航容器位置，避免与logo重叠 */
+.nav-container {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: saturate(1.2) blur(6px);
+  -webkit-backdrop-filter: saturate(1.2) blur(6px);
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f6f6f6;
+  position: static;
+  top: auto;
+  right: auto;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-menu {
+  justify-content: center;
+}
+
+.nav-link {
+  color: #222 !important;
+}
+.nav-link:hover {
+  color: #111 !important;
+  text-shadow: none;
+}
+.nav-link.active {
+  color: var(--primary-color) !important;
+  text-shadow: none;
+}
+.nav-link.active::after {
+  background-color: var(--primary-color) !important;
+}
+
+/* 调整获取报价按钮位置，避免遮挡导航 */
+.get-quote {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  transform: none;
+  background: var(--primary-color);
+  color: #fff !important;
+  border-color: var(--primary-color);
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  letter-spacing: normal;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.mobile-toggle {
+  color: #222;
+}
+
+/* 页面横幅 */
 .page-banner {
-  height: 300px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/about-banner.jpg');
-  background-size: cover;
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../关于我们.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: #1a1a1a;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: var(--white);
-  margin-top: 80px;
+  margin-top: 120px;
+  padding-left: 80px;
 }
 
 .banner-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* 公司介绍 */
@@ -23,23 +169,36 @@
   background-color: var(--white);
 }
 
+/* 收窄阅读宽度，左对齐以提升专业感 */
 .intro-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 720px;
+  margin: 0;               /* 取消水平居中，使其贴合容器左侧 */
+  text-align: left;
 }
 
+/* 标题左对齐，层级更清晰，色彩对比提升但不过度跳跃 */
 .intro-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 700;
+  font-size: 2.125rem;     /* 略大于正文形成层级 */
+  margin-bottom: 24px;
+  font-weight: 600;        /* 较 700 更显克制 */
+  color: #111;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
 }
 
+/* 正文：更大的行高与段间距，轻微字距，增强“呼吸感” */
 .intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #666;
-  margin-bottom: 20px;
+  font-size: 1.0625rem;    /* 17px */
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 18px;
+  letter-spacing: 0.15px;
+}
+
+/* 在公司介绍区拉开上下留白，整体更松弛 */
+.company-intro .container {
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 /* 专家团队 */
@@ -92,9 +251,10 @@
 }
 
 .member-bio {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
 }
 
 /* 企业资质 */
@@ -113,6 +273,7 @@
   padding-bottom: 10px;
   border-bottom: 2px solid var(--primary-color);
   color: var(--primary-color);
+  letter-spacing: 0.2px;
 }
 
 .qual-grid {
@@ -159,27 +320,56 @@
   text-align: center;
   font-weight: 600;
   font-size: 0.95rem;
-  line-height: 1.4;
-  color: #333;
+  line-height: 1.5;
+  color: #222;
+  letter-spacing: 0.1px;
 }
 
 /* 响应式设计 */
+@media (max-width: 992px) {
+  .intro-content {
+    max-width: 680px;
+  }
+}
+
 @media (max-width: 768px) {
   .banner-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .intro-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    line-height: 1.85;
   }
   
   .page-banner {
-    height: 250px;
+    height: 320px;
+    padding-left: 40px;
+  }
+
+  .company-intro .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
 @media (max-width: 576px) {
   .banner-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .intro-content {
+    max-width: 100%;
   }
   
   .page-banner {
-    height: 200px;
+    height: 280px;
+    padding-left: 20px;
   }
 }

@@ -34,12 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     if (header) {
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.style.backgroundColor = '#fff';
-                header.style.backdropFilter = 'none';
+                header.classList.remove('scrolled');
             }
         });
     }

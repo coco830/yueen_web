@@ -1,235 +1,318 @@
-/* 成功案例页面样式 */
+/* 技术合作页面样式 */
 
-/* 案例筛选器 */
-.case-filters {
-  background-color: var(--white);
-  margin-top: 80px;
-  padding: 100px 0 50px;
-  border-bottom: 1px solid #eee;
+/* 局部字体与抗锯齿，仅作用于本页 */
+body {
+  font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-.filter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.filter-label {
-  font-weight: 600;
-  margin-right: 10px;
-}
-
-.filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.filter-btn {
-  padding: 8px 16px;
-  border: 2px solid #ddd;
-  background-color: var(--white);
-  color: var(--dark-gray);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.9rem;
-}
-
-.filter-btn:hover, .filter-btn.active {
-  border-color: var(--primary-color);
-  background-color: var(--primary-color);
-  color: var(--white);
-}
-
-/* 案例列表 */
-.cases-list {
-  background-color: var(--light-gray);
-  padding: 50px 0;
-}
-
-.cases-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.case-item {
-  background-color: var(--white);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  cursor: pointer;
-}
-
-.case-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.case-image {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.case-category {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-}
-
-.case-content {
-  padding: 25px;
-}
-
-.case-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--dark-gray);
-}
-
-.case-client {
-  color: var(--primary-color);
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.case-description {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.case-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.case-tag {
-  background-color: rgba(76, 175, 80, 0.1);
-  color: var(--primary-color);
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-}
-
-/* 案例详情模态框 */
-.case-modal {
-  display: none;
+/* 技术合作页头可读性增强：仅本页生效 */
+.header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2000;
+  z-index: 1000;
 }
 
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--white);
-  border-radius: 8px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90%;
-  overflow-y: auto;
-}
-
-.modal-header {
-  padding: 20px;
-  border-bottom: 1px solid #eee;
+/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
+.header-container {
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.modal-title {
-  font-size: 1.5rem;
+.logo {
+  position: static;
+  left: auto;
+  top: auto;
+}
+
+.logo a {
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-img {
+  margin-right: 15px;
+}
+
+.header .logo-text,
+.header .logo-subtitle {
+  color: #000000;
+  text-shadow: none;
+}
+
+.header .logo-text {
+  font-size: 1.4rem;
   font-weight: 600;
+  margin-bottom: 2px;
 }
 
-.modal-close {
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #999;
+.header .logo-subtitle {
+  font-size: 0.7rem;
+  color: #64748B;
+  font-weight: 400;
 }
 
-.modal-close:hover {
-  color: var(--dark-gray);
-}
-
-.modal-body {
-  padding: 20px;
-}
-
-.modal-image {
+/* 调整导航容器位置，避免与logo重叠 */
+.nav-container {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: saturate(1.2) blur(6px);
+  -webkit-backdrop-filter: saturate(1.2) blur(6px);
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f6f6f6;
+  position: static;
+  top: auto;
+  right: auto;
   width: 100%;
-  height: 300px;
-  background-size: cover;
+  padding: 10px 0;
+}
+
+.nav-menu {
+  justify-content: center;
+}
+
+.nav-link {
+  color: #222 !important;
+}
+.nav-link:hover {
+  color: #111 !important;
+  text-shadow: none;
+}
+.nav-link.active {
+  color: var(--primary-color) !important;
+  text-shadow: none;
+}
+.nav-link.active::after {
+  background-color: var(--primary-color) !important;
+}
+
+/* 调整获取报价按钮位置，避免遮挡导航 */
+.get-quote {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  transform: none;
+  background: var(--primary-color);
+  color: #fff !important;
+  border-color: var(--primary-color);
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  letter-spacing: normal;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.mobile-toggle {
+  color: #222;
+}
+
+/* 页面横幅 */
+.page-banner {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作底图.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-  border-radius: 8px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--white);
+  margin-top: 120px;
+  padding-left: 80px;
+}
+
+.banner-title {
+  font-size: 3.5rem;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 技术合作服务内容 */
+.cooperation-services {
+  background-color: var(--white);
+  padding: 80px 0;
+}
+
+.service-section {
+  margin-bottom: 60px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
   margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
 }
 
-.modal-section {
-  margin-bottom: 25px;
+.service-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #000000;
 }
 
-.modal-section-title {
+.service-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-item {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 10px;
   color: var(--primary-color);
+  margin-bottom: 10px;
 }
 
-.modal-section-content {
+.feature-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service-item {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  border-left: 4px solid var(--primary-color);
+}
+
+.service-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.service-item p {
   color: #666;
   line-height: 1.6;
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-  .filter-container {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 992px) {
+  .page-banner {
+    height: 350px;
+    padding-left: 60px;
   }
   
-  .cases-grid {
+  .banner-title {
+    font-size: 3rem;
+  }
+  
+  .service-section {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-banner {
+    height: 320px;
+    padding-left: 40px;
+  }
+  
+  .banner-title {
+    font-size: 2.5rem;
+  }
+  
+  .service-features {
     grid-template-columns: 1fr;
   }
   
-  .modal-content {
-    width: 95%;
-    margin: 20px;
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-section {
+    padding: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .service-title {
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 576px) {
-  .case-content {
+  .page-banner {
+    height: 280px;
+    padding-left: 20px;
+  }
+  
+  .banner-title {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  
+  .service-section {
     padding: 20px;
   }
   
-  .modal-header, .modal-body {
-    padding: 15px;
+  .service-title {
+    font-size: 1.4rem;
+  }
+  
+  .cooperation-services {
+    padding: 60px 0;
   }
 }
