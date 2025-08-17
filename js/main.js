@@ -333,3 +333,19 @@ window.addEventListener('scroll', function() {
         backToTop.style.visibility = 'hidden';
     }
 });
+
+// 手风琴组件功能
+function toggleAccordion(element) {
+    const accordionItem = element.parentElement;
+    
+    // 切换当前项的active状态
+    accordionItem.classList.toggle('active');
+    
+    // 可选：关闭其他打开的手风琴项（如果需要一次只打开一个）
+    // const allItems = document.querySelectorAll('.accordion-item');
+    // allItems.forEach(item => {
+    //     if (item !== accordionItem) {
+    //         item.classList.remove('active');
+    //     }
+    // });
+}

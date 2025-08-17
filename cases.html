@@ -1,4 +1,4 @@
-ban'kuaibankuaiE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -46,23 +46,21 @@ ban'kuaibankuaiE html>
                         <li class="nav-item dropdown">
                             <a href="cases.html" class="nav-link active">技术合作 <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="services.html#environmental-assessment">建设项目环境影响评价</a></li>
-                                <li><a href="services.html#completion-acceptance">建设项目竣工保护验收</a></li>
-                                <li><a href="services.html#pollution-permit">全国排污许可证</a></li>
-                                <li><a href="services.html#drainage-permit">排水许可证</a></li>
-                                <li><a href="services.html#radiation-permit">辐射安全许可证</a></li>
-                                <li><a href="services.html#medical-radiation">放射诊疗许可证</a></li>
-                                <li><a href="services.html#emergency-plan">突发环境事件应急预案</a></li>
-                                <li><a href="services.html#treatment-facilities">污染源治理设施建设</a></li>
-                                <li><a href="services.html#wastewater-operation">污水处理设施运营维护</a></li>
-                                <li><a href="services.html#wastewater-testing">废水检测</a></li>
-                                <li><a href="services.html#waste-gas-testing">废气检测</a></li>
-                                <li><a href="services.html#noise-testing">噪声检测</a></li>
-                                <li><a href="services.html#radiation-testing">辐射检测</a></li>
-                                <li><a href="services.html#hazardous-waste">危险废物处置</a></li>
-                                <li><a href="services.html#medical-waste">医疗废物处置</a></li>
-                                <li><a href="services.html#general-waste">一般固废处置</a></li>
-                                <li><a href="services.html#government-subsidy">政府补贴申报</a></li>
+                                <li><a href="#environmental-assessment">建设项目环境影响评价</a></li>
+                                <li><a href="#completion-acceptance">建设项目竣工保护验收</a></li>
+                                <li><a href="#pollution-permit">全国排污许可证</a></li>
+                                <li><a href="#drainage-permit">城镇排水许可证</a></li>
+                                <li><a href="#radiation-permit">辐射安全许可证</a></li>
+                                <li><a href="#medical-radiation">放射诊疗许可证</a></li>
+                                <li><a href="#emergency-plan">突发环境事件应急预案</a></li>
+                                <li><a href="#treatment-facilities">污染源治理设施建设</a></li>
+                                <li><a href="#wastewater-operation">污水处理设施运营维护</a></li>
+                                <li><a href="#wastewater-testing">废水、废气、噪声检测</a></li>
+                                <li><a href="#radiation-testing">辐射检测</a></li>
+                                <li><a href="#hazardous-waste">危险废物处置</a></li>
+                                <li><a href="#medical-waste">医疗废物处置</a></li>
+                                <li><a href="#general-waste">一般固废处理</a></li>
+                                <li><a href="#government-subsidy">政府环保相关补贴申报</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -98,155 +96,339 @@ ban'kuaibankuaiE html>
         </div>
     </section>
 
-    <!-- 技术合作内容 -->
-    <section class="case-filters">
-        <div class="container">
-            <div class="filter-container">
-                <span class="filter-label">筛选案例：</span>
-                <div class="filter-group">
-                    <button class="filter-btn active" data-filter="all">全部</button>
-                    <button class="filter-btn" data-filter="chemical">化工行业</button>
-                    <button class="filter-btn" data-filter="pharmaceutical">医药行业</button>
-                    <button class="filter-btn" data-filter="electroplating">电镀行业</button>
-                    <button class="filter-btn" data-filter="textile">纺织行业</button>
-                </div>
-                <div class="filter-group">
-                    <button class="filter-btn" data-filter="eia">环评服务</button>
-                    <button class="filter-btn" data-filter="treatment">污染治理</button>
-                    <button class="filter-btn" data-filter="monitoring">环境检测</button>
-                    <button class="filter-btn" data-filter="permit">排污许可</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 技术合作服务内容 -->
     <section class="cooperation-services">
         <div class="container">
-            <!-- 环评服务 -->
-            <div id="environmental-assessment" class="service-section">
-                <h2 class="service-title">建设项目环境影响评价</h2>
-                <div class="service-content">
-                    <p class="service-description">为建设项目提供专业的环境影响评价服务，确保项目符合环保要求。</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <h4>专业团队</h4>
-                            <p>拥有资深环评工程师团队</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>全程服务</h4>
-                            <p>从前期咨询到报告编制全程跟踪</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>高通过率</h4>
-                            <p>丰富经验确保高审批通过率</p>
+            <div class="section-intro">
+                <h2>专业环保技术合作服务</h2>
+                <p>我们提供全方位的环保技术合作服务，涵盖环评、验收、许可证办理、检测、治理等多个领域</p>
+            </div>
+
+            <!-- 手风琴组件 -->
+            <div class="accordion">
+                <!-- 建设项目环境影响评价 -->
+                <div id="environmental-assessment" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>建设项目环境影响评价</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>为建设项目提供专业的环境影响评价服务，确保项目符合环保要求。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>项目前期环保咨询</li>
+                                <li>环境影响评价报告编制</li>
+                                <li>专家评审组织</li>
+                                <li>政府审批跟踪</li>
+                            </ul>
+                            <h4>服务优势</h4>
+                            <ul>
+                                <li>资深环评工程师团队</li>
+                                <li>丰富的行业经验</li>
+                                <li>高审批通过率</li>
+                                <li>全程跟踪服务</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 竣工验收 -->
-            <div id="completion-acceptance" class="service-section">
-                <h2 class="service-title">建设项目竣工环境保护验收</h2>
-                <div class="service-content">
-                    <p class="service-description">为建设项目提供竣工环境保护验收服务，确保环保设施正常运行。</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <h4>现场检测</h4>
-                            <p>专业设备现场检测验收</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>报告编制</h4>
-                            <p>规范的验收报告编制</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>专家评审</h4>
-                            <p>组织专家评审验收</p>
+                <!-- 建设项目竣工环境保护验收 -->
+                <div id="completion-acceptance" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>建设项目竣工环境保护验收</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>为建设项目提供竣工环境保护验收服务，确保环保设施正常运行。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>验收监测方案制定</li>
+                                <li>现场监测与数据分析</li>
+                                <li>验收报告编制</li>
+                                <li>验收会议组织</li>
+                            </ul>
+                            <h4>服务优势</h4>
+                            <ul>
+                                <li>专业检测设备</li>
+                                <li>规范的验收流程</li>
+                                <li>权威的检测报告</li>
+                                <li>专家团队支持</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 排污许可证 -->
-            <div id="pollution-permit" class="service-section">
-                <h2 class="service-title">全国排污许可证</h2>
-                <div class="service-content">
-                    <p class="service-description">协助企业申请和管理排污许可证，确保合规排放。</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <h4>申请代办</h4>
-                            <p>全程代办排污许可证申请</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>变更服务</h4>
-                            <p>许可证变更、延续服务</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>台账管理</h4>
-                            <p>排污许可台账管理指导</p>
+                <!-- 全国排污许可证 -->
+                <div id="pollution-permit" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>全国排污许可证</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>协助企业申请和管理排污许可证，确保合规排放。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>许可证申请材料准备</li>
+                                <li>在线申报系统填报</li>
+                                <li>技术审核与补正</li>
+                                <li>证后管理指导</li>
+                            </ul>
+                            <h4>服务优势</h4>
+                            <ul>
+                                <li>熟悉申报流程</li>
+                                <li>专业技术支持</li>
+                                <li>高效办理服务</li>
+                                <li>持续管理指导</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 检测服务 -->
-            <div id="wastewater-testing" class="service-section">
-                <h2 class="service-title">环境检测服务</h2>
-                <div class="service-content">
-                    <p class="service-description">提供废水、废气、噪声、辐射等全方位环境检测服务。</p>
-                    <div class="service-grid">
-                        <div id="waste-gas-testing" class="service-item">
-                            <h4>废气检测</h4>
-                            <p>工业废气污染物检测</p>
-                        </div>
-                        <div id="noise-testing" class="service-item">
-                            <h4>噪声检测</h4>
-                            <p>环境噪声、厂界噪声检测</p>
-                        </div>
-                        <div id="radiation-testing" class="service-item">
-                            <h4>辐射检测</h4>
-                            <p>电磁辐射、放射性检测</p>
+                <!-- 城镇排水许可证 -->
+                <div id="drainage-permit" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>城镇排水许可证</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>协助企业办理城镇排水许可证，确保排水合规。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>排水现状调查</li>
+                                <li>申请材料编制</li>
+                                <li>审批流程跟踪</li>
+                                <li>证后管理服务</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 废物处置 -->
-            <div id="hazardous-waste" class="service-section">
-                <h2 class="service-title">废物处置服务</h2>
-                <div class="service-content">
-                    <p class="service-description">提供危险废物、医疗废物、一般固废的规范化处置服务。</p>
-                    <div class="service-grid">
-                        <div id="medical-waste" class="service-item">
-                            <h4>医疗废物处置</h4>
-                            <p>医疗机构废物安全处置</p>
+                <!-- 辐射安全许可证 -->
+                <div id="radiation-permit" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>辐射安全许可证</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>协助企业申请和管理辐射安全许可证，确保辐射安全合规。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>辐射安全评价</li>
+                                <li>许可证申请材料编制</li>
+                                <li>辐射防护方案设计</li>
+                                <li>审批流程跟踪</li>
+                            </ul>
                         </div>
-                        <div id="general-waste" class="service-item">
-                            <h4>一般固废处置</h4>
-                            <p>工业固废资源化利用</p>
+                    </div>
+                </div>
+
+                <!-- 放射诊疗许可证 -->
+                <div id="medical-radiation" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>放射诊疗许可证</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>为医疗机构提供放射诊疗许可证申请和管理服务。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>放射诊疗建设项目卫生审查</li>
+                                <li>放射诊疗许可证申请</li>
+                                <li>放射防护检测与评价</li>
+                                <li>人员培训与考核</li>
+                            </ul>
                         </div>
-                        <div id="government-subsidy" class="service-item">
-                            <h4>政府补贴申报</h4>
-                            <p>环保项目补贴申报服务</p>
+                    </div>
+                </div>
+
+                <!-- 突发环境事件应急预案 -->
+                <div id="emergency-plan" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>突发环境事件应急预案</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>为企业编制突发环境事件应急预案，提升环境风险防控能力。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>环境风险评估</li>
+                                <li>应急预案编制</li>
+                                <li>应急演练指导</li>
+                                <li>预案备案申报</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 污染源治理设施建设 -->
+                <div id="treatment-facilities" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>污染源治理设施建设</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供污染治理设施的设计、建设和运维服务。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>治理方案设计</li>
+                                <li>设备选型与采购</li>
+                                <li>工程施工管理</li>
+                                <li>调试与验收</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 污水处理设施运营维护 -->
+                <div id="wastewater-operation" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>污水处理设施运营维护</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供污水处理设施的专业运营维护服务，确保设施稳定运行。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>设施日常运行管理</li>
+                                <li>设备维护保养</li>
+                                <li>水质监测与分析</li>
+                                <li>故障诊断与维修</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 环境检测服务 -->
+                <div id="wastewater-testing" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>废水、废气、噪声检测</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供废水、废气、噪声等全方位环境检测服务。</p>
+                            <h4>检测项目</h4>
+                            <ul>
+                                <li>工业废水污染物检测</li>
+                                <li>工业废气污染物检测</li>
+                                <li>环境噪声、厂界噪声检测</li>
+                                <li>土壤污染检测</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 危险废物处置 -->
+                <div id="hazardous-waste" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>危险废物处置</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供危险废物的规范化处置服务，确保环境安全。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>危废识别与分类</li>
+                                <li>处置方案制定</li>
+                                <li>转移联单管理</li>
+                                <li>安全处置监督</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 辐射检测 -->
+                <div id="radiation-testing" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>辐射检测</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供专业的辐射环境检测服务，确保辐射安全。</p>
+                            <h4>检测项目</h4>
+                            <ul>
+                                <li>电离辐射检测</li>
+                                <li>电磁辐射检测</li>
+                                <li>个人剂量监测</li>
+                                <li>辐射防护检测</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 医疗废物处置 -->
+                <div id="medical-waste" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>医疗废物处置</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>为医疗机构提供专业的医疗废物处置服务。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>医疗废物分类收集</li>
+                                <li>安全转运服务</li>
+                                <li>无害化处置</li>
+                                <li>处置记录管理</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 一般固废处理 -->
+                <div id="general-waste" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>一般固废处理</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>提供一般工业固体废物的处理处置服务。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>固废分类与识别</li>
+                                <li>处理方案设计</li>
+                                <li>资源化利用</li>
+                                <li>安全处置服务</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 政府环保相关补贴申报 -->
+                <div id="government-subsidy" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>政府环保相关补贴申报</h3>
+                        <div class="accordion-arrow"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>协助企业申请各类环保补贴和专项资金。</p>
+                            <h4>服务内容</h4>
+                            <ul>
+                                <li>政策解读与匹配</li>
+                                <li>申报材料编制</li>
+                                <li>申报流程跟踪</li>
+                                <li>项目验收指导</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 案例详情模态框 -->
-    <div class="case-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">案例详情</h2>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <!-- 动态内容将通过JavaScript填充 -->
-            </div>
-        </div>
-    </div>
 
     <!-- 页脚 -->
     <footer class="footer">

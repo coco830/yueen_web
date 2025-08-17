@@ -316,3 +316,162 @@ body {
     padding: 60px 0;
   }
 }
+
+/* 手风琴组件样式 - 全新专业设计 */
+.accordion {
+  margin: 40px 0;
+}
+
+/* 手风琴项目 - 默认状态 */
+.accordion-item {
+  background-color: #FFFFFF; /* 纯白背景 */
+  border: 1px solid #e0e0e0; /* 浅灰色边框 */
+  border-radius: 12px; /* 柔和圆角 */
+  margin-bottom: 15px; /* 项目间垂直间距 */
+  padding: 25px; /* 舒适内边距 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 微妙柔和阴影 */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* 平滑过渡 */
+  position: relative;
+}
+
+/* 鼠标悬停状态 */
+.accordion-item:hover {
+  transform: translateY(-3px); /* 元素轻微上浮 */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* 阴影加深 */
+}
+
+/* 展开状态 */
+.accordion-item.active {
+  border-color: #27ae60; /* 品牌主色边框 */
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 标题文字样式 - 移除下划线 */
+.accordion-header h2,
+.accordion-header h3,
+.accordion-header h4 {
+  font-family: 'Noto Sans SC', sans-serif; /* 思源黑体 */
+  color: #2A2E2E; /* 专业炭黑色 */
+  font-weight: 500; /* 中等字重 */
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0;
+  text-decoration: none !important; /* 强制移除下划线 */
+  border-bottom: none !important; /* 强制移除下边框 */
+}
+
+/* 移除service-title的下划线样式 */
+.service-title {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.service-title::after {
+  display: none !important; /* 隐藏下划线元素 */
+}
+
+/* 右侧V形箭头图标 - 更清晰粗线条 */
+.accordion-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent; /* 加大尺寸 */
+  border-right: 10px solid transparent; /* 加大尺寸 */
+  border-top: 12px solid #2A2E2E; /* 加大尺寸和粗度 */
+  transition: transform 0.3s ease-in-out; /* 平滑旋转过渡 */
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+
+/* 展开时箭头旋转 */
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg); /* 平滑旋转180度 */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  margin-top: 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 1000px;
+  margin-top: 20px;
+}
+
+/* 展开后内容区域样式 */
+.accordion-content-inner {
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+  font-family: 'Noto Sans SC', sans-serif; /* 统一字体 */
+  color: #555; /* 舒适阅读颜色 */
+  line-height: 1.7; /* 舒适行高 */
+  font-size: 1rem;
+}
+
+.accordion-content p {
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.7; /* 保证阅读舒适 */
+}
+
+.accordion-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.accordion-content li {
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-bottom: 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.accordion-content h4 {
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #27ae60; /* 品牌色标题 */
+  font-weight: 500;
+  margin: 20px 0 10px 0;
+}
+
+/* 响应式设计 - 手风琴 */
+@media (max-width: 768px) {
+  .accordion-item {
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .accordion-header h2,
+  .accordion-header h3,
+  .accordion-header h4 {
+    font-size: 1.1rem;
+  }
+  
+  .accordion-arrow {
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-top-width: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .accordion-item {
+    padding: 18px;
+    border-radius: 8px;
+  }
+  
+  .accordion-header h2,
+  .accordion-header h3,
+  .accordion-header h4 {
+    font-size: 1rem;
+  }
+}

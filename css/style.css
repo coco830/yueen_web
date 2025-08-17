@@ -284,12 +284,39 @@ p {
   border-radius: 8px;
   padding: 15px 0;
   min-width: 280px;
+  max-height: 70vh;
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 为技术合作下拉菜单特别设置 */
+.nav-item:nth-child(4) .dropdown-menu {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* 滚动条样式 */
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -528,7 +555,7 @@ p {
   
   .dropdown:hover .dropdown-menu {
     opacity: 1;
-    max-height: 500px;
+    max-height: 800px;
     transform: none;
   }
   
