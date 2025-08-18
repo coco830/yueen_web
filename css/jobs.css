@@ -564,19 +564,19 @@ p {
 }
 
 @media (max-width: 576px) {
-  .page-banner {
-    height: 280px;
-    padding-left: 20px;
-  }
-  
-  .banner-title {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  
-  .jobs-content {
-    padding: 50px 0;
-  }
+.page-banner {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../职等你来.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  margin-top: 120px;
+}
   
   .jobs-section {
     margin-bottom: 50px;
