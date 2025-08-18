@@ -116,7 +116,7 @@ body {
 /* 页面横幅 */
 .page-banner {
   height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作底图.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
