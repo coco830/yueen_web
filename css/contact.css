@@ -128,7 +128,7 @@ p {
 /* 页面横幅 */
 .page-banner {
   height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../联系我们底图.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../联系我们.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

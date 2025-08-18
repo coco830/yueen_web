@@ -117,421 +117,6 @@ body {
 .page-banner {
   height: 400px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: var(--white);
-  margin-top: 120px;
-  padding-left: 80px;
-}
-
-.banner-title {
-  font-size: 3.5rem;
-  font-weight: 200;
-  font-style: italic;
-  letter-spacing: 0.1em;
-  text-align: left;
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.95);
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* 技术合作服务内容 */
-.cooperation-services {
-  background-color: var(--white);
-  padding: 80px 0;
-}
-
-.service-section {
-  margin-bottom: 60px;
-  padding: 40px;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.service-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 15px;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
-}
-
-.service-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background-color: #000000;
-}
-
-.service-description {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.service-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.feature-item {
-  background-color: var(--white);
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-}
-
-.feature-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.feature-item h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.feature-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.service-item {
-  background-color: var(--white);
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  border-left: 4px solid var(--primary-color);
-}
-
-.service-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.service-item h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.service-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-/* 响应式设计 */
-@media (max-width: 992px) {
-  .page-banner {
-    height: 350px;
-    padding-left: 60px;
-  }
-  
-  .banner-title {
-    font-size: 3rem;
-  }
-  
-  .service-section {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-banner {
-    height: 320px;
-    padding-left: 40px;
-  }
-  
-  .banner-title {
-    font-size: 2.5rem;
-  }
-  
-  .service-features {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-section {
-    padding: 25px;
-    margin-bottom: 40px;
-  }
-  
-  .service-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .page-banner {
-    height: 280px;
-    padding-left: 20px;
-  }
-  
-  .banner-title {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  
-  .service-section {
-    padding: 20px;
-  }
-  
-  .service-title {
-    font-size: 1.4rem;
-  }
-  
-  .cooperation-services {
-    padding: 60px 0;
-  }
-}
-
-/* 手风琴组件样式 - 全新专业设计 */
-.accordion {
-  margin: 40px 0;
-}
-
-/* 手风琴项目 - 默认状态 */
-.accordion-item {
-  background-color: #FFFFFF; /* 纯白背景 */
-  border: 1px solid #e0e0e0; /* 浅灰色边框 */
-  border-radius: 12px; /* 柔和圆角 */
-  margin-bottom: 15px; /* 项目间垂直间距 */
-  padding: 25px; /* 舒适内边距 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 微妙柔和阴影 */
-  cursor: pointer;
-  transition: all 0.3s ease-in-out; /* 平滑过渡 */
-  position: relative;
-}
-
-/* 鼠标悬停状态 */
-.accordion-item:hover {
-  transform: translateY(-3px); /* 元素轻微上浮 */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* 阴影加深 */
-}
-
-/* 展开状态 */
-.accordion-item.active {
-  border-color: #27ae60; /* 品牌主色边框 */
-}
-
-.accordion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* 标题文字样式 - 移除下划线 */
-.accordion-header h2,
-.accordion-header h3,
-.accordion-header h4 {
-  font-family: 'Noto Sans SC', sans-serif; /* 思源黑体 */
-  color: #2A2E2E; /* 专业炭黑色 */
-  font-weight: 500; /* 中等字重 */
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin: 0;
-  text-decoration: none !important; /* 强制移除下划线 */
-  border-bottom: none !important; /* 强制移除下边框 */
-}
-
-/* 移除service-title的下划线样式 */
-.service-title {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-.service-title::after {
-  display: none !important; /* 隐藏下划线元素 */
-}
-
-/* 右侧V形箭头图标 - 更清晰粗线条 */
-.accordion-arrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent; /* 加大尺寸 */
-  border-right: 10px solid transparent; /* 加大尺寸 */
-  border-top: 12px solid #2A2E2E; /* 加大尺寸和粗度 */
-  transition: transform 0.3s ease-in-out; /* 平滑旋转过渡 */
-  margin-left: 15px;
-  flex-shrink: 0;
-}
-
-/* 展开时箭头旋转 */
-.accordion-item.active .accordion-arrow {
-  transform: rotate(180deg); /* 平滑旋转180度 */
-}
-
-.accordion-content {
-    display: none;
-    padding: 0;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    max-height: 600px;
-    overflow-y: auto;
-}
-
-/* 展开时显示内容 */
-.accordion-item.active .accordion-content {
-    display: block;
-}
-
-.accordion-content-inner {
-    padding: 20px;
-    line-height: 1.6;
-}
-/* 技术合作页面样式 */
-
-/* 局部字体与抗锯齿，仅作用于本页 */
-body {
-  font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* 技术合作页头可读性增强：仅本页生效 */
-.header {
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
-.header-container {
-  padding: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  position: static;
-  left: auto;
-  top: auto;
-}
-
-.logo a {
-  flex-direction: row;
-  align-items: center;
-}
-
-.logo-img {
-  margin-right: 15px;
-}
-
-.header .logo-text,
-.header .logo-subtitle {
-  color: #000000;
-  text-shadow: none;
-}
-
-.header .logo-text {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.header .logo-subtitle {
-  font-size: 0.7rem;
-  color: #64748B;
-  font-weight: 400;
-}
-
-/* 调整导航容器位置，避免与logo重叠 */
-.nav-container {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: saturate(1.2) blur(6px);
-  -webkit-backdrop-filter: saturate(1.2) blur(6px);
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f6f6f6;
-  position: static;
-  top: auto;
-  right: auto;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.nav-menu {
-  justify-content: center;
-}
-
-.nav-link {
-  color: #222 !important;
-}
-.nav-link:hover {
-  color: #111 !important;
-  text-shadow: none;
-}
-.nav-link.active {
-  color: var(--primary-color) !important;
-  text-shadow: none;
-}
-.nav-link.active::after {
-  background-color: var(--primary-color) !important;
-}
-
-/* 调整获取报价按钮位置，避免遮挡导航 */
-.get-quote {
-  position: absolute;
-  right: 30px;
-  top: 15px;
-  transform: none;
-  background: var(--primary-color);
-  color: #fff !important;
-  border-color: var(--primary-color);
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  letter-spacing: normal;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.mobile-toggle {
-  color: #222;
-}
-
-/* 页面横幅 */
-.page-banner {
-  height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -664,74 +249,6 @@ body {
   line-height: 1.6;
 }
 
-/* 响应式设计 */
-@media (max-width: 992px) {
-  .page-banner {
-    height: 350px;
-    padding-left: 60px;
-  }
-  
-  .banner-title {
-    font-size: 3rem;
-  }
-  
-  .service-section {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-banner {
-    height: 320px;
-    padding-left: 40px;
-  }
-  
-  .banner-title {
-    font-size: 2.5rem;
-  }
-  
-  .service-features {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-section {
-    padding: 25px;
-    margin-bottom: 40px;
-  }
-  
-  .service-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .page-banner {
-    height: 280px;
-    padding-left: 20px;
-  }
-  
-  .banner-title {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  
-  .service-section {
-    padding: 20px;
-  }
-  
-  .service-title {
-    font-size: 1.4rem;
-  }
-  
-  .cooperation-services {
-    padding: 60px 0;
-  }
-}
-
 /* 手风琴组件样式 - 全新专业设计 */
 .accordion {
   margin: 40px 0;
@@ -739,423 +256,27 @@ body {
 
 /* 手风琴项目 - 默认状态 */
 .accordion-item {
-  background-color: #FFFFFF; /* 纯白背景 */
-  border: 1px solid #e0e0e0; /* 浅灰色边框 */
-  border-radius: 12px; /* 柔和圆角 */
-  margin-bottom: 15px; /* 项目间垂直间距 */
-  padding: 25px; /* 舒适内边距 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 微妙柔和阴影 */
-  cursor: pointer;
-  transition: all 0.3s ease-in-out; /* 平滑过渡 */
-  position: relative;
-}
-
-/* 鼠标悬停状态 */
-.accordion-item:hover {
-  transform: translateY(-3px); /* 元素轻微上浮 */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* 阴影加深 */
-}
-
-/* 展开状态 */
-.accordion-item.active {
-  border-color: #27ae60; /* 品牌主色边框 */
-}
-
-.accordion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* 标题文字样式 - 移除下划线 */
-.accordion-header h2,
-.accordion-header h3,
-.accordion-header h4 {
-  font-family: 'Noto Sans SC', sans-serif; /* 思源黑体 */
-  color: #2A2E2E; /* 专业炭黑色 */
-  font-weight: 500; /* 中等字重 */
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin: 0;
-  text-decoration: none !important; /* 强制移除下划线 */
-  border-bottom: none !important; /* 强制移除下边框 */
-}
-
-/* 移除service-title的下划线样式 */
-.service-title {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-.service-title::after {
-  display: none !important; /* 隐藏下划线元素 */
-}
-
-/* 右侧V形箭头图标 - 更清晰粗线条 */
-.accordion-arrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent; /* 加大尺寸 */
-  border-right: 10px solid transparent; /* 加大尺寸 */
-  border-top: 12px solid #2A2E2E; /* 加大尺寸和粗度 */
-  transition: transform 0.3s ease-in-out; /* 平滑旋转过渡 */
-  margin-left: 15px;
-  flex-shrink: 0;
-}
-
-/* 展开时箭头旋转 */
-.accordion-item.active .accordion-arrow {
-  transform: rotate(180deg); /* 平滑旋转180度 */
-}
-
-/* 技术合作页面样式 */
-
-/* 局部字体与抗锯齿，仅作用于本页 */
-body {
-  font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* 技术合作页头可读性增强：仅本页生效 */
-.header {
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
-.header-container {
-  padding: 15px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  position: static;
-  left: auto;
-  top: auto;
-}
-
-.logo a {
-  flex-direction: row;
-  align-items: center;
-}
-
-.logo-img {
-  margin-right: 15px;
-}
-
-.header .logo-text,
-.header .logo-subtitle {
-  color: #000000;
-  text-shadow: none;
-}
-
-.header .logo-text {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.header .logo-subtitle {
-  font-size: 0.7rem;
-  color: #64748B;
-  font-weight: 400;
-}
-
-/* 调整导航容器位置，避免与logo重叠 */
-.nav-container {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: saturate(1.2) blur(6px);
-  -webkit-backdrop-filter: saturate(1.2) blur(6px);
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f6f6f6;
-  position: static;
-  top: auto;
-  right: auto;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.nav-menu {
-  justify-content: center;
-}
-
-.nav-link {
-  color: #222 !important;
-}
-.nav-link:hover {
-  color: #111 !important;
-  text-shadow: none;
-}
-.nav-link.active {
-  color: var(--primary-color) !important;
-  text-shadow: none;
-}
-.nav-link.active::after {
-  background-color: var(--primary-color) !important;
-}
-
-/* 调整获取报价按钮位置，避免遮挡导航 */
-.get-quote {
-  position: absolute;
-  right: 30px;
-  top: 15px;
-  transform: none;
-  background: var(--primary-color);
-  color: #fff !important;
-  border-color: var(--primary-color);
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-  letter-spacing: normal;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.mobile-toggle {
-  color: #222;
-}
-
-/* 页面横幅 */
-.page-banner {
-  height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../技术合作底图.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: var(--white);
-  margin-top: 120px;
-  padding-left: 80px;
-}
-
-.banner-title {
-  font-size: 3.5rem;
-  font-weight: 200;
-  font-style: italic;
-  letter-spacing: 0.1em;
-  text-align: left;
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.95);
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* 技术合作服务内容 */
-.cooperation-services {
-  background-color: var(--white);
-  padding: 80px 0;
-}
-
-.service-section {
-  margin-bottom: 60px;
-  padding: 40px;
+  background-color: #FFFFFF;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
-  background-color: #f9f9f9;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.service-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 15px;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
-}
-
-.service-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background-color: #000000;
-}
-
-.service-description {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.service-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.feature-item {
-  background-color: var(--white);
+  margin-bottom: 15px;
   padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-}
-
-.feature-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.feature-item h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.feature-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.service-item {
-  background-color: var(--white);
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  border-left: 4px solid var(--primary-color);
-}
-
-.service-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.service-item h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.service-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-/* 响应式设计 */
-@media (max-width: 992px) {
-  .page-banner {
-    height: 350px;
-    padding-left: 60px;
-  }
-  
-  .banner-title {
-    font-size: 3rem;
-  }
-  
-  .service-section {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .page-banner {
-    height: 320px;
-    padding-left: 40px;
-  }
-  
-  .banner-title {
-    font-size: 2.5rem;
-  }
-  
-  .service-features {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .service-section {
-    padding: 25px;
-    margin-bottom: 40px;
-  }
-  
-  .service-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .page-banner {
-    height: 280px;
-    padding-left: 20px;
-  }
-  
-  .banner-title {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  
-  .service-section {
-    padding: 20px;
-  }
-  
-  .service-title {
-    font-size: 1.4rem;
-  }
-  
-  .cooperation-services {
-    padding: 60px 0;
-  }
-}
-
-/* 手风琴组件样式 - 全新专业设计 */
-.accordion {
-  margin: 40px 0;
-}
-
-/* 手风琴项目 - 默认状态 */
-.accordion-item {
-  background-color: #FFFFFF; /* 纯白背景 */
-  border: 1px solid #e0e0e0; /* 浅灰色边框 */
-  border-radius: 12px; /* 柔和圆角 */
-  margin-bottom: 15px; /* 项目间垂直间距 */
-  padding: 25px; /* 舒适内边距 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 微妙柔和阴影 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  transition: all 0.3s ease-in-out; /* 平滑过渡 */
+  transition: all 0.3s ease-in-out;
   position: relative;
+  scroll-margin-top: 140px; /* 锚定偏移补偿固定头部 */
 }
 
 /* 鼠标悬停状态 */
 .accordion-item:hover {
-  transform: translateY(-3px); /* 元素轻微上浮 */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* 阴影加深 */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 /* 展开状态 */
 .accordion-item.active {
-  border-color: #27ae60; /* 品牌主色边框 */
+  border-color: #27ae60;
 }
 
 .accordion-header {
@@ -1166,45 +287,35 @@ body {
   padding: 0;
 }
 
-/* 标题文字样式 - 移除下划线 */
+/* 标题文字样式 */
 .accordion-header h2,
 .accordion-header h3,
 .accordion-header h4 {
-  font-family: 'Noto Sans SC', sans-serif; /* 思源黑体 */
-  color: #2A2E2E; /* 专业炭黑色 */
-  font-weight: 500; /* 中等字重 */
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-weight: 500;
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 0;
-  text-decoration: none !important; /* 强制移除下划线 */
-  border-bottom: none !important; /* 强制移除下边框 */
-}
-
-/* 移除service-title的下划线样式 */
-.service-title {
   text-decoration: none !important;
   border-bottom: none !important;
 }
 
-.service-title::after {
-  display: none !important; /* 隐藏下划线元素 */
-}
-
-/* 右侧V形箭头图标 - 更清晰粗线条 */
+/* 右侧V形箭头图标 */
 .accordion-arrow {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent; /* 加大尺寸 */
-  border-right: 10px solid transparent; /* 加大尺寸 */
-  border-top: 12px solid #2A2E2E; /* 加大尺寸和粗度 */
-  transition: transform 0.3s ease-in-out; /* 平滑旋转过渡 */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #2A2E2E;
+  transition: transform 0.3s ease-in-out;
   margin-left: 15px;
   flex-shrink: 0;
 }
 
 /* 展开时箭头旋转 */
 .accordion-item.active .accordion-arrow {
-  transform: rotate(180deg); /* 平滑旋转180度 */
+  transform: rotate(180deg);
 }
 
 .accordion-content {
@@ -1216,18 +327,18 @@ body {
     overflow-y: auto;
 }
 
+/* 展开时显示内容 */
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
 .accordion-content-inner {
     padding: 20px;
     line-height: 1.6;
-}
-
-/* 展开后内容区域样式 */
-.accordion-content-inner {
-  padding-top: 15px;
   border-top: 1px solid #f0f0f0;
-  font-family: 'Noto Sans SC', sans-serif; /* 统一字体 */
-  color: #555; /* 舒适阅读颜色 */
-  line-height: 1.7; /* 舒适行高 */
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #555;
+  line-height: 1.7;
   font-size: 1rem;
 }
 
@@ -1235,7 +346,7 @@ body {
   font-family: 'Noto Sans SC', sans-serif;
   margin-bottom: 15px;
   color: #555;
-  line-height: 1.7; /* 保证阅读舒适 */
+  line-height: 1.7;
 }
 
 .accordion-content ul {
@@ -1252,25 +363,66 @@ body {
 
 .accordion-content h4 {
   font-family: 'Noto Sans SC', sans-serif;
-  color: #27ae60; /* 品牌色标题 */
+  color: #27ae60;
   font-weight: 500;
   margin: 20px 0 10px 0;
 }
 
-/* 响应式设计 - 手风琴 */
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .page-banner {
+    height: 350px;
+    padding-left: 60px;
+  }
+  
+  .banner-title {
+    font-size: 3rem;
+  }
+  
+  .service-section {
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
+  .page-banner {
+    height: 320px;
+    padding-left: 40px;
+  }
+  
+  .banner-title {
+    font-size: 2.5rem;
+  }
+  
+  .service-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-section {
+    padding: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .service-title {
+    font-size: 1.6rem;
+  }
+  
   .accordion-item {
     padding: 20px;
     margin-bottom: 12px;
   }
   
-  .accordion-header h2,
-  .accordion-header h3,
-  .accordion-header h4 {
+.accordion-header h2,
+.accordion-header h3,
+.accordion-header h4 {
     font-size: 1.1rem;
   }
   
-  .accordion-arrow {
+.accordion-arrow {
     border-left-width: 8px;
     border-right-width: 8px;
     border-top-width: 10px;
@@ -1278,6 +430,28 @@ body {
 }
 
 @media (max-width: 576px) {
+  .page-banner {
+    height: 280px;
+    padding-left: 20px;
+  }
+  
+  .banner-title {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  
+  .service-section {
+    padding: 20px;
+  }
+  
+  .service-title {
+    font-size: 1.4rem;
+  }
+  
+  .cooperation-services {
+    padding: 60px 0;
+  }
+  
   .accordion-item {
     padding: 18px;
     border-radius: 8px;

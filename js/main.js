@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化轮播
     initCarousel();
     
-    // 平滑滚动
+    // 平滑滚动 - 支持固定头部偏移
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -23,7 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({
+                // 计算固定头部的高度
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const offset = 20; // 额外偏移量
+                
+                // 计算目标位置
+                const targetPosition = targetElement.offsetTop - headerHeight - offset;
+                
+                // 平滑滚动到目标位置
+                window.scrollTo({
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             }
