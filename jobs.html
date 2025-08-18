@@ -32,8 +32,10 @@
                             <a href="about.html" class="nav-link">关于我们 <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="about.html#company-intro">企业简介</a></li>
-                                <li><a href="about.html#team">专家团队</a></li>
-                                <li><a href="about.html#qualifications">企业资质荣誉</a></li>
+                                <li><a href="about.html#core-team">核心人员</a></li>
+                                <li><a href="about.html#team-culture">团队风采</a></li>
+                                <li><a href="about.html#work-showcase">工作风采</a></li>
+                                <li><a href="about.html#qualifications">企业资质</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -108,7 +110,7 @@
         </div>
     </section>
 
-    <!-- 加入我们内容 -->
+    <!-- 职等你来内容 -->
     <section class="jobs-content">
         <div class="container">
             <!-- 英雄帖 -->
@@ -303,34 +305,37 @@
             <!-- 工作空间 -->
             <div id="workspace" class="jobs-section">
                 <h2 class="section-title">工作空间</h2>
-                <div class="workspace-grid">
-                    <div class="workspace-card">
-                        <div class="workspace-icon">🏢</div>
-                        <h3 class="workspace-title">现代化办公环境</h3>
-                        <p class="workspace-description">
-                            位于昆明市西山区宏盛达滇池柏悦，享有优美的滇池景观，现代化的办公设施为员工提供舒适的工作环境。
-                        </p>
+                <div class="workspace-showcase">
+                    <div class="workspace-card" onclick="openWorkspaceGallery()">
+                        <div class="card-image">
+                            <img src="工作空间png图片/办公区域全景.jpg" alt="办公环境预览" loading="lazy">
+                            <div class="card-overlay">
+                                <div class="play-icon">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M23 18L23 42L41 30L23 18Z" fill="#333"/>
+                                    </svg>
+                                </div>
+                                <div class="overlay-text">
+                                    <h3>浏览工作空间</h3>
+                                    <p>6张高清照片</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">现代化办公环境</h3>
+                            <p class="card-description">
+                                位于昆明市西山区宏盛达滇池柏悦，享有优美的滇池景观，为团队提供舒适的协作空间。
+                            </p>
+                            <div class="card-meta">
+                                <span class="location">📍 昆明·滇池柏悦</span>
+                                <span class="photo-count">🖼️ 6张照片</span>
                     </div>
-                    <div class="workspace-card">
-                        <div class="workspace-icon">💻</div>
-                        <h3 class="workspace-title">智能办公设备</h3>
-                        <p class="workspace-description">
-                            配备先进的计算机设备、专业软件和检测仪器，为员工提供高效的工作工具和技术支持。
-                        </p>
+                            <div class="view-gallery-btn">
+                                <span>查看相册</span>
+                                <span class="arrow">→</span>
                     </div>
-                    <div class="workspace-card">
-                        <div class="workspace-icon">🌿</div>
-                        <h3 class="workspace-title">绿色办公理念</h3>
-                        <p class="workspace-description">
-                            践行环保理念，打造绿色办公空间，营造健康舒适的工作氛围，体现企业的环保价值观。
-                        </p>
                     </div>
-                    <div class="workspace-card">
-                        <div class="workspace-icon">☕</div>
-                        <h3 class="workspace-title">休闲配套设施</h3>
-                        <p class="workspace-description">
-                            设有员工休息区、茶水间等配套设施，为员工提供放松身心的空间，促进团队交流与合作。
-                        </p>
                     </div>
                 </div>
             </div>
@@ -627,7 +632,7 @@
                     <div class="museum-intro">
                         <p class="museum-description">
                             在云南悦恩，我们相信失败是成功路上最宝贵的财富。我们的"失败博物馆"记录着团队在环保技术探索中的挫折与反思，
-                            这些经历让我们更加坚韧，也让我们的解决方案更加完善。加入我们，一起将失败转化为前进的动力。
+                            这些经历让我们更加坚韧，也让我们的解决方案更加完善。职等你来，一起将失败转化为前进的动力。
                         </p>
                     </div>
                     
@@ -719,6 +724,63 @@
             </div>
         </div>
     </footer>
+
+    <!-- 工作空间相册模态框 -->
+    <div id="workspaceGalleryModal" class="gallery-modal">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">工作空间相册</h2>
+                <button class="gallery-close" onclick="closeWorkspaceGallery()">&times;</button>
+            </div>
+            
+            <div class="gallery-content">
+                <div class="gallery-main">
+                    <div class="main-image-container">
+                        <img id="mainImage" src="工作空间png图片/办公区域全景.jpg" alt="工作空间">
+                        <button class="nav-btn prev-btn" onclick="prevImage()">‹</button>
+                        <button class="nav-btn next-btn" onclick="nextImage()">›</button>
+                        <div class="image-counter">
+                            <span id="currentImageIndex">1</span> / <span id="totalImages">6</span>
+                        </div>
+                    </div>
+                    
+                    <div class="image-info">
+                        <h3 id="imageTitle">办公区域全景</h3>
+                        <p id="imageDescription">现代化开放式办公环境，为团队协作提供理想空间</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-thumbnails">
+                    <div class="thumbnail-container">
+                        <div class="thumbnail active" data-index="0" onclick="selectImage(0)">
+                            <img src="工作空间png图片/办公区域全景.jpg" alt="办公区域全景">
+                            <span class="thumbnail-title">办公区域全景</span>
+                        </div>
+                        <div class="thumbnail" data-index="1" onclick="selectImage(1)">
+                            <img src="工作空间png图片/开放办公区.jpg" alt="开放办公区">
+                            <span class="thumbnail-title">开放办公区</span>
+                        </div>
+                        <div class="thumbnail" data-index="2" onclick="selectImage(2)">
+                            <img src="工作空间png图片/会议室.jpg" alt="会议室">
+                            <span class="thumbnail-title">会议室</span>
+                        </div>
+                        <div class="thumbnail" data-index="3" onclick="selectImage(3)">
+                            <img src="工作空间png图片/行政办公室.jpg" alt="行政办公室">
+                            <span class="thumbnail-title">行政办公室</span>
+                        </div>
+                        <div class="thumbnail" data-index="4" onclick="selectImage(4)">
+                            <img src="工作空间png图片/洽谈区.jpg" alt="洽谈区">
+                            <span class="thumbnail-title">洽谈区</span>
+                        </div>
+                        <div class="thumbnail" data-index="5" onclick="selectImage(5)">
+                            <img src="工作空间png图片/洽谈区2.jpg" alt="休闲洽谈区">
+                            <span class="thumbnail-title">休闲洽谈区</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
