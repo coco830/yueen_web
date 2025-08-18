@@ -617,3 +617,55 @@ p {
     font-size: 1.8rem;
   }
 }
+
+/* --- 全局搜索按钮样式 --- */
+
+/* 1. 基础样式 (所有页面通用) */
+.search-icon-global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* 圆形 */
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明黑色背景 */
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.search-icon-global:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+
+/* 2. 【首页专属】悬浮样式 */
+.homepage .search-icon-global {
+  position: fixed; /* 关键：变成悬浮元素 */
+  z-index: 998; /* 比导航栏低，比"获取报价"按钮高 */
+  
+  /* 精确坐标定位 (在"获取报价"按钮上方，导航栏下方) */
+  right: 25px; 
+  top: 120px; /* 在导航栏下方，获取报价按钮上方 */
+}
+
+/* 3. 【其他页面】在导航栏内的样式 */
+/* 默认情况下，非首页的按钮会应用这里的样式 */
+.nav-list .search-icon-global {
+  position: static; /* 关键：回归正常的文档流 */
+  background: transparent; /* 在导航栏里不需要背景 */
+  color: white; /* 导航栏文字颜色 */
+  width: auto;
+  height: auto;
+  padding: 12px 16px; /* 与其他导航链接一致的内边距 */
+  border-radius: 0; /* 在导航栏里不需要圆形 */
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.nav-list .search-icon-global:hover {
+  background: rgba(255, 255, 255, 0.1); /* 悬停时的背景 */
+  color: white;
+  transform: none; /* 在导航栏里不需要缩放 */
+}
