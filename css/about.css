@@ -1,5 +1,28 @@
 /* 关于我们页面样式 */
 
+/* HarmonyOS Sans 字体定义 */
+.mission-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  /* 继承原有 .intro-title 的布局样式 */
+  font-size: 2.125rem;     /* 略大于正文形成层级 */
+  margin-bottom: 24px;
+  font-weight: 400;        /* 移除加粗，使用正常字重 */
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
+/* 应用统一的模块主题样式到section-title */
+.section-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
 /* 局部字体与抗锯齿，仅作用于本页 */
 body {
   font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -372,13 +395,16 @@ p {
 }
 
 .category-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
+  font-style: italic;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  color: #2A2E2E;
   letter-spacing: 0.2px;
+  line-height: 1.3;
 }
 
 .qual-grid {
@@ -443,6 +469,11 @@ p {
   }
 
   .intro-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .mission-title {
     font-size: 1.75rem;
     margin-bottom: 18px;
   }
@@ -616,440 +647,9 @@ p {
   }
 }
 
-/* 相册卡片样式 */
-.gallery-showcase {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
 
-.gallery-card {
-  max-width: 600px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
 
-.gallery-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
-}
 
-.gallery-card .card-image {
-  position: relative;
-  height: 280px;
-  overflow: hidden;
-}
-
-.gallery-card .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-card:hover .card-image img {
-  transform: scale(1.05);
-}
-
-.gallery-card .card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-card:hover .card-overlay {
-  opacity: 1;
-}
-
-.gallery-card .play-icon {
-  margin-bottom: 16px;
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
-}
-
-.gallery-card:hover .play-icon {
-  transform: scale(1);
-}
-
-.gallery-card .overlay-text {
-  text-align: center;
-  color: white;
-}
-
-.gallery-card .overlay-text h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-}
-
-.gallery-card .overlay-text p {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.9;
-}
-
-.gallery-card .card-content {
-  padding: 32px;
-}
-
-.gallery-card .card-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 16px 0;
-}
-
-.gallery-card .card-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0 0 24px 0;
-}
-
-.gallery-card .card-meta {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 24px;
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-.gallery-card .view-gallery-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--primary-color);
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.gallery-card .view-gallery-btn .arrow {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-.gallery-card:hover .view-gallery-btn .arrow {
-  transform: translateX(4px);
-}
-
-/* 相册卡片响应式设计 */
-@media (max-width: 768px) {
-  .gallery-card {
-    margin: 0 20px;
-  }
-  
-  .gallery-card .card-content {
-    padding: 24px;
-  }
-  
-  .gallery-card .card-meta {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-/* 相册模态框样式 */
-.gallery-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.gallery-modal.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.gallery-container {
-  width: 95%;
-  max-width: 1200px;
-  max-height: 90vh;
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-header {
-  padding: 24px 32px;
-  background: linear-gradient(135deg, var(--primary-color), #2980b9);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.gallery-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.gallery-close {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.gallery-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.gallery-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.gallery-main {
-  flex: 1;
-  display: flex;
-  padding: 32px;
-  gap: 32px;
-  overflow: hidden;
-}
-
-.main-image-container {
-  flex: 2;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f8f9fa;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.main-image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.nav-btn:hover {
-  background: rgba(0, 0, 0, 0.9);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.prev-btn {
-  left: 20px;
-}
-
-.next-btn {
-  right: 20px;
-}
-
-.image-counter {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.image-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  background: #f8f9fa;
-  border-radius: 12px;
-}
-
-.image-info h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 16px 0;
-}
-
-.image-info p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-}
-
-.gallery-thumbnails {
-  padding: 24px 32px;
-  border-top: 1px solid #e9ecef;
-  background: #f8f9fa;
-}
-
-.thumbnail-container {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.thumbnail {
-  flex-shrink: 0;
-  width: 120px;
-  cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  border: 3px solid transparent;
-}
-
-.thumbnail.active {
-  border-color: var(--primary-color);
-  transform: scale(1.05);
-}
-
-.thumbnail:hover {
-  transform: scale(1.02);
-}
-
-.thumbnail img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  display: block;
-}
-
-.thumbnail-title {
-  display: block;
-  padding: 8px;
-  font-size: 0.8rem;
-  text-align: center;
-  background: white;
-  color: #64748b;
-  line-height: 1.2;
-}
-
-.thumbnail.active .thumbnail-title {
-  background: var(--primary-color);
-  color: white;
-  font-weight: 500;
-}
-
-/* 响应式设计 */
-@media (max-width: 1024px) {
-  .gallery-main {
-    flex-direction: column;
-    gap: 24px;
-  }
-  
-  .image-info {
-    flex: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-container {
-    width: 100%;
-    height: 100vh;
-    border-radius: 0;
-    max-height: none;
-  }
-  
-  .gallery-header {
-    padding: 16px 20px;
-  }
-  
-  .gallery-title {
-    font-size: 1.2rem;
-  }
-  
-  .gallery-main {
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-  
-  .prev-btn {
-    left: 10px;
-  }
-  
-  .next-btn {
-    right: 10px;
-  }
-  
-  .gallery-thumbnails {
-    padding: 16px 20px;
-  }
-  
-  .thumbnail {
-    width: 100px;
-  }
-  
-  .thumbnail img {
-    height: 60px;
-  }
-  
-  .thumbnail-title {
-    padding: 6px;
-    font-size: 0.7rem;
-  }
-}
 
 /* 核心人员个人简介模态框样式 */
 .profile-modal {
@@ -1164,12 +764,16 @@ p {
 }
 
 .bio-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   font-size: 1.4rem;
-  font-weight: 600;
-  color: #2c3e50;
+  font-weight: 400;
+  font-style: italic;
+  color: #2A2E2E;
   margin: 0 0 20px 0;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--primary-color);
+  letter-spacing: 0.2px;
+  line-height: 1.3;
 }
 
 .bio-content {
@@ -1209,11 +813,11 @@ p {
   }
   
   .profile-name {
-    font-size: 1.6rem;
-  }
-  
+  font-size: 1.6rem;
+}
+
   .profile-position {
-    font-size: 1rem;
+  font-size: 1rem;
   }
   
   .profile-content {
@@ -1249,7 +853,7 @@ p {
   }
   
   .bio-content {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
   }
 }
 
@@ -1309,7 +913,7 @@ p {
 
 .team-member.tencent-style .member-name {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400; /* 改为正常字重，去除加粗 */
   color: var(--primary-color); /* 使用绿色，与小方块同色 */
   margin-bottom: 8px;
   font-family: 'PingFangSC-Regular', 'helvetica neue', tahoma, 'PingFang SC', 'microsoft yahei', arial, 'hiragino sans gb', sans-serif;
@@ -1458,7 +1062,7 @@ p {
 
 .modal-info h2 {
   font-size: 2.2rem; /* 更大的标题 */
-  font-weight: 600;
+  font-weight: 400;
   margin: 0 0 12px 0;
   color: var(--primary-color); /* 使用公司绿色主色调 */
   line-height: 1.2;
@@ -1549,7 +1153,7 @@ p {
   
   .modal-header {
     flex-direction: column;
-    text-align: center;
+  text-align: center;
     padding: 30px 25px;
     min-height: 160px;
   }
@@ -1572,5 +1176,297 @@ p {
   .modal-bio p {
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+}
+
+/* ===== 全屏沉浸式画廊样式 ===== */
+
+/* 1. 全屏画廊容器 */
+.fullscreen-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+    width: 100%;
+  height: 100%;
+  background-color: rgba(80, 80, 80, 0.95); /* 深邃的半透明深灰色背景 */
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* 默认隐藏，用于动画 */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-gallery.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 2. 主图片样式 */
+.gallery-image {
+  max-width: 90vw; /* 图片最大宽度为视窗的90% */
+  max-height: 85vh; /* 图片最大高度为视窗的85% */
+  object-fit: contain; /* 保证图片完整显示 */
+  transform: scale(0.8); /* 用于入场动画 */
+  transition: transform 0.3s ease;
+}
+
+.fullscreen-gallery.is-active .gallery-image {
+  transform: scale(1); /* 激活时放大到正常尺寸 */
+}
+
+/* 3. 导航箭头和关闭按钮 */
+.gallery-close, .gallery-prev, .gallery-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 2001;
+}
+
+.gallery-close:hover, .gallery-prev:hover, .gallery-next:hover {
+  color: white;
+}
+
+.gallery-close { 
+  top: 20px; 
+  right: 30px; 
+  font-size: 50px; 
+}
+
+.gallery-prev { 
+  top: 50%; 
+  left: 20px; 
+  transform: translateY(-50%); 
+}
+
+.gallery-next { 
+  top: 50%; 
+  right: 20px; 
+  transform: translateY(-50%); 
+}
+
+/* 4. 图片标题 - 隐藏不显示 */
+.gallery-caption {
+  display: none; /* 不显示图片标题 */
+}
+
+/* 相册卡片样式 - 保留必要的预览卡片样式 */
+/* 保留原有的单一卡片展示样式 */
+.gallery-showcase {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* ===== 双栏网格布局容器 ===== */
+
+/* 1. 网格容器样式 */
+.gallery-grid-container {
+  display: grid; /* 启用网格布局 */
+  grid-template-columns: repeat(2, 1fr); /* 创建两列，每列占据可用空间的一半 */
+  gap: 30px; /* 设置列与列、行与行之间的间距 */
+  max-width: 1200px; /* 设定一个最大宽度，避免在超宽屏上拉伸过度 */
+  margin: 0 auto; /* 让整个网格容器在页面中水平居中 */
+  padding: 0 20px; /* 页面左右两边的留白 */
+}
+
+/* 2. 响应式设计：在移动设备上变为单列 */
+@media (max-width: 768px) {
+  .gallery-grid-container {
+    grid-template-columns: 1fr; /* 在平板及以下设备，变为单列布局 */
+    gap: 20px; /* 移动设备上缩小间距 */
+    padding: 0 15px; /* 移动设备上减少左右留白 */
+  }
+}
+
+/* 3. 额外的响应式优化 */
+@media (max-width: 992px) and (min-width: 769px) {
+  .gallery-grid-container {
+    gap: 25px; /* 中等屏幕设备稍小的间距 */
+    padding: 0 15px;
+  }
+}
+
+/* ===== 现代化moment-card设计 ===== */
+
+/* 1. 卡片整体容器 */
+.moment-card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* 更柔和的阴影 */
+  overflow: hidden; /* 隐藏图片溢出的部分 */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%; /* 确保卡片填充网格单元格 */
+  margin: 0; /* 移除任何可能的居中边距 */
+}
+
+.moment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. 封面图片区域 */
+.moment-cover {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 280px;
+}
+
+.moment-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* 为图片放大添加动画 */
+}
+
+/* 3. 悬停时的遮罩和图标 */
+.moment-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.4s ease;
+}
+
+.moment-card:hover .moment-cover img {
+  transform: scale(1.05); /* 悬停时图片放大 */
+}
+
+.moment-card:hover .moment-overlay {
+  opacity: 1; /* 悬停时遮罩浮现 */
+}
+
+/* 4. 卡片下方的文字内容区 */
+.moment-content {
+  padding: 30px;
+}
+
+.moment-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  color: #2A2E2E;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
+/* 标题下的装饰性短线 */
+.moment-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color); /* 使用品牌主色 */
+  margin-top: 15px;
+}
+
+.moment-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 25px 0;
+}
+
+/* 5. "查看相册" 链接 */
+.moment-link {
+  color: #555; /* 使用与副标题相同的灰色 */
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 文字和箭头的间距 */
+  transition: gap 0.3s ease;
+}
+
+.moment-link:hover {
+  gap: 15px; /* 悬停时箭头向右移动 */
+}
+
+.moment-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* 额外的卡片优化 */
+.moment-card:active {
+  transform: translateY(-4px);
+}
+
+.moment-overlay .fas {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 确保在小屏幕上图标尺寸适中 */
+@media (max-width: 480px) {
+  .moment-overlay {
+    font-size: 32px;
+  }
+  
+  .moment-title::after {
+    width: 30px;
+    height: 2px;
+    margin-top: 12px;
+  }
+}
+
+/* 全屏画廊响应式设计 */
+@media (max-width: 768px) {
+  .gallery-close, .gallery-prev, .gallery-next {
+    font-size: 30px;
+  }
+  
+  .gallery-close { 
+    top: 10px; 
+    right: 15px; 
+    font-size: 40px; 
+  }
+  
+  .gallery-prev { 
+    left: 10px; 
+  }
+  
+  .gallery-next { 
+    right: 10px; 
+  }
+  
+
+  
+  .moment-card {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .moment-cover {
+    height: 220px;
+  }
+  
+  .moment-content {
+    padding: 24px;
+  }
+  
+  .moment-title {
+    font-size: 20px;
+  }
+  
+  .moment-description {
+    font-size: 14px;
+    margin-bottom: 20px;
   }
 }
