@@ -892,3 +892,84 @@ document.addEventListener('click', function(e) {
         closeMemberProfile();
     }
 });
+
+// ===== 腾讯风格Modal功能 =====
+
+// 腾讯风格Modal交互数据
+const tencentModalData = {
+    yaoxiao: {
+        name: '姚晓',
+        position: '创始人',
+        photo: '核心人员简介和照片/姚晓（创始人）.jpg',
+        bio: '跨界探索之旅，从新闻系文凭到环保事业的创新者。拥有工程建设、机场物流、地产项目、人力资源管理等多元化行业经验。2019年创立悦恩环保，秉承"让家园的生态环境能长期美好"的使命，致力于成为最值得信赖的环保管家服务伙伴。'
+    },
+    wangyilu: {
+        name: '王绎潞',
+        position: '行政副总 / 股东',
+        photo: '核心人员简介和照片/王绎璐（行政副总）.jpg',
+        bio: '融合16年医疗行政管理与金融行业双重积淀，曾任综合医院行政管理8年，平安银行支行副行长，民生银行运营专家。擅长系统性管理、人才梯队建设和资源整合，为悦恩环保带来精细化管理和多元化资源支持。'
+    },
+    zhouzheng: {
+        name: '周政',
+        position: '股东 / 高校体育教师',
+        photo: '核心人员简介和照片/周政.jpg',
+        bio: '云南师范大学体育学院教育学硕士，15年高校体育教育经验。曾任网络系统工程师（CCNP认证）、创业者。为公司搭建校企合作桥梁，提供人才精准筛选与培养，将体育精神融入企业文化建设。'
+    },
+    yangkaidi: {
+        name: '杨开迪',
+        position: '技术副总',
+        photo: '', // 暂无照片
+        bio: '技术专家，负责公司核心技术研发和创新，具有丰富的环保技术实践经验。简介内容待完善...'
+    }
+};
+
+// 打开腾讯风格Modal
+function openTencentModal(memberId) {
+    const data = tencentModalData[memberId];
+    if (!data) return;
+    
+    const modal = document.getElementById('tencentModal');
+    const modalPhoto = document.getElementById('modalPhoto');
+    const modalName = document.getElementById('modalName');
+    const modalPosition = document.getElementById('modalPosition');
+    const modalBio = document.getElementById('modalBio');
+    
+    if (modal && modalPhoto && modalName && modalPosition && modalBio) {
+        // 设置数据
+        modalPhoto.src = data.photo;
+        modalPhoto.alt = data.name;
+        modalName.textContent = data.name;
+        modalPosition.textContent = data.position;
+        modalBio.textContent = data.bio;
+        
+        // 显示Modal - 使用微小延迟确保动画效果
+        requestAnimationFrame(() => {
+            modal.classList.add('active');
+        });
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// 关闭腾讯风格Modal
+function closeTencentModal() {
+    const modal = document.getElementById('tencentModal');
+    if (modal) {
+        modal.classList.remove('active');
+        
+        // 等待动画完成后恢复滚动
+        setTimeout(() => {
+            document.body.style.overflow = '';
+        }, 400); // 匹配CSS动画时间
+    }
+}
+
+// 为腾讯Modal添加键盘支持
+document.addEventListener('keydown', function(e) {
+    const tencentModal = document.getElementById('tencentModal');
+    
+    if (tencentModal && tencentModal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeTencentModal();
+        }
+    }
+});

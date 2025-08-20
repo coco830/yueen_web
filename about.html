@@ -19,8 +19,10 @@
                 <div class="logo">
                     <a href="index.html">
                         <img src="logo.png" alt="云南悦恩环保技术咨询有限公司" class="logo-img">
-                        <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
-                        <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                        <div class="logo-text-container">
+                            <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
+                            <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -39,7 +41,7 @@
                             <a href="about.html" class="nav-link">关于我们 <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="about.html#company-intro">企业简介</a></li>
-                                <li><a href="about.html#core-team">核心人员</a></li>
+                                <li><a href="about.html#core-team">核心团队</a></li>
                                 <li><a href="about.html#team-culture">团队风采</a></li>
                                 <li><a href="about.html#work-showcase">工作风采</a></li>
                                 <li><a href="about.html#qualifications">企业资质</a></li>
@@ -135,54 +137,43 @@
         </div>
     </section>
 
-    <!-- 核心人员 -->
+    <!-- 核心团队 -->
     <section id="core-team" class="section team">
         <div class="container">
-            <h2 class="section-title">核心人员</h2>
+            <h2 class="section-title">核心团队</h2>
             <div class="team-grid">
-                <div class="team-member">
+                <!-- 姚晓 - 腾讯风格交互卡片 -->
+                <div class="team-member tencent-style" data-member="yaoxiao" onclick="openTencentModal('yaoxiao')">
                     <div class="member-photo">
                         <img src="核心人员简介和照片/姚晓（创始人）.jpg" alt="姚晓" loading="lazy">
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">姚晓</h3>
                         <p class="member-position">创始人</p>
-                        <p class="member-bio">跨界探索之旅，从新闻系文凭到环保事业的创新者。拥有工程建设、机场物流、地产项目、人力资源管理等多元化行业经验。2019年创立悦恩环保，秉承"让家园的生态环境能长期美好"的使命，致力于成为最值得信赖的环保管家服务伙伴。</p>
-                        <button class="view-profile-btn" onclick="openMemberProfile('yaoxiao')">
-                            <span class="btn-text">查看详细简介</span>
-                            <span class="btn-icon">→</span>
-                        </button>
                     </div>
+                    <div class="green-box"></div>
                 </div>
-                <div class="team-member">
+                <div class="team-member tencent-style" data-member="wangyilu" onclick="openTencentModal('wangyilu')">
                     <div class="member-photo">
                         <img src="核心人员简介和照片/王绎璐（行政副总）.jpg" alt="王绎潞" loading="lazy">
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">王绎潞</h3>
                         <p class="member-position">行政副总 / 股东</p>
-                        <p class="member-bio">融合16年医疗行政管理与金融行业双重积淀，曾任综合医院行政管理8年，平安银行支行副行长，民生银行运营专家。擅长系统性管理、人才梯队建设和资源整合，为悦恩环保带来精细化管理和多元化资源支持。</p>
-                        <button class="view-profile-btn" onclick="openMemberProfile('wangyilu')">
-                            <span class="btn-text">查看详细简介</span>
-                            <span class="btn-icon">→</span>
-                        </button>
                     </div>
+                    <div class="green-box"></div>
                 </div>
-                <div class="team-member">
+                <div class="team-member tencent-style" data-member="zhouzheng" onclick="openTencentModal('zhouzheng')">
                     <div class="member-photo">
                         <img src="核心人员简介和照片/周政.jpg" alt="周政" loading="lazy">
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">周政</h3>
                         <p class="member-position">股东 / 高校体育教师</p>
-                        <p class="member-bio">云南师范大学体育学院教育学硕士，15年高校体育教育经验。曾任网络系统工程师（CCNP认证）、创业者。为公司搭建校企合作桥梁，提供人才精准筛选与培养，将体育精神融入企业文化建设。</p>
-                        <button class="view-profile-btn" onclick="openMemberProfile('zhouzheng')">
-                            <span class="btn-text">查看详细简介</span>
-                            <span class="btn-icon">→</span>
-                        </button>
                     </div>
+                    <div class="green-box"></div>
                 </div>
-                <div class="team-member">
+                <div class="team-member tencent-style" data-member="yangkaidi" onclick="openTencentModal('yangkaidi')">
                     <div class="member-photo placeholder-photo">
                         <span class="placeholder-icon">👤</span>
                         <p class="placeholder-text">杨开迪<br>技术副总</p>
@@ -190,8 +181,8 @@
                     <div class="member-info">
                         <h3 class="member-name">杨开迪</h3>
                         <p class="member-position">技术副总</p>
-                        <p class="member-bio">技术专家，负责公司核心技术研发和创新，具有丰富的环保技术实践经验。简介内容待完善...</p>
                     </div>
+                    <div class="green-box"></div>
                 </div>
             </div>
         </div>
@@ -607,12 +598,33 @@
         </div>
     </div>
 
-    <!-- 核心人员个人简介模态框 -->
+    <!-- 腾讯风格简洁Modal -->
+    <div id="tencentModal" class="tencent-modal">
+        <div class="modal-overlay" onclick="closeTencentModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTencentModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-photo">
+                    <img id="modalPhoto" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p id="modalPosition"></p>
+                </div>
+            </div>
+            <hr class="modal-divider">
+            <div class="modal-bio">
+                <p id="modalBio"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心团队个人简介模态框 -->
     <div id="memberProfileModal" class="profile-modal">
         <div class="profile-container">
             <div class="profile-header">
                 <div class="profile-photo">
-                    <img id="profilePhoto" src="" alt="核心人员照片">
+                    <img id="profilePhoto" src="" alt="核心团队照片">
                 </div>
                 <div class="profile-basic-info">
                     <h2 id="profileName" class="profile-name"></h2>
