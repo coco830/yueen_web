@@ -1287,7 +1287,7 @@ p {
   height: 140px;
   margin: 0;
   border-radius: 0;
-  overflow: hidden;
+  overflow: visible; /* 改为visible，让绿色小方块可以超出照片边界 */
 }
 
 .team-member.tencent-style .member-photo img {
@@ -1322,23 +1322,23 @@ p {
   font-weight: 400;
 }
 
-/* 绿色小方格 - 公司主色调，位于照片左下角 */
+/* 绿色小方格 - 现在相对于照片容器定位 */
 .green-box {
   position: absolute;
-  bottom: 0;
-  right: 120px; /* 距离右边120px，正好是照片左边缘 */
+  bottom: -14px; /* 静态时位于照片下方，一半遮挡照片 */
+  left: -14px; /* 静态时位于照片左侧，一半遮挡照片 */
   width: 28px;
   height: 28px;
   background-color: var(--primary-color); /* 使用公司绿色主色调 */
   transition: all 0.3s ease;
   border-radius: 2px;
-  z-index: 3; /* 确保在照片上方 */
+  z-index: 5; /* 确保在照片上方 */
 }
 
-/* 悬停时绿色方格移动到照片内部左下角 */
+/* 悬停时绿色方格移动到照片内部左下角顶格 */
 .team-member.tencent-style:hover .green-box {
-  bottom: 8px; /* 移动到照片内部 */
-  right: 112px; /* 移动到照片内部左下角 */
+  bottom: 0; /* 移动到照片内部底部 */
+  left: 0; /* 移动到照片内部左边 */
 }
 
 /* 腾讯风格简洁Modal样式 */
