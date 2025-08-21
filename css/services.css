@@ -8,10 +8,65 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* 标题样式统一 */
+/* 服务主标题样式 - 应用HarmonyOS Sans字体 */
+.services-main-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  font-size: 2.125rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* 服务流程标题样式 */
+.services-section-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* 服务卡片标题去除加粗 */
+.service-title, .service-name {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+/* 服务详情标题去除加粗 */
+.service-detail .service-name {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* 内容标题去除加粗 */
+.content-title, .advantages-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+/* 步骤标题去除加粗 */
+.step-title {
+  font-weight: 400;
+}
+
+/* 标题样式统一 - 去除全局加粗 */
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -219,6 +274,207 @@ p {
   display: inline-block;
   padding: 8px 15px;
   font-size: 0.9rem;
+}
+
+/* ===== SVG图标颜色分层系统 ===== */
+
+/* 主要轮廓颜色 - 静态时深灰色，极具质感 */
+.icon-main-stroke {
+  stroke: #374151;  /* 更深的灰色，增强质感 */
+  transition: all 0.3s ease;
+}
+
+/* 除了外环之外的其他主要轮廓填充色 */
+.icon-main-stroke[fill]:not(.compass-ring) {
+  fill: #374151;    /* 对应的填充色 */
+  transition: all 0.3s ease;
+}
+
+/* 外环特殊处理 - 磨砂白色背景 */
+.compass-ring {
+  fill: rgba(255, 255, 255, 0.8) !important;  /* 磨砂质感的白色，使用!important确保优先级 */
+  transition: all 0.3s ease;
+}
+
+/* 内部细节颜色 - 静态时浅灰色，营造层次 */
+.icon-detail-stroke {
+  stroke: #E5E7EB;  /* 更浅的灰色，几乎接近白色 */
+  transition: all 0.3s ease;
+}
+
+.icon-detail-stroke[fill] {
+  fill: #E5E7EB;
+  transition: all 0.3s ease;
+}
+
+/* SVG图标基础样式 */
+.strategy-icon {
+  transition: all 0.3s ease;
+}
+
+/* 悬浮效果 - 强烈的视觉冲击 */
+.service-strategy:hover .icon-main-stroke {
+  stroke: var(--primary-color);  /* 从深灰直接变为企业绿 */
+}
+
+.service-strategy:hover .icon-main-stroke[fill]:not(.compass-ring) {
+  fill: var(--primary-color);
+}
+
+/* 悬浮时外环背景也变为绿色系 */
+.service-strategy:hover .compass-ring {
+  fill: rgba(76, 175, 80, 0.1) !important;  /* 淡绿色磨砂背景 */
+}
+
+.service-strategy:hover .icon-detail-stroke {
+  stroke: #34D399;   /* 从浅灰变为明亮的点缀绿 */
+}
+
+.service-strategy:hover .icon-detail-stroke[fill] {
+  fill: #34D399;
+}
+
+/* SVG辉光效果 - 增强视觉冲击 */
+.service-strategy:hover .strategy-icon {
+  filter: drop-shadow(0 0 12px rgba(76, 175, 80, 0.5));  /* 稍强的辉光 */
+}
+
+/* ===== 环策服务现代化设计 ===== */
+
+/* 环策服务卡片 */
+.service-strategy {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 80px;
+  box-shadow: 
+    0 8px 32px rgba(76, 175, 80, 0.1),
+    0 2px 8px rgba(76, 175, 80, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 悬浮效果 */
+.service-strategy:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 20px 60px rgba(76, 175, 80, 0.2),
+    0 8px 24px rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.2);
+}
+
+/* 环策服务头部 */
+.service-strategy .service-header {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* 环策图标容器 - 移除绿色圆形背景 */
+.service-strategy .service-icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 24px;
+  margin-bottom: 0;
+  background: transparent !important;  /* 强制透明背景，移除绿色圆形 */
+  background-color: transparent !important;  /* 确保背景色也透明 */
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* SVG图标样式 */
+.strategy-icon {
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* SVG指南针动画 */
+.service-strategy:hover .strategy-icon {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* 指南针圆环旋转动画 */
+.compass-ring {
+  animation: rotate 4s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.compass-inner {
+  animation: rotate 6s linear infinite reverse;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 指南针指针脉冲动画 */
+.compass-north,
+.compass-south {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.compass-north { animation-delay: 0s; }
+.compass-south { animation-delay: 1s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* 中心点闪烁 */
+.compass-center {
+  animation: centerPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes centerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 环策服务标题 - 恢复企业标准灰黑色 */
+.service-strategy .service-name {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #2A2E2E;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.service-strategy:hover .service-name {
+  transform: translateX(8px);
+}
+
+/* 环策服务介绍区域 - 恢复企业主色绿色边框 */
+.service-strategy .service-intro {
+  margin-bottom: 32px;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 24px;
+  position: relative;
+}
+
+/* 环策服务描述文字 */
+.service-strategy .service-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #4a5568;
+  transition: color 0.3s ease;
+}
+
+.service-strategy:hover .service-description {
+  color: #2d3748;
 }
 
 /* 服务详情页样式 */

@@ -18,8 +18,10 @@
                 <div class="logo">
                     <a href="index.html">
                         <img src="logo.png" alt="云南悦恩环保技术咨询有限公司" class="logo-img">
-                        <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
-                        <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                        <div class="logo-text-container">
+                            <span class="logo-text">云南悦恩环保技术咨询有限公司</span>
+                            <div class="logo-subtitle">Yunnan yueen Environmental Protection Technology Consulting Co.,Ltd</div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -38,7 +40,7 @@
                             <a href="about.html" class="nav-link">关于我们 <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="about.html#company-intro">企业简介</a></li>
-                                <li><a href="about.html#core-team">核心人员</a></li>
+                                <li><a href="about.html#core-team">核心团队</a></li>
                                 <li><a href="about.html#team-culture">团队风采</a></li>
                                 <li><a href="about.html#work-showcase">工作风采</a></li>
                                 <li><a href="about.html#qualifications">企业资质</a></li>
@@ -110,13 +112,64 @@
     <!-- 服务总览 -->
     <section class="section services-overview">
         <div class="container">
-            <h1 class="section-title">三大核心服务体系</h1>
+            <h1 class="services-main-title">三大核心服务体系</h1>
             <p class="section-subtitle">云南悦恩环保独创的分层服务体系，满足企业不同阶段的环保需求</p>
             
             <!-- 环策服务 -->
-            <div id="huance" class="service-detail">
+            <div id="huance" class="service-detail service-strategy">
                 <div class="service-header">
-                    <div class="service-icon">🧠</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="strategy-icon">
+                            <!-- 线性风格指南针图标：代表方向指引和决策导航 -->
+                            <defs>
+                                <linearGradient id="strategyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:var(--primary-color);stop-opacity:0.8" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- 外圆环 - 主要轮廓 -->
+                            <path d="M50 10 A40 40 0 1 1 49.99 10" 
+                                  fill="rgba(255, 255, 255, 0.8)" 
+                                  stroke="#374151" 
+                                  stroke-width="2" 
+                                  opacity="0.8"
+                                  class="compass-ring icon-main-stroke"/>
+                            
+                            <!-- 内圆环 - 内部细节 -->
+                            <path d="M50 20 A30 30 0 1 1 49.99 20" 
+                                  fill="none" 
+                                  stroke="#E5E7EB" 
+                                  stroke-width="2" 
+                                  opacity="0.6"
+                                  class="compass-inner icon-detail-stroke"/>
+                            
+                            <!-- 指南针指针 - 北 - 主要轮廓 -->
+                            <path d="M50 25 L45 45 L50 35 L55 45 Z" 
+                                  fill="#374151" 
+                                  opacity="0.9"
+                                  class="compass-north icon-main-stroke"/>
+                            
+                            <!-- 指南针指针 - 南 - 内部细节 -->
+                            <path d="M50 75 L45 55 L50 65 L55 55 Z" 
+                                  fill="none" 
+                                  stroke="#E5E7EB" 
+                                  stroke-width="2" 
+                                  opacity="0.7"
+                                  class="compass-south icon-detail-stroke"/>
+                            
+                            <!-- 四个方向标记 - 内部细节 -->
+                            <path d="M50 15 L50 10" stroke="#E5E7EB" stroke-width="2" opacity="0.8" class="icon-detail-stroke"/>
+                            <path d="M85 50 L90 50" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
+                            <path d="M50 85 L50 90" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
+                            <path d="M15 50 L10 50" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
+                            
+                            <!-- 中心点 - 主要轮廓 -->
+                            <circle cx="50" cy="50" r="3" 
+                                    fill="#374151" 
+                                    class="compass-center icon-main-stroke"/>
+                        </svg>
+                    </div>
                     <h2 class="service-name">环策（环保工作策略模式）</h2>
                 </div>
                 <div class="service-intro">
@@ -320,7 +373,7 @@
     <!-- 服务流程 -->
     <section class="section service-process">
         <div class="container">
-            <h2 class="section-title">服务流程</h2>
+            <h2 class="services-section-title">服务流程</h2>
             <div class="process-container">
                 <div class="process-steps">
                     <div class="process-step">
