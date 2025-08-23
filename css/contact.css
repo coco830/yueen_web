@@ -543,6 +543,62 @@ p {
   color: #666;
 }
 
+/* ===== 静态地图相关样式 ===== */
+
+/* 地图容器悬停效果 */
+.static-map-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.15);
+}
+
+.static-map-wrapper:hover .map-overlay {
+  opacity: 1;
+}
+
+/* 位置标记脉动动画 */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 地图图片加载动画 */
+.static-map-wrapper img {
+  transition: all 0.3s ease;
+}
+
+.static-map-wrapper:hover img {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* 必填项目标记样式 - 红色asterisk */
+.form-label .required {
+  color: #e53e3e;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* 通用必填项asterisk样式 */
+.form-label::after {
+  content: '';
+}
+
+.form-label[data-required="true"]::after {
+  content: ' *';
+  color: #e53e3e;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
 /* 响应式设计 */
 @media (max-width: 992px) {
   .contact-container {
