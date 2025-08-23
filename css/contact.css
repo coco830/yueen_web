@@ -62,7 +62,68 @@ body {
   border-radius: 2px;
 }
 
-/* 联系图标动态样式 - 企业森林深绿色主题 */
+/* 联系信息项目现代化卡片设计 */
+.contact-item {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 
+    0 4px 16px rgba(6, 95, 70, 0.08),
+    0 2px 8px rgba(6, 95, 70, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 悬停效果 - 参照services页面 */
+.contact-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 40px rgba(6, 95, 70, 0.15),
+    0 6px 20px rgba(6, 95, 70, 0.1);
+  border-color: rgba(6, 95, 70, 0.2);
+}
+
+/* 联系详情内容动画 */
+.contact-details {
+  margin-left: 20px;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-details h4 {
+  transform: translateX(6px);
+  color: #065F46;
+}
+
+.contact-item:hover .contact-details p {
+  transform: translateX(4px);
+  color: #2d3748;
+}
+
+/* 联系详情标题样式 */
+.contact-details h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #2A2E2E;
+  transition: all 0.3s ease;
+}
+
+/* 联系详情描述样式 */
+.contact-details p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
 .contact-icon {
   position: relative;
   width: 50px;
@@ -80,6 +141,7 @@ body {
   transition: all 0.3s ease;
   font-size: 0; /* 隐藏emoji */
   overflow: hidden;
+  flex-shrink: 0; /* 防止图标被挤压 */
 }
 
 /* 图标边框动画效果 - 企业绿色 */
@@ -107,20 +169,20 @@ body {
   z-index: 2;
 }
 
-/* 悬停效果 */
-.contact-icon:hover {
+/* 卡片悬停时激活图标动画 */
+.contact-item:hover .contact-icon {
   transform: scale(1.1);
   box-shadow: inset 2px 2px 8px rgba(0,0,0,0.15),
               inset -2px -2px 8px rgba(255,255,255,0.9),
               0 6px 20px rgba(6,95,70,0.2);
 }
 
-.contact-icon:hover::before {
+.contact-item:hover .contact-icon::before {
   opacity: 1;
   animation-duration: 2s;
 }
 
-.contact-icon:hover svg {
+.contact-item:hover .contact-icon svg {
   transform: scale(1.15);
   fill: #10B981;
 }
