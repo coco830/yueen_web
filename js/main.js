@@ -191,11 +191,207 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+    
+    // 初始化全屏画廊事件监听器
+    const gallery = document.querySelector('.fullscreen-gallery');
+    const closeBtn = document.querySelector('.gallery-close');
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeFullscreenGallery);
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevGalleryImage);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextGalleryImage);
+    }
+    
+    // 点击背景关闭
+    if (gallery) {
+        gallery.addEventListener('click', function(e) {
+            if (e.target === gallery) {
+                closeFullscreenGallery();
+            }
+        });
+    }
+
+    // 职位卡片点击事件处理
+    const jobCards = document.querySelectorAll('.job-card-compact');
+    const jobModal = document.getElementById('job-detail-modal');
+    const jobModalClose = document.querySelector('.job-modal-close');
+    
+    if (jobCards.length > 0 && jobModal) {
+        jobCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const jobId = this.getAttribute('data-job');
+                showJobDetails(jobId);
+            });
+        });
+        
+        // 关闭模态框
+        if (jobModalClose) {
+            jobModalClose.addEventListener('click', function() {
+                closeJobModal();
+            });
+        }
+        
+        // 点击背景关闭模态框
+        jobModal.addEventListener('click', function(e) {
+            if (e.target === jobModal) {
+                closeJobModal();
+            }
+        });
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && jobModal.classList.contains('active')) {
+                closeJobModal();
+            }
+        });
+    }
 });
 
 // 获取报价按钮功能
 function getQuote() {
     window.location.href = 'contact.html';
+}
+
+// 职位详情数据
+const jobDetailsData = {
+    'sales-field': {
+        title: '销售外勤',
+        description: '本岗位是公司业务拓展的核心力量，主要负责与客户建立并维护紧密关系，推广公司的"环保管家"服务。',
+        responsibilities: [
+            '市场开发与客户拜访： 主动开拓新客户，根据潜在客户名单进行实地拜访，全面介绍公司的环保服务理念与解决方案。',
+            '需求分析与方案初步沟通： 深入了解客户在环保方面遇到的问题和需求，如政策合规、排污许可、废物处理等，并与技术团队沟通，为客户提供初步的解决方案。',
+            '客户关系管理： 定期回访老客户，维护长期稳定的合作关系，挖掘新的服务机会。',
+            '信息收集与反馈： 收集并分析所在区域的市场信息、竞争对手动态以及客户反馈，为公司调整销售策略提供依据。',
+            '销售目标达成： 积极完成公司设定的销售指标，签订服务合同，并协调内部资源确保合同的顺利履行。'
+        ]
+    },
+    'sales-office': {
+        title: '销售内勤',
+        description: '本岗位是公司业务增长的前端驱动力，通过多元化渠道为销售外勤团队精准输送潜在客户资源。',
+        responsibilities: [
+            '客户资源搜寻与开拓： 作为首要职责，通过网络平台、行业名录、政府公示信息、合作伙伴等多种渠道，主动搜寻和筛选符合公司业务目标的潜在客户信息。',
+            '初步沟通与需求挖掘： 通过电话、网络等方式与潜在客户建立初步联系，介绍公司的"环保管家"服务，了解其在环保方面的初步需求和痛点。',
+            '有效客户筛选与跟进： 对潜在客户进行有效性评估和分类，记录关键信息，并进行初步的跟进，维持客户的关注度。',
+            '预约与机会转化： 核心目标是为销售外勤人员成功预约上门拜访或线上会议的机会，将潜在线索转化为实际的销售机会。',
+            '客户信息库管理： 负责将搜集到的客户信息和沟通记录，系统地录入并维护在公司的客户关系管理（CRM）系统中，确保信息的准确性和时效性。',
+            '协同与支持： 与销售外勤团队保持紧密沟通，及时传递客户信息和预约安排，并提供必要的后续支持。'
+        ]
+    },
+    'tech-field': {
+        title: '技术现场',
+        description: '本岗位是公司"环保管家"服务在客户端的直接执行者，负责解决客户现场的各类环保技术问题。',
+        responsibilities: [
+            '现场勘察与评估： 前往客户（企业）现场，进行环保状况的勘察和评估，识别存在的环境风险和问题。',
+            '环境采样与监测： 按照标准规范，负责现场的水质、废气、噪声、土壤等环境样本的采集，并操作便携式检测设备进行现场监测。',
+            '环保设施巡检与技术指导： 定期检查客户的环保处理设施（如废气、废水处理设施）的运行状况，记录运行参数，并为客户现场操作人员提供技术指导，解决设备运行中的一般性问题。',
+            '问题记录与沟通： 详细记录现场发现的问题，与客户进行有效沟通，并及时向技术文案及项目负责人汇报。',
+            '配合项目实施： 在环保改造或治理项目实施过程中，提供现场技术支持，指导施工安装与调试工作。'
+        ]
+    },
+    'tech-document': {
+        title: '技术文案',
+        description: '本岗位是确保客户环保管理系统高效、稳定运行的技术保障核心，通过线上操作为客户提供持续的"环保管家"服务。',
+        responsibilities: [
+            '客户环保系统维护： 核心工作是登录并操作客户的各类环保相关系统（如国家、省、市排污许可管理平台、固废管理系统、环境统计系统等），确保系统信息的及时更新、准确填报和正常运行。',
+            '合规台账与报告生成： 依据系统数据和客户提供的资料，定期为客户制作和更新电子化的环保管理台账、月度/季度/年度报告，确保满足环保合规要求。',
+            '远程技术支持与问题处理： 通过线上方式，指导客户解决系统操作中遇到的问题，解答关于环保数据填报、政策要求等方面的疑问。',
+            '信息整理与归档： 负责将客户的环保数据、申报记录、合规文件等进行系统化的线上整理和云端归档，确保资料的完整性和安全性。',
+            '政策跟踪与系统适应： 持续关注环保政策及相关系统的更新变化，并迅速适应新的填报要求和操作流程，确保为客户提供合规的服务。'
+        ]
+    },
+    'wastewater-engineer': {
+        title: '污水处理站运维工程师',
+        description: '本岗位是保障客户污水处理系统稳定、达标运行的专业技术人员。',
+        responsibilities: [
+            '日常运行管理： 负责客户污水处理站的日常运营，包括启停设备、调整工艺参数、监控中控系统，确保处理流程正常运行。',
+            '水质监测与分析： 定期对进出水水质进行取样和化验分析，根据水质变化及时调整处理工艺，确保出水稳定达标排放。',
+            '设备维护与保养： 制定并执行污水处理设施的日常巡检、定期保养和维护计划，处理常见的设备故障。',
+            '数据记录与台账管理： 认真填写污水处理站运行日志、设备维护记录和水质监测台账，确保记录的真实、准确和完整。',
+            '应急处理： 负责处理污水站运行过程中的突发事件，如水质异常、设备故障等，并及时上报。'
+        ]
+    },
+    'admin-clerk': {
+        title: '行政文员',
+        description: '本岗位是公司内部规范化运营和风险控制的关键执行者，致力于完善和落实公司的各项内部管理制度。',
+        responsibilities: [
+            '内控制度执行与监督： 积极推动并监督公司各项内控制度（如财务报销、采购流程、合同审批、印章管理等）的有效执行，确保各部门操作的合规性。',
+            '流程优化与建议： 在日常工作中，主动发现现有内部流程中存在的问题或可优化的环节，并向上级提出改进建议。',
+            '文件与记录管理： 负责内控相关文件、记录和台账的精细化管理，确保所有文件都符合存档要求，便于查阅和审计。',
+            '内部审计支持： 协助上级或相关部门开展内部审计工作，负责提供所需的文件资料，并跟进审计发现问题的整改情况。',
+            '日常行政与后勤保障： 在做好内控工作的基础上，兼顾办公室日常管理、办公用品采购、会议安排、来访接待等基础行政工作，为公司提供有序的后勤保障。'
+        ]
+    },
+    'data-specialist': {
+        title: '数据信息处理专员',
+        description: '本岗位是公司自主研发技术平台的核心维护与迭代力量，负责保障线上服务系统与AI技术的稳定运行和持续创新。',
+        responsibilities: [
+            '线上服务系统维护： 首要职责是负责公司自创线上服务系统（平台）的日常监控、维护和管理，及时响应并处理系统运行中出现的技术故障和bug，保障平台的稳定性。',
+            '系统更新与迭代： 根据公司业务发展需求和用户反馈，参与系统的更新和迭代工作，包括新功能的测试、上线部署以及相关技术文档的编写。',
+            'AI技术应用与优化： 负责公司应用的AI技术的日常维护和数据标注工作，并根据实际运行效果，协助算法工程师进行模型的优化与训练。',
+            '数据管理与安全： 负责公司技术平台数据库的日常管理、数据备份和安全维护，确保公司核心数据的安全。',
+            '技术支持与培训： 为公司内部员工提供关于自研系统的使用培训和技术支持，解答相关技术问题，并编写和更新系统用户手册。'
+        ]
+    }
+};
+
+// 显示职位详情
+function showJobDetails(jobId) {
+    const jobData = jobDetailsData[jobId];
+    if (!jobData) return;
+    
+    const modal = document.getElementById('job-detail-modal');
+    const content = document.getElementById('job-detail-content');
+    
+    if (!modal || !content) return;
+    
+    // 构建职位详情HTML - 只使用txt文档中实际存在的字段
+    const detailHTML = `
+        <div class="job-detail-header">
+            <h2 class="job-detail-title">${jobData.title}</h2>
+        </div>
+        
+        <div class="job-detail-body">
+            <div class="job-detail-section">
+                <h3>职位描述</h3>
+                <p>${jobData.description}</p>
+            </div>
+            
+            <div class="job-detail-section">
+                <h3>工作内容</h3>
+                <ul class="job-detail-list">
+                    ${jobData.responsibilities.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="job-detail-actions">
+                <a href="#dna-test" class="btn-apply-job" onclick="closeJobModal()">完成更多探索</a>
+                <div class="contact-info">
+                    <p>联系方式：2475634516@qq.com | 0871-67174013</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = detailHTML;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭职位详情模态框
+function closeJobModal() {
+    const modal = document.getElementById('job-detail-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
 
 // 轮播功能
@@ -493,291 +689,201 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// 团队风采相册功能
-let currentTeamImageIndex = 0;
-const teamGalleryImages = [
-    {
-        src: '团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg',
-        title: '团队建设活动',
-        description: '团队成员共同参与建设活动，增进了解，促进协作'
-    },
-    {
-        src: '团队风采png/373a9ef3cd0c9154aba05d5bf79a73d9.jpg',
-        title: '技术交流研讨',
-        description: '技术团队开展深度交流，分享专业知识和经验'
-    },
-    {
-        src: '团队风采png/ec6c1eb759493732b1e6ad906ecb861a.jpg',
-        title: '项目讨论会议',
-        description: '项目团队举行会议，讨论方案实施和优化'
-    },
-    {
-        src: '团队风采png/705a4ffd0c4e5868fc1a2ffc6b3e7903.jpg',
-        title: '团队协作工作',
-        description: '各部门协同合作，共同推进项目进展'
-    },
-    {
-        src: '团队风采png/f9bee9526a0e91eb57db8a1e120b261c.jpg',
-        title: '员工培训现场',
-        description: '定期开展专业培训，提升团队能力水平'
-    },
-    {
-        src: '团队风采png/e99a06d7c99641137b76f4a611cee0b9.jpg',
-        title: '团队成果分享',
-        description: '分享项目成果和工作心得，互相学习进步'
-    },
-    {
-        src: '团队风采png/8a0684c61237d497b16eab547435cc14.jpg',
-        title: '业务交流会',
-        description: '内部业务交流，提升服务质量和专业水平'
-    },
-    {
-        src: '团队风采png/180405fec2b76c1c62f37778c260a595.jpg',
-        title: '团队拓展活动',
-        description: '户外拓展训练，增强团队凝聚力和协作能力'
-    },
-    {
-        src: '团队风采png/a4300601d081b1ba75c2f7022f89ae78.jpg',
-        title: '团队聚餐活动',
-        description: '团队聚餐交流，增进同事间的友谊和了解'
-    },
-    {
-        src: '团队风采png/4afd8de0dd1c20cdbaa2627cee033511.jpg',
-        title: '户外团建活动',
-        description: '户外团建活动，放松心情，增强团队向心力'
-    },
-    {
-        src: '团队风采png/6eddcfc1a7c8f398fbedbfcbd427c94b.jpg',
-        title: '节日庆祝活动',
-        description: '庆祝传统节日，体现企业人文关怀'
-    },
-    {
-        src: '团队风采png/2d6eda6618839061dc33600953ab2a6f.jpg',
-        title: '团队合影留念',
-        description: '记录美好时光，见证团队成长历程'
-    }
-];
+// ===== 全屏沉浸式画廊功能 =====
 
-function openTeamGallery() {
-    const modal = document.getElementById('teamGalleryModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        updateTeamGalleryImage(0);
-    }
-}
-
-function closeTeamGallery() {
-    const modal = document.getElementById('teamGalleryModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-function updateTeamGalleryImage(index) {
-    if (index < 0 || index >= teamGalleryImages.length) return;
-    
-    currentTeamImageIndex = index;
-    const image = teamGalleryImages[index];
-    
-    const mainImage = document.getElementById('teamMainImage');
-    if (mainImage) {
-        mainImage.src = image.src;
-        mainImage.alt = image.title;
-    }
-    
-    const imageTitle = document.getElementById('teamImageTitle');
-    if (imageTitle) {
-        imageTitle.textContent = image.title;
-    }
-    
-    const imageDescription = document.getElementById('teamImageDescription');
-    if (imageDescription) {
-        imageDescription.textContent = image.description;
-    }
-    
-    const currentIndexEl = document.getElementById('teamCurrentIndex');
-    if (currentIndexEl) {
-        currentIndexEl.textContent = index + 1;
-    }
-    
-    const thumbnails = document.querySelectorAll('#teamGalleryModal .thumbnail');
-    thumbnails.forEach((thumbnail, i) => {
-        if (i === index) {
-            thumbnail.classList.add('active');
-        } else {
-            thumbnail.classList.remove('active');
+// 画廊数据配置
+const galleryData = {
+    team: [
+        {
+            src: '团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg',
+            title: '团队建设活动',
+            description: '团队成员共同参与建设活动，增进了解，促进协作'
+        },
+        {
+            src: '团队风采png/373a9ef3cd0c9154aba05d5bf79a73d9.jpg',
+            title: '技术交流研讨',
+            description: '技术团队开展深度交流，分享专业知识和经验'
+        },
+        {
+            src: '团队风采png/ec6c1eb759493732b1e6ad906ecb861a.jpg',
+            title: '项目讨论会议',
+            description: '项目团队举行会议，讨论方案实施和优化'
+        },
+        {
+            src: '团队风采png/705a4ffd0c4e5868fc1a2ffc6b3e7903.jpg',
+            title: '团队协作工作',
+            description: '各部门协同合作，共同推进项目进展'
+        },
+        {
+            src: '团队风采png/f9bee9526a0e91eb57db8a1e120b261c.jpg',
+            title: '员工培训现场',
+            description: '定期开展专业培训，提升团队能力水平'
+        },
+        {
+            src: '团队风采png/e99a06d7c99641137b76f4a611cee0b9.jpg',
+            title: '团队成果分享',
+            description: '分享项目成果和工作心得，互相学习进步'
+        },
+        {
+            src: '团队风采png/8a0684c61237d497b16eab547435cc14.jpg',
+            title: '业务交流会',
+            description: '内部业务交流，提升服务质量和专业水平'
+        },
+        {
+            src: '团队风采png/180405fec2b76c1c62f37778c260a595.jpg',
+            title: '团队拓展活动',
+            description: '户外拓展训练，增强团队凝聚力和协作能力'
+        },
+        {
+            src: '团队风采png/a4300601d081b1ba75c2f7022f89ae78.jpg',
+            title: '团队聚餐活动',
+            description: '团队聚餐交流，增进同事间的友谊和了解'
+        },
+        {
+            src: '团队风采png/4afd8de0dd1c20cdbaa2627cee033511.jpg',
+            title: '户外团建活动',
+            description: '户外团建活动，放松心情，增强团队向心力'
+        },
+        {
+            src: '团队风采png/6eddcfc1a7c8f398fbedbfcbd427c94b.jpg',
+            title: '节日庆祝活动',
+            description: '庆祝传统节日，体现企业人文关怀'
+        },
+        {
+            src: '团队风采png/2d6eda6618839061dc33600953ab2a6f.jpg',
+            title: '团队合影留念',
+            description: '记录美好时光，见证团队成长历程'
         }
-    });
-}
-
-function selectTeamImage(index) {
-    updateTeamGalleryImage(index);
-}
-
-function prevTeamImage() {
-    const newIndex = currentTeamImageIndex > 0 ? currentTeamImageIndex - 1 : teamGalleryImages.length - 1;
-    updateTeamGalleryImage(newIndex);
-}
-
-function nextTeamImage() {
-    const newIndex = currentTeamImageIndex < teamGalleryImages.length - 1 ? currentTeamImageIndex + 1 : 0;
-    updateTeamGalleryImage(newIndex);
-}
-
-// 工作风采相册功能
-let currentWorkImageIndex = 0;
-const workGalleryImages = [
-    {
-        src: '工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg',
-        title: '环境监测现场',
-        description: '专业团队在现场进行环境监测，确保数据准确可靠'
-    },
-    {
-        src: '工作风采png/fb1962bab16c4ee8314d07d25b8b6771.jpg',
-        title: '设备维护作业',
-        description: '技术人员对环保设备进行维护，保障设备正常运行'
-    },
-    {
-        src: '工作风采png/c068e53512469d1fe84a16dea5e4225e.jpg',
-        title: '技术研发工作',
-        description: '研发团队专注技术创新，推动环保技术发展'
-    },
-    {
-        src: '工作风采png/8b5f1038aba53e4a04412516f9b7fddb.jpg',
-        title: '数据分析处理',
-        description: '数据专员分析环境数据，为决策提供科学依据'
-    },
-    {
-        src: '工作风采png/d0d50b9752bebb6d01bbe1f7d94ad882.jpg',
-        title: '客户沟通洽谈',
-        description: '与客户深入沟通，了解需求，提供专业建议'
-    },
-    {
-        src: '工作风采png/e9c5997c054f4041185c6d9804697702.jpg',
-        title: '项目汇报展示',
-        description: '向客户汇报项目进展，展示专业能力和成果'
-    },
-    {
-        src: '工作风采png/828b4247c6ee168d797a946e2111869e.jpg',
-        title: '方案验收交付',
-        description: '项目完成后的验收交付，确保客户满意'
-    }
-];
-
-function openWorkGallery() {
-    const modal = document.getElementById('workGalleryModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        updateWorkGalleryImage(0);
-    }
-}
-
-function closeWorkGallery() {
-    const modal = document.getElementById('workGalleryModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-}
-
-function updateWorkGalleryImage(index) {
-    if (index < 0 || index >= workGalleryImages.length) return;
-    
-    currentWorkImageIndex = index;
-    const image = workGalleryImages[index];
-    
-    const mainImage = document.getElementById('workMainImage');
-    if (mainImage) {
-        mainImage.src = image.src;
-        mainImage.alt = image.title;
-    }
-    
-    const imageTitle = document.getElementById('workImageTitle');
-    if (imageTitle) {
-        imageTitle.textContent = image.title;
-    }
-    
-    const imageDescription = document.getElementById('workImageDescription');
-    if (imageDescription) {
-        imageDescription.textContent = image.description;
-    }
-    
-    const currentIndexEl = document.getElementById('workCurrentIndex');
-    if (currentIndexEl) {
-        currentIndexEl.textContent = index + 1;
-    }
-    
-    const thumbnails = document.querySelectorAll('#workGalleryModal .thumbnail');
-    thumbnails.forEach((thumbnail, i) => {
-        if (i === index) {
-            thumbnail.classList.add('active');
-        } else {
-            thumbnail.classList.remove('active');
+    ],
+    work: [
+        {
+            src: '工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg',
+            title: '环境监测现场',
+            description: '专业团队在现场进行环境监测，确保数据准确可靠'
+        },
+        {
+            src: '工作风采png/fb1962bab16c4ee8314d07d25b8b6771.jpg',
+            title: '设备维护作业',
+            description: '技术人员对环保设备进行维护，保障设备正常运行'
+        },
+        {
+            src: '工作风采png/c068e53512469d1fe84a16dea5e4225e.jpg',
+            title: '技术研发工作',
+            description: '研发团队专注技术创新，推动环保技术发展'
+        },
+        {
+            src: '工作风采png/8b5f1038aba53e4a04412516f9b7fddb.jpg',
+            title: '数据分析处理',
+            description: '数据专员分析环境数据，为决策提供科学依据'
+        },
+        {
+            src: '工作风采png/d0d50b9752bebb6d01bbe1f7d94ad882.jpg',
+            title: '客户沟通洽谈',
+            description: '与客户深入沟通，了解需求，提供专业建议'
+        },
+        {
+            src: '工作风采png/e9c5997c054f4041185c6d9804697702.jpg',
+            title: '项目汇报展示',
+            description: '向客户汇报项目进展，展示专业能力和成果'
+        },
+        {
+            src: '工作风采png/828b4247c6ee168d797a946e2111869e.jpg',
+            title: '方案验收交付',
+            description: '项目完成后的验收交付，确保客户满意'
         }
-    });
+    ]
+};
+
+// 当前画廊状态
+let currentGallery = null;
+let currentGalleryImageIndex = 0;
+
+// 打开全屏画廊
+function openFullscreenGallery(type) {
+    if (!galleryData[type]) return;
+    
+    currentGallery = galleryData[type];
+    currentGalleryImageIndex = 0;
+    
+    const gallery = document.querySelector('.fullscreen-gallery');
+    if (gallery) {
+        // 显示画廊
+        gallery.style.display = 'flex';
+        
+        // 设置第一张图片
+        updateGalleryImage();
+        
+        // 添加激活类触发动画
+        requestAnimationFrame(() => {
+            gallery.classList.add('is-active');
+        });
+        
+        // 禁止页面滚动
+        document.body.style.overflow = 'hidden';
+    }
 }
 
-function selectWorkImage(index) {
-    updateWorkGalleryImage(index);
+// 关闭全屏画廊
+function closeFullscreenGallery() {
+    const gallery = document.querySelector('.fullscreen-gallery');
+    if (gallery) {
+        gallery.classList.remove('is-active');
+        
+        // 等待动画完成后隐藏
+        setTimeout(() => {
+            gallery.style.display = 'none';
+            document.body.style.overflow = '';
+            currentGallery = null;
+        }, 300);
+    }
 }
 
-function prevWorkImage() {
-    const newIndex = currentWorkImageIndex > 0 ? currentWorkImageIndex - 1 : workGalleryImages.length - 1;
-    updateWorkGalleryImage(newIndex);
+// 更新画廊图片
+function updateGalleryImage() {
+    if (!currentGallery || currentGalleryImageIndex < 0 || currentGalleryImageIndex >= currentGallery.length) return;
+    
+    const image = currentGallery[currentGalleryImageIndex];
+    const galleryImage = document.querySelector('.gallery-image');
+    const galleryCaption = document.querySelector('.gallery-caption');
+    
+    if (galleryImage && galleryCaption) {
+        galleryImage.src = image.src;
+        galleryImage.alt = image.title;
+        galleryCaption.textContent = ''; // 不显示任何文字说明
+    }
 }
 
-function nextWorkImage() {
-    const newIndex = currentWorkImageIndex < workGalleryImages.length - 1 ? currentWorkImageIndex + 1 : 0;
-    updateWorkGalleryImage(newIndex);
+// 上一张图片
+function prevGalleryImage() {
+    if (!currentGallery) return;
+    
+    currentGalleryImageIndex = currentGalleryImageIndex > 0 ? currentGalleryImageIndex - 1 : currentGallery.length - 1;
+    updateGalleryImage();
 }
 
-// 为新相册添加键盘导航和背景点击关闭
+// 下一张图片
+function nextGalleryImage() {
+    if (!currentGallery) return;
+    
+    currentGalleryImageIndex = currentGalleryImageIndex < currentGallery.length - 1 ? currentGalleryImageIndex + 1 : 0;
+    updateGalleryImage();
+}
+
+// 为全屏画廊添加键盘事件监听
 document.addEventListener('keydown', function(e) {
-    const teamModal = document.getElementById('teamGalleryModal');
-    const workModal = document.getElementById('workGalleryModal');
-    
-    if (teamModal && teamModal.classList.contains('active')) {
+    const gallery = document.querySelector('.fullscreen-gallery');
+    if (gallery && gallery.classList.contains('is-active')) {
         switch(e.key) {
             case 'ArrowLeft':
-                prevTeamImage();
+                prevGalleryImage();
                 break;
             case 'ArrowRight':
-                nextTeamImage();
+                nextGalleryImage();
                 break;
             case 'Escape':
-                closeTeamGallery();
+                closeFullscreenGallery();
                 break;
         }
-    }
-    
-    if (workModal && workModal.classList.contains('active')) {
-        switch(e.key) {
-            case 'ArrowLeft':
-                prevWorkImage();
-                break;
-            case 'ArrowRight':
-                nextWorkImage();
-                break;
-            case 'Escape':
-                closeWorkGallery();
-                break;
-        }
-    }
-});
-
-document.addEventListener('click', function(e) {
-    const teamModal = document.getElementById('teamGalleryModal');
-    const workModal = document.getElementById('workGalleryModal');
-    
-    if (e.target === teamModal) {
-        closeTeamGallery();
-    }
-    
-    if (e.target === workModal) {
-        closeWorkGallery();
     }
 });
 
@@ -815,7 +921,7 @@ const memberProfiles = {
     },
     zhouzheng: {
         name: '周政',
-        position: '股东 / 高校体育教师',
+        position: '股东',
         photo: '核心人员简介和照片/周政.jpg',
         bio: `我叫周政，来自吉林，一个在彩云之南生活和工作多年的东北人。我当前最核心的身份，是一名在高校体育教育领域深耕了十五年的教师。然而，在我的名片上，还有一个特殊的头衔——悦恩环保的股东。这两个看似毫无关联的身份，却在我的人生中交织，共同指向一个朴素的信念：为有价值的事业，尽我所能。
 
@@ -911,7 +1017,7 @@ const tencentModalData = {
     },
     zhouzheng: {
         name: '周政',
-        position: '股东 / 高校体育教师',
+        position: '股东',
         photo: '核心人员简介和照片/周政.jpg',
         bio: '云南师范大学体育学院教育学硕士，15年高校体育教育经验。曾任网络系统工程师（CCNP认证）、创业者。为公司搭建校企合作桥梁，提供人才精准筛选与培养，将体育精神融入企业文化建设。'
     },
@@ -973,3 +1079,39 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// ===== 地图功能 =====
+
+// 地图跳转功能
+function openMap() {
+    const address = "云南省昆明市西山区明波立交桥西侧宏盛达滇池柏悦1幢1001";
+    const encodedAddress = encodeURIComponent(address);
+    
+    // 检测设备类型
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // 移动端：尝试打开地图应用
+        const urls = [
+            `baidumap://map/marker?location=24.8801,102.8329&title=云南悦恩环保&content=${encodedAddress}`, // 百度地图
+            `iosamap://viewMap?sourceApplication=悦恩环保&poiname=云南悦恩环保&lat=24.8801&lon=102.8329&dev=0`, // 高德地图
+            `https://uri.amap.com/marker?position=102.8329,24.8801&name=云南悦恩环保&src=悦恩环保`, // 高德地图网页版
+            `https://map.baidu.com/search/${encodedAddress}` // 百度地图网页版
+        ];
+        
+        // 尝试打开原生应用，失败则打开网页版
+        try {
+            window.location.href = urls[0];
+            // 设置延时后打开网页版作为备选
+            setTimeout(() => {
+                window.open(urls[3], '_blank');
+            }, 500);
+        } catch (error) {
+            // 如果原生应用打开失败，直接打开网页版
+            window.open(urls[3], '_blank');
+        }
+    } else {
+        // 桌面端：直接打开网页版地图
+        window.open(`https://map.baidu.com/search/${encodedAddress}`, '_blank');
+    }
+}

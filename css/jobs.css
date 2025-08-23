@@ -8,27 +8,33 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* 招聘分节标题样式 - 应用HarmonyOS Sans字体 */
+/* 统一主标题样式 - 应用HarmonyOS Sans字体，左对齐 */
+.section-title,
 .jobs-section-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   color: #2A2E2E;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 2.125rem;
   margin-bottom: 40px;
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.3;
-  text-align: center;
+  text-align: left;
   position: relative;
+  padding-bottom: 12px;
 }
 
+/* 为主标题添加森林深绿色下划线 */
+.section-title::after,
 .jobs-section-title::after {
   content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--primary-color);
-  margin: 15px auto 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #065F46;
+  border-radius: 2px;
 }
 
 /* 职位标题去除加粗 */
@@ -622,23 +628,326 @@ p {
   margin-bottom: 80px;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 40px;
-  text-align: center;
-  position: relative;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
+/* 英雄帖职位卡片网格布局 */
+.job-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.section-title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #000000;
-  margin: 15px auto 0;
+/* 紧凑型职位卡片样式 - 560*128尺寸 */
+.job-card-compact {
+  width: 560px;
+  height: 128px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 职位卡片悬停效果 - 微微向上移动和增强灰黑色阴影动画 */
+.job-card-compact:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #065F46;
+}
+
+/* 职位卡片内容容器 */
+.job-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  text-align: left;
+  position: relative;
+}
+
+/* 职位卡片标题 */
+.job-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 12px;
+  font-family: 'HarmonyOS Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+/* 查看岗位文字 */
+.job-card-action {
+  font-size: 0.9rem;
+  color: #065F46;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* 悬停时查看岗位文字效果 */
+.job-card-compact:hover .job-card-action {
+  opacity: 1;
+  color: #065F46;
+  transform: translateY(-2px);
+}
+
+/* 悬停时标题效果 */
+.job-card-compact:hover .job-card-title {
+  color: #065F46;
+  transform: translateY(-2px);
+}
+
+/* 职位详情模态框样式 */
+.job-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.job-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.job-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 800px;
+  max-height: 90vh;
+  width: 90%;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.job-modal.active .job-modal-content {
+  transform: scale(1);
+}
+
+.job-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #64748b;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.job-modal-close:hover {
+  background: #f1f5f9;
+  color: #2c3e50;
+}
+
+/* 职位详情内容样式 */
+.job-detail-header {
+  padding: 40px 40px 30px;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0f9f7 100%);
+}
+
+.job-detail-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #065F46;
+  margin-bottom: 20px;
+  font-family: 'HarmonyOS Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.job-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.job-meta-item i {
+  color: #065F46;
+  width: 16px;
+}
+
+.job-detail-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.job-tag {
+  background: #e6fffa;
+  color: #065F46;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #b2f5ea;
+}
+
+.job-detail-body {
+  padding: 30px 40px 40px;
+}
+
+.job-detail-section {
+  margin-bottom: 30px;
+}
+
+.job-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.job-detail-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-family: 'HarmonyOS Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.job-detail-section p {
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 15px;
+}
+
+.job-detail-list {
+  list-style: none;
+  padding: 0;
+}
+
+.job-detail-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.job-detail-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #065F46;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.job-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.benefit-tag {
+  background: #f0f9f7;
+  color: #065F46;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #c6f6d5;
+}
+
+.job-detail-actions {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.btn-apply-job {
+  background: #065F46;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.btn-apply-job:hover {
+  background: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 95, 70, 0.3);
+}
+
+.contact-info {
+  margin-top: 15px;
+}
+
+.contact-info p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .job-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-card-compact {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  
+  .job-modal-content {
+    width: 95%;
+    margin: 20px auto;
+    max-height: 85vh;
+  }
+  
+  .job-detail-header {
+    padding: 30px 20px 20px;
+  }
+  
+  .job-detail-body {
+    padding: 20px;
+  }
+  
+  .job-detail-title {
+    font-size: 1.6rem;
+  }
+  
+  .job-detail-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 /* 招聘职位样式 */
@@ -912,6 +1221,37 @@ p {
   border-radius: 12px;
 }
 
+/* "为什么选择悦恩"板块样式 */
+.why-choose-us {
+  padding-top: 80px;
+  margin-top: 60px;
+}
+
+/* "为什么选择悦恩"标题特殊样式 - 左侧斜线装饰 */
+.why-choose-us .section-title {
+  padding-left: 20px;
+  padding-bottom: 0;
+  position: relative;
+}
+
+/* 左侧斜线装饰 - 与文字同倾斜度 */
+.why-choose-us .section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #065F46;
+  transform: skew(-15deg);
+  transform-origin: bottom left;
+}
+
+/* 移除"为什么选择悦恩"标题的下划线 */
+.why-choose-us .section-title::after {
+  display: none;
+}
+
 /* "为什么选择悦恩"板块网格样式 */
 .why-choose-us .benefits-grid {
   display: grid;
@@ -934,6 +1274,154 @@ p {
 .benefit-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SVG 破土幼苗图标动画样式 */
+.seedling-icon {
+  transform-origin: 30px 40px;
+  animation: gentleSway 3s ease-in-out infinite;
+}
+
+/* 土壤线静态显示 */
+.seedling-icon .soil {
+  opacity: 1;
+}
+
+/* 主茎破土而出动画 */
+.seedling-icon .main-stem {
+  stroke-dasharray: 15;
+  stroke-dashoffset: 15;
+  animation: growFromSoil 2s ease-out infinite;
+}
+
+/* 左叶片茎生长动画 */
+.seedling-icon .left-leaf-stem {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  animation: growLeftStem 1.5s ease-out infinite;
+  animation-delay: 1s;
+}
+
+/* 右叶片茎生长动画 */
+.seedling-icon .right-leaf-stem {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  animation: growRightStem 1.5s ease-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* 左叶片展开动画 */
+.seedling-icon .left-leaf {
+  transform-origin: 22px 25px;
+  animation: unfoldLeaf 1s ease-out infinite;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+/* 右叶片展开动画 */
+.seedling-icon .right-leaf {
+  transform-origin: 38px 23px;
+  animation: unfoldLeaf 1s ease-out infinite;
+  animation-delay: 2.3s;
+  opacity: 0;
+}
+
+/* 顶部嫩芽出现动画 */
+.seedling-icon .top-bud {
+  animation: budAppear 0.8s ease-out infinite;
+  animation-delay: 2.8s;
+  opacity: 0;
+  transform-origin: center;
+}
+
+/* 轻微摇摆动画 */
+@keyframes gentleSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.8deg); }
+  75% { transform: rotate(-0.8deg); }
+}
+
+/* 主茎从土中长出 */
+@keyframes growFromSoil {
+  0% { 
+    stroke-dashoffset: 15; 
+    opacity: 0; 
+  }
+  60% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+  100% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+}
+
+/* 左茎生长 */
+@keyframes growLeftStem {
+  0% { 
+    stroke-dashoffset: 8; 
+    opacity: 0; 
+  }
+  80% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+  100% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+}
+
+/* 右茎生长 */
+@keyframes growRightStem {
+  0% { 
+    stroke-dashoffset: 8; 
+    opacity: 0; 
+  }
+  80% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+  100% { 
+    stroke-dashoffset: 0; 
+    opacity: 1; 
+  }
+}
+
+/* 叶片展开 */
+@keyframes unfoldLeaf {
+  0% { 
+    transform: scale(0); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.6; 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+}
+
+/* 嫩芽出现 */
+@keyframes budAppear {
+  0% { 
+    transform: scale(0); 
+    opacity: 0; 
+  }
+  70% { 
+    transform: scale(1.2); 
+    opacity: 0.7; 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 0.9; 
+  }
 }
 
 .benefit-title {
