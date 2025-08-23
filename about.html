@@ -6,12 +6,13 @@
     <title>关于我们 - 云南悦恩环保技术咨询有限公司</title>
     <meta name="description" content="了解云南悦恩环保技术咨询有限公司的发展历程、专业团队和企业资质，我们致力于为客户提供专业的环保服务">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- HarmonyOS Sans 字体 - 通过CSS字体族定义 -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/image-viewer.css">
     <link rel="stylesheet" href="css/search.css">
 </head>
-<body>
+<body class="about-page">
     <!-- 页头 -->
     <header class="header">
         <div class="container">
@@ -43,7 +44,6 @@
                                 <li><a href="about.html#company-intro">企业简介</a></li>
                                 <li><a href="about.html#core-team">核心团队</a></li>
                                 <li><a href="about.html#team-culture">团队风采</a></li>
-                                <li><a href="about.html#work-showcase">工作风采</a></li>
                                 <li><a href="about.html#qualifications">企业资质</a></li>
                             </ul>
                         </li>
@@ -114,7 +114,7 @@
     <section id="company-intro" class="section company-intro">
         <div class="container">
             <div class="intro-content">
-                <h2 class="intro-title">云南悦恩环保 - 责任共担，技术驱动</h2>
+                <h2 class="mission-title">云南悦恩环保 - 责任共担，技术驱动</h2>
                 <p class="intro-text">
                     云南悦恩环保技术咨询有限公司（简称"悦恩环保"），成立于2019年，是一家以"责任共担、技术驱动"为核心理念的创新型环保服务企业。作为全国首家通过中国质量认证中心（CQC）"环保管家"服务认证的机构，我们致力于为企业提供从顶层战略咨询到日常运营执行的一站式、可信赖的解决方案，矢志成为"政府监管服务商、企业服务总包商"，最终实现"让家园的生态环境能长期美好"的愿景。
                 </p>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">周政</h3>
-                        <p class="member-position">股东 / 高校体育教师</p>
+                        <p class="member-position">股东</p>
                     </div>
                 </div>
                 <div class="team-member tencent-style" data-member="yangkaidi" onclick="openTencentModal('yangkaidi')">
@@ -192,91 +192,42 @@
     <section id="team-culture" class="section team-culture">
         <div class="container">
             <h2 class="section-title">团队风采</h2>
-            <div class="culture-content">
-                <!-- 团队活动相册入口 -->
-                <div class="gallery-showcase">
-                    <div class="gallery-card" onclick="openTeamGallery()">
-                        <div class="card-image">
-                            <img src="团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg" alt="团队活动预览" loading="lazy">
-                            <div class="card-overlay">
-                                <div class="play-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
-                                        <path d="M23 18L23 42L41 30L23 18Z" fill="#333"/>
-                                    </svg>
-                                </div>
-                                <div class="overlay-text">
-                                    <h3>浏览团队风采</h3>
-                                    <p>12张精彩瞬间</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">团队活动瞬间</h3>
-                            <p class="card-description">
-                                记录我们团队建设、技术交流、培训学习、拓展活动的精彩瞬间，
-                                展现悦恩环保团队的凝聚力和活力。
-                            </p>
-                            <div class="card-meta">
-                                <span class="photo-count">🖼️ 12张照片</span>
-                                <span class="category">📸 团队活动</span>
-                            </div>
-                            <div class="view-gallery-btn">
-                                <span>查看相册</span>
-                                <span class="arrow">→</span>
-                            </div>
+            
+            <!-- 双栏网格布局容器 -->
+            <div class="gallery-grid-container">
+                <!-- 第一个卡片：团队风采 -->
+                <div class="moment-card" onclick="openFullscreenGallery('team')">
+                    <div class="moment-cover">
+                        <img src="团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg" alt="团队活动精彩瞬间">
+                        <div class="moment-overlay">
+                            <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
+                    <div class="moment-content">
+                        <h3 class="moment-title">团队风采</h3>
+                        <p class="moment-description">凝聚每一次热爱，绽放团队光芒。</p>
+                        <a href="#" class="moment-link" onclick="event.preventDefault(); openFullscreenGallery('team')">
+                            查看相册
+                            <span class="arrow">&rarr;</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 工作风采 -->
-    <section id="work-showcase" class="section work-showcase">
-        <div class="container">
-            <h2 class="section-title">工作风采</h2>
-            <div class="showcase-content">
-                <div class="showcase-intro">
-                    <p class="showcase-description">
-                        专业、严谨、高效——这是悦恩环保团队的工作写照。从现场勘察到技术研发，
-                        从客户服务到项目实施，我们在环保事业的每一个环节都精益求精。
-                    </p>
-                </div>
-                
-                <!-- 工作风采相册入口 -->
-                <div class="gallery-showcase">
-                    <div class="gallery-card" onclick="openWorkGallery()">
-                        <div class="card-image">
-                            <img src="工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg" alt="工作风采预览" loading="lazy">
-                            <div class="card-overlay">
-                                <div class="play-icon">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
-                                        <path d="M23 18L23 42L41 30L23 18Z" fill="#333"/>
-                                    </svg>
-                                </div>
-                                <div class="overlay-text">
-                                    <h3>浏览工作风采</h3>
-                                    <p>7张专业瞬间</p>
-                                </div>
-                            </div>
+                <!-- 第二个卡片：工作风采 -->
+                <div class="moment-card" onclick="openFullscreenGallery('work')">
+                    <div class="moment-cover">
+                        <img src="工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg" alt="工作风采瞬间">
+                        <div class="moment-overlay">
+                            <i class="fas fa-search-plus"></i>
                         </div>
-                        <div class="card-content">
-                            <h3 class="card-title">专业工作瞬间</h3>
-                            <p class="card-description">
-                                展现我们在现场服务、技术研发、客户沟通等各个工作环节中的专业态度和敬业精神，
-                                体现悦恩环保团队的专业素养。
-                            </p>
-                            <div class="card-meta">
-                                <span class="photo-count">🖼️ 7张照片</span>
-                                <span class="category">💼 工作场景</span>
-                            </div>
-                            <div class="view-gallery-btn">
-                                <span>查看相册</span>
-                                <span class="arrow">→</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="moment-content">
+                        <h3 class="moment-title">工作掠影</h3>
+                        <p class="moment-description">记录专业瞬间，见证每一次成长与突破。</p>
+                        <a href="#" class="moment-link" onclick="event.preventDefault(); openFullscreenGallery('work')">
+                            查看相册
+                            <span class="arrow">&rarr;</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -456,147 +407,7 @@
         <div id="imageCaption"></div>
     </div>
 
-    <!-- 团队风采相册模态框 -->
-    <div id="teamGalleryModal" class="gallery-modal">
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <h2 class="gallery-title">团队风采相册</h2>
-                <button class="gallery-close" onclick="closeTeamGallery()">&times;</button>
-            </div>
-            
-            <div class="gallery-content">
-                <div class="gallery-main">
-                    <div class="main-image-container">
-                        <img id="teamMainImage" src="团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg" alt="团队风采">
-                        <button class="nav-btn prev-btn" onclick="prevTeamImage()">‹</button>
-                        <button class="nav-btn next-btn" onclick="nextTeamImage()">›</button>
-                        <div class="image-counter">
-                            <span id="teamCurrentIndex">1</span> / <span id="teamTotalImages">12</span>
-                        </div>
-                    </div>
-                    
-                    <div class="image-info">
-                        <h3 id="teamImageTitle">团队建设活动</h3>
-                        <p id="teamImageDescription">团队成员共同参与建设活动，增进了解，促进协作</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-thumbnails">
-                    <div class="thumbnail-container">
-                        <div class="thumbnail active" data-index="0" onclick="selectTeamImage(0)">
-                            <img src="团队风采png/77bbb7cc8f6fe4baf07e3dec0a9bc9a9.jpg" alt="团队建设活动">
-                            <span class="thumbnail-title">团队建设活动</span>
-                        </div>
-                        <div class="thumbnail" data-index="1" onclick="selectTeamImage(1)">
-                            <img src="团队风采png/373a9ef3cd0c9154aba05d5bf79a73d9.jpg" alt="技术交流研讨">
-                            <span class="thumbnail-title">技术交流研讨</span>
-                        </div>
-                        <div class="thumbnail" data-index="2" onclick="selectTeamImage(2)">
-                            <img src="团队风采png/ec6c1eb759493732b1e6ad906ecb861a.jpg" alt="项目讨论会议">
-                            <span class="thumbnail-title">项目讨论会议</span>
-                        </div>
-                        <div class="thumbnail" data-index="3" onclick="selectTeamImage(3)">
-                            <img src="团队风采png/705a4ffd0c4e5868fc1a2ffc6b3e7903.jpg" alt="团队协作工作">
-                            <span class="thumbnail-title">团队协作工作</span>
-                        </div>
-                        <div class="thumbnail" data-index="4" onclick="selectTeamImage(4)">
-                            <img src="团队风采png/f9bee9526a0e91eb57db8a1e120b261c.jpg" alt="员工培训现场">
-                            <span class="thumbnail-title">员工培训现场</span>
-                        </div>
-                        <div class="thumbnail" data-index="5" onclick="selectTeamImage(5)">
-                            <img src="团队风采png/e99a06d7c99641137b76f4a611cee0b9.jpg" alt="团队成果分享">
-                            <span class="thumbnail-title">团队成果分享</span>
-                        </div>
-                        <div class="thumbnail" data-index="6" onclick="selectTeamImage(6)">
-                            <img src="团队风采png/8a0684c61237d497b16eab547435cc14.jpg" alt="业务交流会">
-                            <span class="thumbnail-title">业务交流会</span>
-                        </div>
-                        <div class="thumbnail" data-index="7" onclick="selectTeamImage(7)">
-                            <img src="团队风采png/180405fec2b76c1c62f37778c260a595.jpg" alt="团队拓展活动">
-                            <span class="thumbnail-title">团队拓展活动</span>
-                        </div>
-                        <div class="thumbnail" data-index="8" onclick="selectTeamImage(8)">
-                            <img src="团队风采png/a4300601d081b1ba75c2f7022f89ae78.jpg" alt="团队聚餐活动">
-                            <span class="thumbnail-title">团队聚餐活动</span>
-                        </div>
-                        <div class="thumbnail" data-index="9" onclick="selectTeamImage(9)">
-                            <img src="团队风采png/4afd8de0dd1c20cdbaa2627cee033511.jpg" alt="户外团建活动">
-                            <span class="thumbnail-title">户外团建活动</span>
-                        </div>
-                        <div class="thumbnail" data-index="10" onclick="selectTeamImage(10)">
-                            <img src="团队风采png/6eddcfc1a7c8f398fbedbfcbd427c94b.jpg" alt="节日庆祝活动">
-                            <span class="thumbnail-title">节日庆祝活动</span>
-                        </div>
-                        <div class="thumbnail" data-index="11" onclick="selectTeamImage(11)">
-                            <img src="团队风采png/2d6eda6618839061dc33600953ab2a6f.jpg" alt="团队合影留念">
-                            <span class="thumbnail-title">团队合影留念</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 工作风采相册模态框 -->
-    <div id="workGalleryModal" class="gallery-modal">
-        <div class="gallery-container">
-            <div class="gallery-header">
-                <h2 class="gallery-title">工作风采相册</h2>
-                <button class="gallery-close" onclick="closeWorkGallery()">&times;</button>
-            </div>
-            
-            <div class="gallery-content">
-                <div class="gallery-main">
-                    <div class="main-image-container">
-                        <img id="workMainImage" src="工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg" alt="工作风采">
-                        <button class="nav-btn prev-btn" onclick="prevWorkImage()">‹</button>
-                        <button class="nav-btn next-btn" onclick="nextWorkImage()">›</button>
-                        <div class="image-counter">
-                            <span id="workCurrentIndex">1</span> / <span id="workTotalImages">7</span>
-                        </div>
-                    </div>
-                    
-                    <div class="image-info">
-                        <h3 id="workImageTitle">环境监测现场</h3>
-                        <p id="workImageDescription">专业团队在现场进行环境监测，确保数据准确可靠</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-thumbnails">
-                    <div class="thumbnail-container">
-                        <div class="thumbnail active" data-index="0" onclick="selectWorkImage(0)">
-                            <img src="工作风采png/0298a5e59bcbf8d545e628b17c08e944.jpg" alt="环境监测现场">
-                            <span class="thumbnail-title">环境监测现场</span>
-                        </div>
-                        <div class="thumbnail" data-index="1" onclick="selectWorkImage(1)">
-                            <img src="工作风采png/fb1962bab16c4ee8314d07d25b8b6771.jpg" alt="设备维护作业">
-                            <span class="thumbnail-title">设备维护作业</span>
-                        </div>
-                        <div class="thumbnail" data-index="2" onclick="selectWorkImage(2)">
-                            <img src="工作风采png/c068e53512469d1fe84a16dea5e4225e.jpg" alt="技术研发工作">
-                            <span class="thumbnail-title">技术研发工作</span>
-                        </div>
-                        <div class="thumbnail" data-index="3" onclick="selectWorkImage(3)">
-                            <img src="工作风采png/8b5f1038aba53e4a04412516f9b7fddb.jpg" alt="数据分析处理">
-                            <span class="thumbnail-title">数据分析处理</span>
-                        </div>
-                        <div class="thumbnail" data-index="4" onclick="selectWorkImage(4)">
-                            <img src="工作风采png/d0d50b9752bebb6d01bbe1f7d94ad882.jpg" alt="客户沟通洽谈">
-                            <span class="thumbnail-title">客户沟通洽谈</span>
-                        </div>
-                        <div class="thumbnail" data-index="5" onclick="selectWorkImage(5)">
-                            <img src="工作风采png/e9c5997c054f4041185c6d9804697702.jpg" alt="项目汇报展示">
-                            <span class="thumbnail-title">项目汇报展示</span>
-                        </div>
-                        <div class="thumbnail" data-index="6" onclick="selectWorkImage(6)">
-                            <img src="工作风采png/828b4247c6ee168d797a946e2111869e.jpg" alt="方案验收交付">
-                            <span class="thumbnail-title">方案验收交付</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 腾讯风格简洁Modal -->
     <div id="tencentModal" class="tencent-modal">
@@ -640,6 +451,15 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- 全屏沉浸式画廊 -->
+    <div class="fullscreen-gallery" style="display: none;">
+        <button class="gallery-close">&times;</button>
+        <button class="gallery-prev">&#10094;</button>
+        <button class="gallery-next">&#10095;</button>
+        <img class="gallery-image" src="" alt="">
+        <div class="gallery-caption"></div>
     </div>
 
     <script src="js/main.js"></script>

@@ -1,4 +1,15 @@
-/* 关于我们页面样式 */
+/* 关于我们页面样式 - 深森林绿色调 */
+
+/* About页面专用深森林绿色调定义 */
+.about-page {
+  /* 深森林绿色调 - 专业环保色系 */
+  --about-forest-main: #065F46;        /* 深森林绿主色 RGB(6, 95, 70) */
+  --about-forest-deep: #064E3B;        /* 深松绿 RGB(6, 78, 59) */
+  --about-forest-light: #047857;       /* 翡翠绿 RGB(4, 120, 87) */
+  --about-forest-accent: #059669;      /* 环保绿重点色 RGB(5, 150, 105) */
+  --about-forest-alpha: rgba(6, 95, 70, 0.1);       /* 深森林绿透明 */
+  --about-forest-shadow: rgba(6, 95, 70, 0.15);     /* 深森林绿阴影 */
+}
 
 /* HarmonyOS Sans 字体定义 */
 .mission-title {
@@ -8,19 +19,43 @@
   /* 继承原有 .intro-title 的布局样式 */
   font-size: 2.125rem;     /* 略大于正文形成层级 */
   margin-bottom: 24px;
-  font-weight: 400;        /* 移除加粗，使用正常字重 */
+  font-weight: 400;        /* 取消加粗，使用正常字重 */
   letter-spacing: 0.2px;
   line-height: 1.3;
+  position: relative;      /* 为下划线定位 */
 }
 
-/* 应用统一的模块主题样式到section-title */
+/* 为mission-title添加深森林绿下划线 */
+.mission-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  margin: 15px 0 0 0;      /* 左对齐，不居中 */
+  box-shadow: 0 2px 8px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿阴影效果 */
+}
+
+/* 应用统一的模块主题样式到section-title - 取消加粗 */
 .section-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   color: #2A2E2E;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 400; /* 取消加粗 */
   letter-spacing: 0.2px;
   line-height: 1.3;
+  position: relative;
+}
+
+/* 为section-title添加深森林绿下划线 */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--about-forest-main, #065F46) 0%, var(--about-forest-light, #047857) 100%);
+  margin: 15px auto 0 auto; /* 居中显示 */
+  box-shadow: 0 2px 8px var(--about-forest-shadow, rgba(6, 95, 70, 0.15));
 }
 
 /* 局部字体与抗锯齿，仅作用于本页 */
@@ -31,16 +66,29 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* 标题样式统一 */
+/* 标题样式统一 - 取消加粗，添加深森林绿装饰 */
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-weight: 600;
+  font-weight: 400; /* 取消加粗，使用正常字重 */
   margin-bottom: 1rem;
+  position: relative;
+}
+
+/* 为所有标题添加深森林绿下划线装饰 */
+h1::after, h2::after, h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, #065F46) 0%, var(--about-forest-light, #047857) 100%);
+  margin-top: 12px;
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(6, 95, 70, 0.15));
 }
 
 p {
   color: #555555;
   margin-bottom: 1.5rem;
+  font-weight: 400; /* 确保段落文字也不加粗 */
 }
 
 /* 关于我们页头可读性增强：仅本页生效 */
@@ -90,7 +138,7 @@ p {
 
 .header .logo-text {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400; /* 取消加粗，更轻盈的标志文字 */
   margin-bottom: 2px;
 }
 
@@ -183,6 +231,11 @@ p {
   background-clip: text;
 }
 
+/* 取消页头底图标题的下划线装饰 */
+.banner-title::after {
+  display: none !important;
+}
+
 /* 公司介绍 */
 .company-intro {
   background-color: var(--white);
@@ -200,7 +253,7 @@ p {
 .intro-title {
   font-size: 2.125rem;     /* 略大于正文形成层级 */
   margin-bottom: 24px;
-  font-weight: 600;        /* 较 700 更显克制 */
+  font-weight: 400;        /* 取消加粗，保持一致性 */
   color: #111;
   letter-spacing: 0.2px;
   line-height: 1.3;
@@ -322,14 +375,15 @@ p {
 
 .member-name {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 400; /* 取消加粗 */
   margin-bottom: 5px;
 }
 
 .member-position {
-  color: var(--primary-color);
-  font-weight: 500;
+  color: var(--about-forest-main, var(--primary-color));
+  font-weight: 400; /* 取消加粗，与其他文字保持一致 */
   margin-bottom: 15px;
+  text-shadow: 0 1px 2px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
 }
 
 .member-bio {
@@ -343,7 +397,7 @@ p {
 
 /* 查看详细简介按钮样式 */
 .view-profile-btn {
-  background: linear-gradient(135deg, var(--primary-color), #2980b9);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   color: white;
   border: none;
   border-radius: 25px;
@@ -361,7 +415,7 @@ p {
 }
 
 .view-profile-btn:hover {
-  background: linear-gradient(135deg, #2980b9, #1e5a96);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
 }
@@ -397,14 +451,27 @@ p {
 .category-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 400; /* 取消加粗 */
   font-style: italic;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 3px solid var(--about-forest-main, var(--primary-color));
   color: #2A2E2E;
   letter-spacing: 0.2px;
   line-height: 1.3;
+  position: relative;
+}
+
+/* 为category-title添加深森林绿渐变底边装饰 */
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15));
 }
 
 .qual-grid {
@@ -449,7 +516,7 @@ p {
 .qual-title {
   padding: 15px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400; /* 取消加粗 */
   font-size: 0.95rem;
   line-height: 1.5;
   color: #222;
@@ -569,8 +636,8 @@ p {
 
 .category-title {
   font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  font-weight: 400; /* 取消加粗，保持一致性 */
+  color: var(--about-forest-main, var(--primary-color)); /* 使用深森林绿色 */
   margin-bottom: 25px;
   text-align: center;
 }
@@ -694,7 +761,7 @@ p {
   display: flex;
   align-items: center;
   padding: 40px;
-  background: linear-gradient(135deg, var(--primary-color), #2980b9);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   color: white;
   position: relative;
 }
@@ -722,7 +789,7 @@ p {
 
 .profile-name {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 400; /* 取消加粗 */
   margin: 0 0 8px 0;
   color: white;
 }
@@ -771,9 +838,22 @@ p {
   color: #2A2E2E;
   margin: 0 0 20px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 3px solid var(--about-forest-main, var(--primary-color));
   letter-spacing: 0.2px;
   line-height: 1.3;
+  position: relative;
+}
+
+/* 为bio-title添加深森林绿渐变底边装饰 */
+.bio-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15));
 }
 
 .bio-content {
@@ -914,9 +994,10 @@ p {
 .team-member.tencent-style .member-name {
   font-size: 1.5rem;
   font-weight: 400; /* 改为正常字重，去除加粗 */
-  color: var(--primary-color); /* 使用绿色，与小方块同色 */
+  color: var(--about-forest-main, var(--primary-color)); /* 深森林绿，与小方块同色 */
   margin-bottom: 8px;
   font-family: 'PingFangSC-Regular', 'helvetica neue', tahoma, 'PingFang SC', 'microsoft yahei', arial, 'hiragino sans gb', sans-serif;
+  text-shadow: 0 1px 3px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
 }
 
 .team-member.tencent-style .member-position {
@@ -933,10 +1014,11 @@ p {
   left: -14px; /* 静态时位于照片左侧，一半遮挡照片 */
   width: 28px;
   height: 28px;
-  background-color: var(--primary-color); /* 使用公司绿色主色调 */
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-deep, var(--primary-color)) 100%); /* 深森林绿渐变 */
   transition: all 0.3s ease;
   border-radius: 2px;
   z-index: 5; /* 确保在照片上方 */
+  box-shadow: 0 3px 12px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿立体阴影 */
 }
 
 /* 悬停时绿色方格移动到照片内部左下角顶格 */
@@ -1064,15 +1146,16 @@ p {
   font-size: 2.2rem; /* 更大的标题 */
   font-weight: 400;
   margin: 0 0 12px 0;
-  color: var(--primary-color); /* 使用公司绿色主色调 */
+  color: var(--about-forest-main, var(--primary-color)); /* 深森林绿主色调 */
   line-height: 1.2;
+  text-shadow: 0 2px 4px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
 }
 
 .modal-info p {
   font-size: 1.1rem;
   margin: 0;
   color: #666; /* 副标题使用灰色 */
-  font-weight: 500;
+  font-weight: 400; /* 取消加粗 */
   opacity: 0.9;
 }
 
@@ -1177,6 +1260,41 @@ p {
     font-size: 0.95rem;
     line-height: 1.6;
   }
+}
+
+/* 深森林绿色调增强效果 */
+.about-page .qual-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px var(--about-forest-shadow, rgba(6, 95, 70, 0.15)); /* 深森林绿悬停阴影 */
+}
+
+.about-page .moment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px var(--about-forest-shadow, rgba(6, 95, 70, 0.15)); /* 深森林绿悬停阴影 */
+}
+
+/* 深森林绿色调按钮样式 */
+.about-page .view-profile-btn {
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)), var(--about-forest-light, var(--primary-light)));
+  box-shadow: 0 4px 15px var(--about-forest-shadow, rgba(6, 95, 70, 0.25)); /* 深森林绿按钮阴影 */
+}
+
+.about-page .view-profile-btn:hover {
+  background: linear-gradient(135deg, var(--about-forest-light, var(--primary-light)), var(--about-forest-deep, var(--primary-dark)));
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.35); /* 深森林绿按钮悬停阴影 */
+}
+
+/* 深森林绿色调获取报价按钮 */
+.about-page .get-quote {
+  background: var(--about-forest-main, var(--primary-color));
+  border-color: var(--about-forest-main, var(--primary-color));
+  box-shadow: 0 3px 12px var(--about-forest-shadow, rgba(6, 95, 70, 0.2)); /* 深森林绿按钮阴影 */
+}
+
+.about-page .get-quote:hover {
+  background: var(--about-forest-deep, var(--primary-dark));
+  border-color: var(--about-forest-deep, var(--primary-dark));
+  box-shadow: 0 5px 20px rgba(6, 95, 70, 0.3); /* 深森林绿按钮悬停阴影 */
 }
 
 /* ===== 全屏沉浸式画廊样式 ===== */
@@ -1360,7 +1478,7 @@ p {
 .moment-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 400; /* 取消加粗 */
   font-style: italic;
   color: #2A2E2E;
   margin: 0 0 10px 0;
@@ -1374,8 +1492,9 @@ p {
   display: block;
   width: 40px;
   height: 3px;
-  background-color: var(--primary-color); /* 使用品牌主色 */
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%); /* 深森林绿渐变 */
   margin-top: 15px;
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿阴影 */
 }
 
 .moment-description {
@@ -1389,7 +1508,7 @@ p {
 .moment-link {
   color: #555; /* 使用与副标题相同的灰色 */
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400; /* 取消加粗 */
   display: inline-flex;
   align-items: center;
   gap: 8px; /* 文字和箭头的间距 */
