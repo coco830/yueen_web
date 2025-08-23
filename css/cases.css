@@ -143,6 +143,32 @@ body {
   background-clip: text;
 }
 
+/* 技术合作主标题样式 - 应用HarmonyOS Sans字体 */
+.cooperation-main-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  font-size: 2.125rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 为技术合作主标题添加森林深绿色下划线 */
+.cooperation-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #065F46;
+  border-radius: 2px;
+}
+
 /* 技术合作服务内容 */
 .cooperation-services {
   background-color: var(--white);
@@ -276,7 +302,7 @@ body {
 
 /* 展开状态 */
 .accordion-item.active {
-  border-color: #27ae60;
+  border-color: #065F46;
 }
 
 .accordion-header {
@@ -293,7 +319,7 @@ body {
 .accordion-header h4 {
   font-family: 'Noto Sans SC', sans-serif;
   color: #2A2E2E;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 0;
@@ -333,39 +359,116 @@ body {
 }
 
 .accordion-content-inner {
-    padding: 20px;
-    line-height: 1.6;
+  padding: 30px;
+  line-height: 1.8;
   border-top: 1px solid #f0f0f0;
   font-family: 'Noto Sans SC', sans-serif;
   color: #555;
-  line-height: 1.7;
   font-size: 1rem;
 }
 
 .accordion-content p {
   font-family: 'Noto Sans SC', sans-serif;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   color: #555;
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
-.accordion-content ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
-
-.accordion-content li {
-  font-family: 'Noto Sans SC', sans-serif;
-  margin-bottom: 8px;
-  color: #555;
-  line-height: 1.6;
-}
 
 .accordion-content h4 {
   font-family: 'Noto Sans SC', sans-serif;
-  color: #27ae60;
+  color: #065F46;
+  font-weight: 600;
+  margin: 25px 0 15px 0;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 16px;
+}
+
+/* 为h4标题添加左侧绿色竖线 */
+.accordion-content h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #065F46;
+  border-radius: 2px;
+}
+
+/* h5和h6标题样式 */
+.accordion-content h5 {
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-weight: 600;
+  margin: 20px 0 12px 0;
+  font-size: 1.05rem;
+}
+
+.accordion-content h6 {
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #065F46;
   font-weight: 500;
-  margin: 20px 0 10px 0;
+  margin: 16px 0 8px 0;
+  font-size: 1rem;
+}
+
+/* 优化列表样式 */
+.accordion-content ol {
+  margin: 20px 0;
+  padding-left: 24px;
+  counter-reset: item;
+}
+
+.accordion-content ol li {
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-bottom: 16px;
+  color: #555;
+  line-height: 1.8;
+  position: relative;
+  padding-left: 8px;
+}
+
+.accordion-content ul {
+  margin: 20px 0;
+  padding-left: 24px;
+}
+
+.accordion-content ul li {
+  font-family: 'Noto Sans SC', sans-serif;
+  margin-bottom: 12px;
+  color: #555;
+  line-height: 1.8;
+  padding-left: 8px;
+}
+
+/* 强调文本样式 */
+.accordion-content strong {
+  color: #2A2E2E;
+  font-weight: 600;
+}
+
+/* 服务阶段样式 */
+.service-phase {
+  background-color: #f8f9fa;
+  border-left: 4px solid #065F46;
+  padding: 24px;
+  margin: 25px 0;
+  border-radius: 8px;
+}
+
+.service-phase h4 {
+  color: #065F46;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.service-phase h4::before {
+  display: none;
 }
 
 /* 响应式设计 */
