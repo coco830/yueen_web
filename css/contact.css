@@ -8,13 +8,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* 联系主标题样式 - 应用HarmonyOS Sans字体 */
-.contact-main-title {
+/* 联系页面主标题样式 - 统一全局样式 */
+.contact-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   color: #2A2E2E;
   font-style: italic;
-  font-size: 2rem;
-  margin-bottom: 40px;
+  font-size: 2.125rem;
+  margin-bottom: 16px;
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.3;
@@ -23,7 +23,8 @@ body {
   padding-bottom: 12px;
 }
 
-.contact-main-title::after {
+/* 为联系方式标题添加森林深绿色下划线 */
+.contact-title::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -34,13 +35,13 @@ body {
   border-radius: 2px;
 }
 
-/* 联系表单标题样式 */
-.contact-form-title {
+/* 表单标题样式 - 统一全局样式 */
+.form-title {
   font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
   color: #2A2E2E;
   font-style: italic;
-  font-size: 2rem;
-  margin-bottom: 40px;
+  font-size: 2.125rem;
+  margin-bottom: 16px;
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.3;
@@ -49,7 +50,8 @@ body {
   padding-bottom: 12px;
 }
 
-.contact-form-title::after {
+/* 为在线留言标题添加森林深绿色下划线 */
+.form-title::after {
   content: '';
   position: absolute;
   bottom: 0;
