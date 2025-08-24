@@ -42,7 +42,7 @@
 }
 
 .nav-link:hover {
-    color: #4caf50 !important;
+    color: var(--primary-color) !important;
 }
 
 /* 设置环策、环协、环责的细体高级文字效果 */

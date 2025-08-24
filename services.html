@@ -119,56 +119,8 @@
             <div id="huance" class="service-detail service-strategy">
                 <div class="service-header">
                     <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="strategy-icon">
-                            <!-- 线性风格指南针图标：代表方向指引和决策导航 -->
-                            <defs>
-                                <linearGradient id="strategyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:var(--primary-color);stop-opacity:0.8" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- 外圆环 - 主要轮廓 -->
-                            <path d="M50 10 A40 40 0 1 1 49.99 10" 
-                                  fill="rgba(255, 255, 255, 0.8)" 
-                                  stroke="#374151" 
-                                  stroke-width="2" 
-                                  opacity="0.8"
-                                  class="compass-ring icon-main-stroke"/>
-                            
-                            <!-- 内圆环 - 内部细节 -->
-                            <path d="M50 20 A30 30 0 1 1 49.99 20" 
-                                  fill="none" 
-                                  stroke="#E5E7EB" 
-                                  stroke-width="2" 
-                                  opacity="0.6"
-                                  class="compass-inner icon-detail-stroke"/>
-                            
-                            <!-- 指南针指针 - 北 - 主要轮廓 -->
-                            <path d="M50 25 L45 45 L50 35 L55 45 Z" 
-                                  fill="#374151" 
-                                  opacity="0.9"
-                                  class="compass-north icon-main-stroke"/>
-                            
-                            <!-- 指南针指针 - 南 - 内部细节 -->
-                            <path d="M50 75 L45 55 L50 65 L55 55 Z" 
-                                  fill="none" 
-                                  stroke="#E5E7EB" 
-                                  stroke-width="2" 
-                                  opacity="0.7"
-                                  class="compass-south icon-detail-stroke"/>
-                            
-                            <!-- 四个方向标记 - 内部细节 -->
-                            <path d="M50 15 L50 10" stroke="#E5E7EB" stroke-width="2" opacity="0.8" class="icon-detail-stroke"/>
-                            <path d="M85 50 L90 50" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
-                            <path d="M50 85 L50 90" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
-                            <path d="M15 50 L10 50" stroke="#E5E7EB" stroke-width="2" opacity="0.6" class="icon-detail-stroke"/>
-                            
-                            <!-- 中心点 - 主要轮廓 -->
-                            <circle cx="50" cy="50" r="3" 
-                                    fill="#374151" 
-                                    class="compass-center icon-main-stroke"/>
-                        </svg>
+                        <!-- Three.js 3D地球仪图标 -->
+                        <canvas id="globe-canvas" class="globe-icon"></canvas>
                     </div>
                     <h2 class="service-name">环策（环保工作策略模式）</h2>
                 </div>
@@ -216,9 +168,12 @@
             </div>
             
             <!-- 环协服务 -->
-            <div id="huanxie" class="service-detail">
+            <div id="huanxie" class="service-detail service-cooperation">
                 <div class="service-header">
-                    <div class="service-icon">📋</div>
+                    <div class="service-icon">
+                        <!-- Three.js 3D地球仪图标 -->
+                        <canvas id="globe-canvas-cooperation" class="globe-icon"></canvas>
+                    </div>
                     <h2 class="service-name">环协（环保工作协助模式）</h2>
                 </div>
                 <div class="service-intro">
@@ -319,9 +274,12 @@
             </div>
             
             <!-- 环责服务 -->
-            <div id="huanze" class="service-detail">
+            <div id="huanze" class="service-detail service-responsibility">
                 <div class="service-header">
-                    <div class="service-icon">🛡️</div>
+                    <div class="service-icon">
+                        <!-- Three.js 3D地球仪图标 -->
+                        <canvas id="globe-canvas-responsibility" class="globe-icon"></canvas>
+                    </div>
                     <h2 class="service-name">环责（环保工作全责模式）</h2>
                 </div>
                 <div class="service-intro">
@@ -427,5 +385,98 @@
 
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script>
+        // Three.js 3D地球仪初始化 - 通用函数
+        function initGlobe(canvasId, serviceClass) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(64, 64);
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+            camera.position.z = 3;
+
+            const group = new THREE.Group();
+            scene.add(group);
+
+            const lineMaterial = new THREE.LineBasicMaterial({ 
+                color: '#4a90e2', // 浅蓝色
+                transparent: true,
+                opacity: 0.5
+            });
+
+            // 纬线
+            for (let i = -60; i <= 60; i += 30) {
+                const phi = THREE.MathUtils.degToRad(90 - i);
+                const circle = new THREE.CircleGeometry(Math.cos(phi), 64);
+                circle.deleteAttribute('normal');
+                circle.deleteAttribute('uv');
+                const positions = circle.getAttribute('position').array;
+                const vertices = [];
+                for (let j = 3; j < positions.length; j += 3) {
+                    vertices.push(new THREE.Vector3(positions[j], positions[j+1], positions[j+2]));
+                }
+                const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
+                const line = new THREE.LineLoop(geometry, lineMaterial);
+                line.rotation.x = Math.PI / 2;
+                group.add(line);
+            }
+
+            // 经线
+            for (let j = 0; j < 360; j += 30) {
+                const points = [];
+                for (let k = -90; k <= 90; k += 5) {
+                    const phi = THREE.MathUtils.degToRad(90 - k);
+                    const theta = THREE.MathUtils.degToRad(j);
+                    points.push(new THREE.Vector3(
+                        Math.sin(phi) * Math.cos(theta),
+                        Math.cos(phi),
+                        Math.sin(phi) * Math.sin(theta)
+                    ));
+                }
+                const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                const line = new THREE.Line(geometry, lineMaterial);
+                group.add(line);
+            }
+
+            // 动画循环
+            function animate() {
+                requestAnimationFrame(animate);
+                group.rotation.y += (2 * Math.PI) / (20 * 60); // 20秒一圈
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // 鼠标悬停效果 - 与环策完全相同
+            const serviceCard = document.querySelector(serviceClass);
+            if (serviceCard) {
+                serviceCard.addEventListener('mouseenter', () => {
+                    canvas.style.background = '#065F46';
+                    lineMaterial.color.set('#20c997'); // 青绿色
+                    lineMaterial.opacity = 0.8;
+                });
+                serviceCard.addEventListener('mouseleave', () => {
+                    canvas.style.background = '#f0f0f0';
+                    lineMaterial.color.set('#4a90e2'); // 浅蓝色
+                    lineMaterial.opacity = 0.5;
+                });
+            }
+        }
+
+        // 页面加载完成后初始化所有地球仪
+        document.addEventListener('DOMContentLoaded', function() {
+            // 环策地球仪
+            initGlobe('globe-canvas', '.service-strategy');
+            
+            // 环协地球仪 - 完全相同的样式
+            initGlobe('globe-canvas-cooperation', '.service-cooperation');
+            
+            // 环责地球仪 - 完全相同的样式
+            initGlobe('globe-canvas-responsibility', '.service-responsibility');
+        });
+    </script>
 </body>
 </html>

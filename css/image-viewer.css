@@ -18,6 +18,10 @@
     max-width: 90%;
     max-height: 80%;
     object-fit: contain;
+    transition: transform 0.1s ease-out; /* 平滑的缩放过渡 */
+    transform-origin: center center;
+    cursor: zoom-in;
+    user-select: none; /* 防止选中 */
 }
 
 #imageCaption {
@@ -28,8 +32,31 @@
     text-align: center;
     color: #ccc;
     padding: 10px 0;
-    height: 50px;
+    height: auto;
+    min-height: 50px;
     font-size: 1.2rem;
+}
+
+/* 添加操作提示 */
+.image-controls-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ccc;
+    font-size: 0.9rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.image-controls-hint::before {
+    content: "🖱️ 滚轮缩放 | 拖拽移动 | 双击重置 | ESC关闭";
 }
 
 .close-modal {
