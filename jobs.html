@@ -358,53 +358,32 @@
                     <!-- 结果页面 -->
                     <div class="dna-result-screen" id="resultScreen">
                         <div class="result-content">
-                            <div class="result-celebration">
-                                <h3 class="result-title">🎉 你的职业DNA已解锁！</h3>
+                            <!-- 积分规则说明 -->
+                            <div class="scoring-rules">
+                                <h4 class="rules-title">积分规则说明</h4>
+                                <div class="rules-content">
+                                    <p>本测试基于10道职业倾向问题，每个选项对应不同的岗位类型。系统会根据您的选择自动计算各岗位的匹配得分：</p>
+                                    <ul class="rules-list">
+                                        <li><strong>积分计算：</strong>每选择一个选项，对应岗位获得1分</li>
+                                        <li><strong>匹配度：</strong>最高得分岗位的得分 ÷ 总题数 × 100%</li>
+                                        <li><strong>结果判定：</strong>得分最高的岗位即为推荐匹配岗位</li>
+                                        <li><strong>平分处理：</strong>如出现平分，优先推荐排序靠前的岗位</li>
+                                    </ul>
+                                </div>
                             </div>
-                            
-                            <div class="result-card" id="resultCard">
-                                <div class="result-role">
-                                    <div class="role-icon" id="roleIcon">💼</div>
-                                    <div class="role-info">
-                                        <h4 class="role-name" id="roleName">销售外勤</h4>
-                                        <span class="role-match" id="roleMatch">匹配度：90%</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="role-description" id="roleDescription">
-                                    您是天生的沟通者和开拓者，享受与人打交道的过程，并被达成目标所驱动。您不畏挑战，喜欢在充满变化的环境中工作，非常适合代表公司冲在业务第一线。
-                                </div>
-                                
-                                <div class="role-traits" id="roleTraits">
-                                    <span class="trait">沟通能力强</span>
-                                    <span class="trait">目标导向</span>
-                                    <span class="trait">适应性强</span>
+
+                            <!-- 所有岗位解析 -->
+                            <div class="all-roles-analysis">
+                                <h4 class="analysis-title">所有岗位详细解析</h4>
+                                <div class="roles-grid" id="allRolesGrid">
+                                    <!-- 动态生成所有岗位信息 -->
                                 </div>
                             </div>
 
                             <div class="result-actions">
-                                <button class="contact-hr-btn" onclick="contactHR()">
-                                    联系我们HR
-                                    <span class="btn-icon">📞</span>
-                                </button>
                                 <button class="retake-test-btn" onclick="retakeTest()">
                                     重新测试
                                 </button>
-                            </div>
-                            
-                            <div class="company-culture-tip">
-                                <div class="tip-icon">🌿</div>
-                                <div class="tip-content">
-                                    <h4>悦恩小贴士</h4>
-                                    <p>我们相信每个人都有独特的才华，期待与你一起守护绿水青山！</p>
-                                </div>
-                            </div>
-                            
-                            <!-- 调试信息面板 -->
-                            <div id="debugPanel" style="background: #f0f0f0; padding: 15px; margin-top: 20px; border-radius: 8px; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto; display: none;">
-                                <h4 style="margin: 0 0 10px 0; color: #333;">🔍 调试信息</h4>
-                                <div id="debugInfo">等待调试数据...</div>
-                                <button onclick="document.getElementById('debugPanel').style.display = 'none'" style="margin-top: 10px; padding: 5px 10px; background: #ccc; border: none; border-radius: 4px; cursor: pointer;">隐藏调试信息</button>
                             </div>
                         </div>
                     </div>
@@ -977,14 +956,12 @@
             
             const matchPercentage = Math.round((maxScore / dnaTestData.questions.length) * 100);
             
-            // 更新UI元素
-            const roleIcon = document.getElementById('roleIcon');
+            // 更新主要匹配结果
             const roleName = document.getElementById('roleName');
             const roleMatch = document.getElementById('roleMatch');
             const roleDescription = document.getElementById('roleDescription');
             const traitsContainer = document.getElementById('roleTraits');
             
-            if (roleIcon) roleIcon.textContent = roleData.icon;
             if (roleName) roleName.textContent = roleData.name;
             if (roleMatch) roleMatch.textContent = `匹配度：${matchPercentage}%`;
             if (roleDescription) roleDescription.textContent = roleData.description;
@@ -999,6 +976,9 @@
                     traitsContainer.appendChild(traitSpan);
                 });
             }
+            
+            // 生成所有岗位分析
+            generateAllRolesAnalysis();
             
             // 切换到结果页面
             const testScreen = document.getElementById('testScreen');
@@ -1020,6 +1000,132 @@
             
             // 触发礼花动画
             triggerConfetti();
+        }
+        
+        // 生成所有岗位分析
+        function generateAllRolesAnalysis() {
+            const allRolesGrid = document.getElementById('allRolesGrid');
+            if (!allRolesGrid) return;
+            
+            allRolesGrid.innerHTML = '';
+            
+            // 按得分排序所有角色
+            const sortedRoles = Object.keys(dnaTestData.roles).sort((a, b) => {
+                return (roleScores[b] || 0) - (roleScores[a] || 0);
+            });
+            
+            sortedRoles.forEach(roleKey => {
+                const roleData = dnaTestData.roles[roleKey];
+                const score = roleScores[roleKey] || 0;
+                const percentage = Math.round((score / dnaTestData.questions.length) * 100);
+                
+                const roleCard = document.createElement('div');
+                roleCard.className = 'role-analysis-card';
+                roleCard.innerHTML = `
+                    <div class="role-header">
+                        <h5 class="role-title">${roleData.name}</h5>
+                        <span class="role-score">${percentage}%</span>
+                    </div>
+                    <div class="role-desc">${roleData.description}</div>
+                    <div class="role-traits-small">
+                        ${roleData.traits.map(trait => `<span class="trait-small">${trait}</span>`).join('')}
+                    </div>
+                    <div class="role-score-detail">
+                        <span class="score-text">得分：${score}/${dnaTestData.questions.length}</span>
+                    </div>
+                `;
+                
+                allRolesGrid.appendChild(roleCard);
+            });
+            
+            // 添加复合型人才说明卡片
+            const tipCard = document.createElement('div');
+            tipCard.className = 'role-analysis-card multi-talent-tip-card';
+            tipCard.innerHTML = `
+                <div class="role-header">
+                    <h5 class="role-title">如果出现分数并列或非常接近的情况</h5>
+                </div>
+                <div class="role-desc">这说明您是复合型人才，具备多种岗位的潜力。您可以结合自己的过往经验和职业规划，优先考虑得分最高的几个岗位。同时也欢迎您在面试中与我们深入交流，共同发掘最适合您的发展方向。</div>
+            `;
+            
+            allRolesGrid.appendChild(tipCard);
+        }
+        
+        // 礼花动画函数
+        function triggerConfetti() {
+            // 检查是否加载了confetti库
+            if (typeof confetti === 'undefined') {
+                console.error('Confetti library not loaded');
+                return;
+            }
+            
+            // 连续发射多次礼花，创建盛大庆祝效果
+            const duration = 3000; // 持续3秒
+            const animationEnd = Date.now() + duration;
+            
+            // 创建随机颜色数组 - 喜庆的颜色
+            const colors = [
+                '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FECA57', 
+                '#FF9FF3', '#54A0FF', '#5F27CD', '#00D2D3', '#FF9F43',
+                '#10AC84', '#EE5A24', '#0984E3', '#A29BFE', '#FD79A8'
+            ];
+            
+            // 第一波：从左侧发射
+            confetti({
+                particleCount: 150,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0, y: 0.6 },
+                colors: colors
+            });
+            
+            // 第二波：从右侧发射（延迟200ms）
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.6 },
+                    colors: colors
+                });
+            }, 200);
+            
+            // 第三波：从中央上方发射（延迟400ms）
+            setTimeout(() => {
+                confetti({
+                    particleCount: 200,
+                    angle: 90,
+                    spread: 60,
+                    origin: { x: 0.5, y: 0.3 },
+                    colors: colors
+                });
+            }, 400);
+            
+            // 持续发射小波次的礼花
+            const interval = setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // 随机位置发射
+                confetti({
+                    particleCount: Math.floor(particleCount),
+                    startVelocity: 30,
+                    spread: 360,
+                    origin: {
+                        x: Math.random(),
+                        y: Math.random() * 0.5 + 0.3
+                    },
+                    colors: colors
+                });
+            }, 250);
+            
+            console.log('🎉 Canvas Confetti 礼花动画已触发！');
         }
         
         // 礼花动画函数
@@ -1119,9 +1225,35 @@
                 "data-specialist": 0
             };
             
+            // 获取页面元素
+            const resultScreen = document.getElementById('resultScreen');
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const testScreen = document.getElementById('testScreen');
+            
+            // 重置所有页面状态
+            if (resultScreen) {
+                resultScreen.classList.remove('active', 'force-visible');
+                resultScreen.style.opacity = '';
+                resultScreen.style.display = '';
+                resultScreen.style.visibility = '';
+            }
+            
+            if (testScreen) {
+                testScreen.classList.remove('active');
+            }
+            
             // 切换到欢迎页面
-            document.getElementById('resultScreen').classList.remove('active');
-            document.getElementById('welcomeScreen').classList.add('active');
+            if (welcomeScreen) {
+                welcomeScreen.classList.add('active');
+                
+                // 确保滚动到测试区域
+                setTimeout(() => {
+                    const dnaTestSection = document.getElementById('dna-test');
+                    if (dnaTestSection) {
+                        dnaTestSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
         }
     </script>
 </body>
