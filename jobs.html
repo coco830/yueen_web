@@ -323,6 +323,11 @@
 
                     <!-- 测试进行页面 -->
                     <div class="dna-test-screen" id="testScreen">
+                        <!-- 关闭按钮 -->
+                        <button class="test-close-btn" onclick="closeDNATest()" title="退出测试">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
                         <!-- 进度条 -->
                         <div class="progress-container">
                             <div class="progress-info">
@@ -357,6 +362,11 @@
 
                     <!-- 结果页面 -->
                     <div class="dna-result-screen" id="resultScreen">
+                        <!-- 关闭按钮 -->
+                        <button class="test-close-btn" onclick="closeDNATest()" title="退出测试">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
                         <div class="result-content">
                             <!-- 积分规则说明 -->
                             <div class="scoring-rules">
@@ -816,6 +826,76 @@
             if (resultScreen) resultScreen.classList.remove('active');
         });
 
+        // 关闭DNA测试
+        function closeDNATest() {
+            // 重置所有状态
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            roleScores = {
+                "sales-field": 0,
+                "sales-office": 0, 
+                "tech-field": 0,
+                "tech-document": 0,
+                "wastewater-engineer": 0,
+                "admin-clerk": 0,
+                "data-specialist": 0
+            };
+            
+            // 获取页面元素
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            const testScreen = document.getElementById('testScreen');
+            const resultScreen = document.getElementById('resultScreen');
+            
+            // 隐藏所有测试页面
+            if (testScreen) {
+                testScreen.classList.remove('active');
+            }
+            if (resultScreen) {
+                resultScreen.classList.remove('active', 'force-visible');
+                resultScreen.style.opacity = '';
+                resultScreen.style.display = '';
+                resultScreen.style.visibility = '';
+            }
+            
+            // 显示欢迎页面
+            if (welcomeScreen) {
+                welcomeScreen.classList.add('active');
+            }
+            
+            // 调整间距回到默认状态
+            adjustCareerPathSpacing();
+            
+            // 滚动到DNA测试区域顶部
+            setTimeout(() => {
+                const dnaTestSection = document.getElementById('dna-test');
+                if (dnaTestSection) {
+                    dnaTestSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+
+        // 动态调整开启之路板块间距
+        function adjustCareerPathSpacing() {
+            const careerPath = document.getElementById('career-path');
+            const resultScreen = document.getElementById('resultScreen');
+            
+            if (!careerPath) return;
+            
+            if (resultScreen && resultScreen.classList.contains('active')) {
+                // 测试结果展开时，进一步向上缩小间距给结果内容让出更多空间
+                if (window.innerWidth > 992) {
+                    careerPath.style.marginTop = '-100px';
+                } else if (window.innerWidth > 576) {
+                    careerPath.style.marginTop = '-80px';
+                } else {
+                    careerPath.style.marginTop = '-60px';
+                }
+            } else {
+                // 未展开时，使用CSS默认的缩小间距
+                careerPath.style.marginTop = '';
+            }
+        }
+
         // 启动测试
         function startDNATest() {
             console.log('=== Starting DNA Test ===');
@@ -832,6 +912,8 @@
                 testScreen.classList.add('active');
                 console.log('Screen switched, loading first question...');
                 showQuestion(0);
+                // 调整间距
+                adjustCareerPathSpacing();
             } else {
                 console.error('Screen elements not found!');
                 alert('页面元素未找到，请刷新页面重试');
@@ -996,6 +1078,9 @@
                 setTimeout(() => {
                     resultScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 100);
+                
+                // 调整间距
+                adjustCareerPathSpacing();
             }
             
             // 触发礼花动画
@@ -1253,6 +1338,9 @@
                         dnaTestSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }, 100);
+                
+                // 调整间距回到默认状态
+                adjustCareerPathSpacing();
             }
         }
     </script>

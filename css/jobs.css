@@ -624,6 +624,13 @@ p {
   }
 }
 
+/* 开启之路板块动态间距调整 - 与其他板块保持一致 */
+#career-path.jobs-section {
+  margin-top: -60px; /* 进一步向上缩小间距 */
+  margin-bottom: 80px; /* 与标准jobs-section一致 */
+  transition: margin-top 0.5s ease; /* 平滑过渡动画 */
+}
+
 .jobs-section {
   margin-bottom: 80px;
 }
@@ -1250,7 +1257,16 @@ p {
   }
 }
 
-/* 移动端优化 */
+/* 移动端关闭按钮优化 */
+@media (max-width: 768px) {
+  .test-close-btn {
+    top: 10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+}
 @media (max-width: 768px) {
   .moment-card {
     margin: 0;
@@ -1660,6 +1676,12 @@ p {
 
 /* 响应式设计 */
 @media (max-width: 992px) {
+  /* 开启之路板块响应式动态间距调整 */
+  #career-path.jobs-section {
+    margin-top: -50px; /* 平板进一步向上缩小间距 */
+    margin-bottom: 60px; /* 与响应式jobs-section保持一致 */
+  }
+  
   .hero-section {
     height: 100vh;
     padding-left: 60px;
@@ -1715,6 +1737,12 @@ p {
 }
 
 @media (max-width: 576px) {
+/* 开启之路板块小屏动态间距调整 */
+#career-path.jobs-section {
+  margin-top: -40px; /* 手机进一步向上缩小间距 */
+  margin-bottom: 50px; /* 与响应式jobs-section保持一致 */
+}
+
 .hero-section {
   height: 100vh;
   justify-content: center;
@@ -2006,7 +2034,10 @@ p {
   }
 }
 
-/* DNA高亮样式 - 森林深绿色 */
+/* DNA测试板块标准间距调整 */
+#dna-test.jobs-section {
+  margin-bottom: 80px; /* 与其他jobs-section保持一致 */
+}
 .dna-highlight {
   color: #065F46;
 }
@@ -2016,10 +2047,10 @@ p {
   background: white;
   border-radius: 20px;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 0; /* 移除底部间距，避免与开启之路的间距叠加 */
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: 200px; /* 进一步减少最小高度 */
 }
 
 /* 页面切换基础样式 */
@@ -2028,8 +2059,8 @@ p {
 .dna-result-screen {
   display: none;
   width: 100%;
-  min-height: 600px;
-  padding: 50px;
+  min-height: 200px; /* 大幅减少最小高度 */
+  padding: 30px; /* 减少内边距 */
   transition: all 0.5s ease;
   opacity: 0;
 }
@@ -2148,6 +2179,36 @@ p {
   0% { transform: translateX(8px); }
   50% { transform: translateX(12px); }
   100% { transform: translateX(8px); }
+}
+
+/* === 测试关闭按钮样式 === */
+.test-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #666;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.test-close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #333;
+  transform: scale(1.05);
+}
+
+.test-close-btn:active {
+  transform: scale(0.95);
 }
 
 /* === 测试页面样式 === */
@@ -2633,8 +2694,8 @@ p {
   .dna-welcome-screen,
   .dna-test-screen,
   .dna-result-screen {
-    padding: 30px 20px;
-    min-height: 500px;
+    padding: 20px;
+    min-height: 150px; /* 大幅减少移动端最小高度 */
   }
   
   .welcome-title {
