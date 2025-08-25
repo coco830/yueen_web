@@ -24,6 +24,11 @@ body {
   padding-bottom: 12px;
 }
 
+/* 开启之路标题特殊纤细字体样式 */
+#career-path .jobs-section-title {
+  font-weight: 200; /* 超细字重，保持原有斜体和其他样式 */
+}
+
 /* 为主标题添加森林深绿色下划线 */
 .section-title::after,
 .jobs-section-title::after {
@@ -35,6 +40,275 @@ body {
   height: 4px;
   background-color: #065F46;
   border-radius: 2px;
+}
+
+/* 毛玻璃应聘卡片 - 极简紧凑设计 */
+.application-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 40px 0;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.application-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.application-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2A2E2E;
+  text-align: center;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.application-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 主要联系信息 - 居中布局 */
+.contact-primary {
+  display: flex;
+  justify-content: center;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.email-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.label {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.email-link {
+  font-size: 16px;
+  color: #065F46;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.email-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+/* 思维测试按钮 - 参考DNA测试设计 */
+.mystery-test-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.mystery-test-btn {
+  background: linear-gradient(135deg, #065F46, #047857);
+  color: white;
+  border: none;
+  padding: 18px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.3);
+  letter-spacing: 0.3px;
+}
+
+.mystery-test-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(6, 95, 70, 0.4);
+  background: linear-gradient(135deg, #047857, #059669);
+}
+
+.mystery-test-btn .btn-arrow {
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.mystery-test-btn .btn-text {
+  transition: transform 0.2s ease;
+}
+
+/* 左箭头按钮动画 */
+.mystery-test-btn.left-arrow:hover .btn-arrow {
+  transform: translateX(-6px);
+  animation: arrowSlideLeft 0.6s ease infinite;
+}
+
+.mystery-test-btn.left-arrow:hover .btn-text {
+  transform: translateX(-3px);
+}
+
+/* 右箭头按钮动画 */
+.mystery-test-btn.right-arrow:hover .btn-arrow {
+  transform: translateX(6px);
+  animation: arrowSlideRight 0.6s ease infinite;
+}
+
+.mystery-test-btn.right-arrow:hover .btn-text {
+  transform: translateX(3px);
+}
+
+/* 左箭头动画 */
+@keyframes arrowSlideLeft {
+  0%, 100% { transform: translateX(-6px); }
+  50% { transform: translateX(-12px); }
+}
+
+/* 右箭头动画 */
+@keyframes arrowSlideRight {
+  0%, 100% { transform: translateX(6px); }
+  50% { transform: translateX(12px); }
+}
+
+/* 应聘要求 - 紧凑列表 */
+.application-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.requirement-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.requirement-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.req-label {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.req-content {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .application-card {
+    padding: 24px 20px;
+    margin: 30px 0;
+  }
+  
+  .application-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .application-content {
+    gap: 20px;
+  }
+  
+  .contact-primary {
+    padding: 18px 20px;
+  }
+  
+  .mystery-test-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .mystery-test-btn {
+    min-width: 250px;
+    padding: 16px 28px;
+    font-size: 15px;
+  }
+  
+  .requirement-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  
+  .req-label {
+    font-size: 11px;
+  }
+  
+  .req-content {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .application-card {
+    padding: 20px 16px;
+    margin: 24px 0;
+    border-radius: 10px;
+  }
+  
+  .application-title {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  
+  .contact-primary {
+    padding: 16px;
+  }
+  
+  .email-link {
+    font-size: 15px;
+  }
+  
+  .mystery-test-btn {
+    min-width: 200px;
+    padding: 14px 24px;
+    font-size: 14px;
+    gap: 10px;
+  }
+  
+  .req-content {
+    font-size: 13px;
+    line-height: 1.5;
+  }
 }
 
 /* 职位标题去除加粗 */
@@ -1775,11 +2049,50 @@ p {
 
 /* 思维测试样式 */
 .thinking-test {
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 40px;
   background: linear-gradient(135deg, #f8fffe 0%, #f0f9f7 100%);
   border-radius: 20px;
   border: 2px solid #e8f5f0;
+}
+
+/* 可选挑战样式 */
+.optional-challenge {
+  margin-top: 30px;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--primary-color);
+}
+
+.challenge-title {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.challenge-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.challenge-content strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.challenge-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.challenge-content ul li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #555;
 }
 
 .test-title {
@@ -1793,103 +2106,20 @@ p {
 .test-intro {
   font-size: 16px;
   color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
   line-height: 1.6;
 }
 
-.test-question {
-  margin-bottom: 40px;
-  padding: 30px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid var(--primary-color);
-}
-
-.question-title {
-  font-size: 20px;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.question-content p {
-  margin-bottom: 15px;
-  line-height: 1.7;
-  color: #444;
-}
-
-.question-content strong {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.question-content ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
-
-.question-content ul li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-  color: #555;
-}
-
-.test-submission {
-  margin-top: 40px;
-  padding: 30px;
-  background: linear-gradient(135deg, #2d5a3d 0%, #1e3d2a 100%);
-  border-radius: 15px;
-  color: white;
-}
-
-.submission-title {
-  font-size: 20px;
-  color: white;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.submission-info {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.contact-info {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.contact-info p {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.contact-info strong {
-  color: #a8d5ba;
-}
-
-.contact-info a {
-  color: #a8d5ba;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.contact-info a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.submission-note {
-  margin-top: 20px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid #a8d5ba;
-  line-height: 1.6;
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .thinking-test {
+    padding: 30px 20px;
+  }
+  
+  .optional-challenge {
+    padding: 25px 20px;
+  }
 }
 
 /* 失败博物馆样式 */
