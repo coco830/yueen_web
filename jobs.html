@@ -479,6 +479,22 @@
     <!-- Canvas Confetti 礼花库 -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     
+    <!-- 邮箱链接功能增强 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为邮箱链接添加点击事件，提供更好的用户体验
+            const emailLink = document.querySelector('#career-path .email-link');
+            if (emailLink) {
+                emailLink.addEventListener('click', function(e) {
+                    // 如果默认行为被阻止，显示提示信息
+                    setTimeout(() => {
+                        alert('如果您的邮件客户端没有自动打开，请手动发送邮件至：yueenrs@yueentech.cn\n\n邮件主题请按照要求填写：应聘职位 + 姓名 + 联系方式\n\n请确保您已完成两个思维测试的分析报告并作为附件发送。');
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+    
     <!-- DNA测试交互脚本 -->
     <script>
         // DNA测试数据
