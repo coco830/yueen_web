@@ -1,0 +1,40 @@
+/* AI聊天悬浮窗样式 */
+.ai-chat-float {
+  position: fixed;
+  right: 20px; /* 靠近滚动条但不遮挡 */
+  bottom: 100px;
+  z-index: 9999;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.ai-chat-float:hover {
+  transform: scale(1.1);
+}
+
+/* 脉冲动画效果 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .ai-chat-float {
+    right: 20px;
+    bottom: 80px;
+  }
+}
