@@ -1,0 +1,138 @@
+/* 发光粒子和电流效果样式 */
+
+/* 粒子容器 */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 发光粒子 */
+.glowing-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4dffea, 0 0 40px #4dffea;
+  animation: float 15s infinite linear;
+  opacity: 0;
+}
+
+/* 粒子浮动动画 */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+/* 电流效果容器 */
+.electric-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 电流线条 */
+.electric-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(77, 255, 234, 0.8), transparent);
+  box-shadow: 0 0 10px rgba(77, 255, 234, 0.8);
+  animation: flow 3s infinite linear;
+  transform-origin: left center;
+}
+
+/* 电流流动动画 */
+@keyframes flow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* 电流节点 */
+.electric-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(77, 255, 234, 0.8);
+  box-shadow: 0 0 10px rgba(77, 255, 234, 0.8), 0 0 20px rgba(77, 255, 234, 0.6);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* 节点脉冲动画 */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .glowing-particle {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #4dffea, 0 0 20px #4dffea;
+  }
+  
+  .electric-line {
+    height: 1px;
+    box-shadow: 0 0 5px rgba(77, 255, 234, 0.8);
+  }
+  
+  .electric-node {
+    width: 6px;
+    height: 6px;
+    box-shadow: 0 0 5px rgba(77, 255, 234, 0.8), 0 0 10px rgba(77, 255, 234, 0.6);
+  }
+}
+
+@media (max-width: 480px) {
+  .glowing-particle {
+    box-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 10px #4dffea, 0 0 15px #4dffea;
+  }
+  
+  .electric-line {
+    box-shadow: 0 0 3px rgba(77, 255, 234, 0.8);
+  }
+  
+  .electric-node {
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 3px rgba(77, 255, 234, 0.8), 0 0 6px rgba(77, 255, 234, 0.6);
+  }
+}

@@ -56,6 +56,17 @@ h2.service-name {
   font-weight: 100 !important;
 }
 
+/* 轮播图标题字体样式优化 */
+.slide-title {
+  font-weight: 100 !important; /* 使用最细的字重 */
+  letter-spacing: 0.1em !important; /* 增加字间距提升质感 */
+}
+
+/* 轮播内容向上移动 */
+.slide-content {
+  transform: translateY(-30px) !important; /* 向上移动30px */
+}
+
 /* 设置描述文字为白色并微调样式 */
 .slide-description p {
   color: rgba(255, 255, 255, 0.95) !important; /* 使用略微透明的白色 */
