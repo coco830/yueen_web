@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- 绿色圆形背景 -->
+  <circle cx="250" cy="250" r="240" fill="#1a9c5b"/>
+  
+  <!-- 白色叶子图案 -->
+  <path d="M250,50 C350,150 400,200 350,350 C300,450 200,450 150,350 C100,200 150,150 250,50" 
+        fill="none" stroke="white" stroke-width="25" stroke-linecap="round"/>
+  <path d="M250,450 C150,350 100,300 150,150 C200,50 300,50 350,150 C400,300 350,350 250,450" 
+        fill="none" stroke="white" stroke-width="25" stroke-linecap="round"/>
+</svg>

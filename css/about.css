@@ -1,0 +1,1591 @@
+/* 关于我们页面样式 - 深森林绿色调 */
+
+/* About页面专用深森林绿色调定义 */
+.about-page {
+  /* 深森林绿色调 - 专业环保色系 */
+  --about-forest-main: #065F46;        /* 深森林绿主色 RGB(6, 95, 70) */
+  --about-forest-deep: #064E3B;        /* 深松绿 RGB(6, 78, 59) */
+  --about-forest-light: #047857;       /* 翡翠绿 RGB(4, 120, 87) */
+  --about-forest-accent: #059669;      /* 环保绿重点色 RGB(5, 150, 105) */
+  --about-forest-alpha: rgba(6, 95, 70, 0.1);       /* 深森林绿透明 */
+  --about-forest-shadow: rgba(6, 95, 70, 0.15);     /* 深森林绿阴影 */
+}
+
+/* HarmonyOS Sans 字体定义 */
+.mission-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  /* 继承原有 .intro-title 的布局样式 */
+  font-size: 2.125rem;     /* 略大于正文形成层级 */
+  margin-bottom: 24px;
+  font-weight: 400;        /* 取消加粗，使用正常字重 */
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  position: relative;      /* 为下划线定位 */
+}
+
+/* 为mission-title添加深森林绿下划线 */
+.mission-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  margin: 15px 0 0 0;      /* 左对齐，不居中 */
+  box-shadow: 0 2px 8px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿阴影效果 */
+}
+
+/* 应用统一的模块主题样式到section-title - 取消加粗 */
+.section-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E;
+  font-style: italic;
+  font-weight: 400; /* 取消加粗 */
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  position: relative;
+}
+
+/* 为section-title添加深森林绿下划线 */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--about-forest-main, #065F46) 0%, var(--about-forest-light, #047857) 100%);
+  margin: 15px auto 0 auto; /* 居中显示 */
+  box-shadow: 0 2px 8px var(--about-forest-shadow, rgba(6, 95, 70, 0.15));
+}
+
+/* 局部字体与抗锯齿，仅作用于本页 */
+body {
+  font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 标题样式统一 - 取消加粗，添加深森林绿装饰 */
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+  font-weight: 400; /* 取消加粗，使用正常字重 */
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* 为所有标题添加深森林绿下划线装饰 */
+h1::after, h2::after, h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, #065F46) 0%, var(--about-forest-light, #047857) 100%);
+  margin-top: 12px;
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(6, 95, 70, 0.15));
+}
+
+p {
+  color: #555555;
+  margin-bottom: 1.5rem;
+  font-weight: 400; /* 确保段落文字也不加粗 */
+}
+
+/* 关于我们页头可读性增强：仅本页生效 */
+.header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
+.header-container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  position: static;
+  left: auto;
+  top: auto;
+}
+
+.logo a {
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-img {
+  margin-right: 15px;
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .logo-text,
+.header .logo-subtitle {
+  color: #000000;
+  text-shadow: none;
+}
+
+.header .logo-text {
+  font-size: 1.4rem;
+  font-weight: 400; /* 取消加粗，更轻盈的标志文字 */
+  margin-bottom: 2px;
+}
+
+.header .logo-subtitle {
+  font-size: 0.7rem;
+  color: #64748B;
+  font-weight: 400;
+}
+
+/* 调整导航容器位置，避免与logo重叠 */
+.nav-container {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: saturate(1.2) blur(6px);
+  -webkit-backdrop-filter: saturate(1.2) blur(6px);
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f6f6f6;
+  position: static;
+  top: auto;
+  right: auto;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-menu {
+  justify-content: center;
+}
+
+.nav-link {
+  color: #222 !important;
+}
+.nav-link:hover {
+  color: #111 !important;
+  text-shadow: none;
+}
+.nav-link.active {
+  color: var(--primary-color) !important;
+  text-shadow: none;
+}
+.nav-link.active::after {
+  background-color: var(--primary-color) !important;
+}
+
+/* 调整获取报价按钮位置，避免遮挡导航 */
+.get-quote {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  transform: none;
+  background: var(--primary-color);
+  color: #fff !important;
+  border-color: var(--primary-color);
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  letter-spacing: normal;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.mobile-toggle {
+  color: #222;
+}
+
+/* 页面横幅 */
+.page-banner {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../关于我们.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--white);
+  margin-top: 120px;
+  padding-left: 80px;
+}
+
+.banner-title {
+  font-size: 3.5rem;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 取消页头底图标题的下划线装饰 */
+.banner-title::after {
+  display: none !important;
+}
+
+/* 公司介绍 */
+.company-intro {
+  background-color: var(--white);
+  scroll-margin-top: 140px; /* 支持锚定偏移 */
+}
+
+/* 收窄阅读宽度，左对齐以提升专业感 */
+.intro-content {
+  max-width: 720px;
+  margin: 0;               /* 取消水平居中，使其贴合容器左侧 */
+  text-align: left;
+}
+
+/* 标题左对齐，层级更清晰，色彩对比提升但不过度跳跃 */
+.intro-title {
+  font-size: 2.125rem;     /* 略大于正文形成层级 */
+  margin-bottom: 24px;
+  font-weight: 400;        /* 取消加粗，保持一致性 */
+  color: #111;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
+/* 正文：更大的行高与段间距，轻微字距，增强“呼吸感” */
+.intro-text {
+  font-size: 1.0625rem;    /* 17px */
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 18px;
+  letter-spacing: 0.15px;
+}
+
+/* 在公司介绍区拉开上下留白，整体更松弛 */
+.company-intro .container {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* 核心人员 */
+.team {
+  background-color: var(--light-gray);
+  scroll-margin-top: 140px; /* 支持锚定偏移 */
+}
+
+.team-grid {
+  display: block; /* 改为block以支持浮动布局 */
+  width: 100%;
+  overflow: hidden; /* 清除浮动 */
+}
+
+/* 清除浮动 */
+.team-grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.team-member {
+  position: relative;
+  width: 25%; /* 每行4个 */
+  float: left; /* 浮动布局 */
+  height: 280px; /* 统一高度 */
+  background: #FBFBFB; /* 腾讯风格背景色 */
+  border-radius: 0; /* 腾讯风格无圆角 */
+  overflow: hidden;
+  cursor: pointer; /* 腾讯风格指针 */
+  transition: background-color 0.2s linear; /* 腾讯风格过渡 */
+  box-sizing: border-box;
+  padding: 32px 0 0 32px; /* 腾讯风格内边距 */
+}
+
+.team-member:hover {
+  background: #E8E8E8; /* 腾讯风格悬停背景变深 */
+  transform: none; /* 去掉上移效果 */
+  box-shadow: none; /* 去掉阴影 */
+}
+
+.member-photo {
+  width: 100%;
+  height: 250px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 腾讯风格的占位符照片 */
+.team-member.tencent-style .placeholder-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 140px;
+  border: 2px dashed #ced4da;
+  background: #e9ecef;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* 普通样式的占位符照片 */
+.placeholder-photo {
+  border: 2px dashed #ced4da;
+  background: #e9ecef;
+  flex-direction: column;
+}
+
+.placeholder-photo .placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+.placeholder-photo .placeholder-text {
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.member-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.member-name {
+  font-size: 1.3rem;
+  font-weight: 400; /* 取消加粗 */
+  margin-bottom: 5px;
+}
+
+.member-position {
+  color: var(--about-forest-main, var(--primary-color));
+  font-weight: 400; /* 取消加粗，与其他文字保持一致 */
+  margin-bottom: 15px;
+  text-shadow: 0 1px 2px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
+}
+
+.member-bio {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* 查看详细简介按钮样式 */
+.view-profile-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.view-profile-btn:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.view-profile-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+}
+
+.btn-text {
+  font-weight: 500;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.view-profile-btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* 企业资质 */
+.qualifications {
+  background-color: var(--white);
+  scroll-margin-top: 140px; /* 支持锚定偏移 */
+}
+
+.qual-category {
+  margin-bottom: 40px;
+}
+
+.category-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400; /* 取消加粗 */
+  font-style: italic;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--about-forest-main, var(--primary-color));
+  color: #2A2E2E;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  position: relative;
+}
+
+/* 为category-title添加深森林绿渐变底边装饰 */
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15));
+}
+
+.qual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.qual-item {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.qual-item:hover {
+  transform: scale(1.05);
+}
+
+.qual-image {
+  width: 100%;
+  height: 280px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qual-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.qual-item:hover .qual-image img {
+  transform: scale(1.1);
+}
+
+.qual-title {
+  padding: 15px;
+  text-align: center;
+  font-weight: 400; /* 取消加粗 */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #222;
+  letter-spacing: 0.1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .intro-content {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .mission-title {
+    font-size: 1.75rem;
+    margin-bottom: 18px;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+  
+  .page-banner {
+    height: 320px;
+    padding-left: 40px;
+  }
+
+  .company-intro .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-title {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .intro-content {
+    max-width: 100%;
+  }
+  
+  .page-banner {
+    height: 280px;
+    padding-left: 20px;
+  }
+}
+
+/* 团队风采 */
+.team-culture {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  scroll-margin-top: 140px; /* 支持锚定偏移 */
+}
+
+.culture-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+
+.placeholder-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.placeholder-content p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* 工作风采 */
+.work-showcase {
+  background-color: white;
+  padding: 80px 0;
+  scroll-margin-top: 140px; /* 支持锚定偏移 */
+}
+
+.showcase-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.showcase-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.work-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.work-category {
+  background: #f8f9fa;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 400; /* 取消加粗，保持一致性 */
+  color: var(--about-forest-main, var(--primary-color)); /* 使用深森林绿色 */
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.work-placeholder {
+  aspect-ratio: 4/3;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ced4da;
+  transition: all 0.3s ease;
+}
+
+.work-placeholder:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 新增模块的响应式设计 */
+@media (max-width: 768px) {
+  .culture-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .work-categories {
+    gap: 30px;
+  }
+  
+  .work-category {
+    padding: 30px 20px;
+  }
+  
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .team-culture,
+  .work-showcase {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .photos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .culture-item {
+    padding: 20px;
+  }
+  
+  .culture-description,
+  .showcase-description {
+    font-size: 1rem;
+  }
+  
+  .team-culture,
+  .work-showcase {
+    padding: 40px 0;
+  }
+}
+
+
+
+
+
+/* 核心人员个人简介模态框样式 */
+.profile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile-container {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.profile-modal.active .profile-container {
+  transform: scale(1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+  position: relative;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-basic-info {
+  flex: 1;
+  position: relative;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 400; /* 取消加粗 */
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+.profile-position {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.profile-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.profile-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.profile-content {
+  padding: 40px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.bio-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #2A2E2E;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--about-forest-main, var(--primary-color));
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  position: relative;
+}
+
+/* 为bio-title添加深森林绿渐变底边装饰 */
+.bio-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%);
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15));
+}
+
+.bio-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  text-align: justify;
+}
+
+.bio-content p {
+  margin: 0 0 20px 0;
+  text-indent: 2em;
+}
+
+.bio-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .profile-container {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .profile-name {
+  font-size: 1.6rem;
+}
+
+  .profile-position {
+  font-size: 1rem;
+  }
+  
+  .profile-content {
+    padding: 30px 20px;
+  }
+  
+  .bio-title {
+    font-size: 1.2rem;
+  }
+  
+  .bio-content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-header {
+    padding: 20px 15px;
+  }
+  
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .profile-name {
+    font-size: 1.4rem;
+  }
+  
+  .profile-content {
+    padding: 20px 15px;
+  }
+  
+  .bio-content {
+  font-size: 0.9rem;
+  }
+}
+
+/* ===== 腾讯风格交互团队卡片样式 ===== */
+
+/* 腾讯风格的团队成员卡片 */
+.team-member.tencent-style {
+  position: relative;
+  width: 25%; /* 腾讯标准：每行4个 */
+  float: left; /* 腾讯布局方式 */
+  height: 280px; /* 稍微增加高度 */
+  background: #FBFBFB;
+  border-radius: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.2s linear;
+  box-shadow: none;
+  padding: 32px 0 0 32px;
+  box-sizing: border-box;
+}
+
+/* 悬停时背景变深 */
+.team-member.tencent-style:hover {
+  background: #E8E8E8;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 照片容器 - 定位到右上角 */
+.team-member.tencent-style .member-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 140px;
+  margin: 0;
+  border-radius: 0;
+  overflow: visible; /* 改为visible，让绿色小方块可以超出照片边界 */
+}
+
+.team-member.tencent-style .member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 成员信息 - 左下角显示 */
+.team-member.tencent-style .member-info {
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  right: 32px;
+  padding: 0 0 32px 0;
+  text-align: left;
+  height: auto;
+}
+
+.team-member.tencent-style .member-name {
+  font-size: 1.5rem;
+  font-weight: 400; /* 改为正常字重，去除加粗 */
+  color: var(--about-forest-main, var(--primary-color)); /* 深森林绿，与小方块同色 */
+  margin-bottom: 8px;
+  font-family: 'PingFangSC-Regular', 'helvetica neue', tahoma, 'PingFang SC', 'microsoft yahei', arial, 'hiragino sans gb', sans-serif;
+  text-shadow: 0 1px 3px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
+}
+
+.team-member.tencent-style .member-position {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* 绿色小方格 - 现在相对于照片容器定位 */
+.green-box {
+  position: absolute;
+  bottom: -14px; /* 静态时位于照片下方，一半遮挡照片 */
+  left: -14px; /* 静态时位于照片左侧，一半遮挡照片 */
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-deep, var(--primary-color)) 100%); /* 深森林绿渐变 */
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  z-index: 5; /* 确保在照片上方 */
+  box-shadow: 0 3px 12px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿立体阴影 */
+}
+
+/* 悬停时绿色方格移动到照片内部左下角顶格 */
+.team-member.tencent-style:hover .green-box {
+  bottom: 0; /* 移动到照片内部底部 */
+  left: 0; /* 移动到照片内部左边 */
+}
+
+/* 腾讯风格简洁Modal样式 */
+.tencent-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(0px);
+}
+
+.tencent-modal.active {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(8px); /* 激活时的背景模糊 */
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 稍微透明一些 */
+  backdrop-filter: blur(3px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tencent-modal .modal-content {
+  width: 780px; /* 腾讯标准宽度 */
+  height: 520px; /* 腾讯标准高度 */
+  max-width: 780px;
+  background: white;
+  border-radius: 12px; /* 适中的圆角 */
+  overflow: hidden; /* 确保内容不溢出 */
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+  transform: scale(0.85);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10001;
+}
+
+.tencent-modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #666;
+  font-size: 1.5rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10002;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  padding: 0; /* 完全去掉内边距，照片顶格 */
+  background: white; /* 纯白背景，不使用渐变 */
+  height: 240px; /* 上半部分高度 */
+  position: relative;
+  border-bottom: none; /* 去掉可能的边框 */
+}
+
+.modal-photo {
+  width: 200px; /* 修正为200px宽度 */
+  height: 200px; /* 修正为200px高度 */
+  border-radius: 0; /* 腾讯风格，无圆角 */
+  overflow: hidden;
+  margin: 0; /* 完全顶格，无边距 */
+  border: none;
+  flex-shrink: 0;
+  box-shadow: none; /* 去掉阴影，保持简洁 */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1;
+  margin-left: 200px; /* 为200px照片留出空间 */
+  padding: 20px 40px 20px 20px; /* 减少上内边距，压缩上方空白 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modal-info h2 {
+  font-size: 2.2rem; /* 更大的标题 */
+  font-weight: 400;
+  margin: 0 0 12px 0;
+  color: var(--about-forest-main, var(--primary-color)); /* 深森林绿主色调 */
+  line-height: 1.2;
+  text-shadow: 0 2px 4px var(--about-forest-alpha, rgba(0,0,0,0.1)); /* 深森林绿文字阴影 */
+}
+
+.modal-info p {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #666; /* 副标题使用灰色 */
+  font-weight: 400; /* 取消加粗 */
+  opacity: 0.9;
+}
+
+/* 分割线样式 - 横跨整个Modal宽度 */
+.modal-divider {
+  width: 100%; /* 横跨整个Modal宽度 */
+  height: 1px;
+  background-color: #e0e0e0; /* 浅灰色分割线 */
+  margin: 0; /* 无边距，完全横跨 */
+  border: none;
+  position: absolute;
+  top: 240px; /* 在照片下方适当位置 */
+  left: 0;
+}
+
+.modal-bio {
+  padding: 30px 40px 40px 40px; /* 从Modal左边开始，左右各40px边距 */
+  margin-top: 260px; /* 从分割线下方开始：240px分割线位置 + 20px间距 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-bio p {
+  font-size: 1.05rem;
+  line-height: 1.8; /* 更大的行高 */
+  color: #4a5568;
+  margin: 0;
+  text-align: left; /* 改为左对齐，与姓名职位对齐 */
+  max-width: 700px; /* 限制文本宽度，提升可读性 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .team-member.tencent-style {
+    height: 220px;
+    padding: 20px 0 0 20px;
+  }
+  
+  .team-member.tencent-style .member-photo {
+    width: 100px;
+    height: 120px;
+  }
+  
+  .team-member.tencent-style .member-info {
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    padding: 0 0 20px 0;
+  }
+  
+  .team-member.tencent-style .member-name {
+    font-size: 1.3rem;
+  }
+  
+  .team-member.tencent-style .member-position {
+    font-size: 0.9rem;
+  }
+  
+  .green-box {
+    width: 24px;
+    height: 24px;
+    bottom: 0;
+    left: 100px; /* 调整移动端位置 */
+  }
+  
+  .team-member.tencent-style:hover .green-box {
+    bottom: 6px;
+    left: 106px; /* 移动端照片内部位置 */
+  }
+  
+  .tencent-modal .modal-content {
+    width: 95%;
+    margin: 20px;
+    min-height: 500px; /* 移动端稍小的最小高度 */
+  }
+  
+  .modal-header {
+    flex-direction: column;
+  text-align: center;
+    padding: 30px 25px;
+    min-height: 160px;
+  }
+  
+  .modal-photo {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100px; /* 移动端照片稍大 */
+    height: 120px;
+  }
+  
+  .modal-info h2 {
+    font-size: 1.8rem; /* 移动端稍小的标题 */
+  }
+  
+  .modal-bio {
+    padding: 0 25px 40px 25px;
+  }
+  
+  .modal-bio p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* 深森林绿色调增强效果 */
+.about-page .qual-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px var(--about-forest-shadow, rgba(6, 95, 70, 0.15)); /* 深森林绿悬停阴影 */
+}
+
+.about-page .moment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px var(--about-forest-shadow, rgba(6, 95, 70, 0.15)); /* 深森林绿悬停阴影 */
+}
+
+/* 深森林绿色调按钮样式 */
+.about-page .view-profile-btn {
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)), var(--about-forest-light, var(--primary-light)));
+  box-shadow: 0 4px 15px var(--about-forest-shadow, rgba(6, 95, 70, 0.25)); /* 深森林绿按钮阴影 */
+}
+
+.about-page .view-profile-btn:hover {
+  background: linear-gradient(135deg, var(--about-forest-light, var(--primary-light)), var(--about-forest-deep, var(--primary-dark)));
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.35); /* 深森林绿按钮悬停阴影 */
+}
+
+/* 深森林绿色调获取报价按钮 */
+.about-page .get-quote {
+  background: var(--about-forest-main, var(--primary-color));
+  border-color: var(--about-forest-main, var(--primary-color));
+  box-shadow: 0 3px 12px var(--about-forest-shadow, rgba(6, 95, 70, 0.2)); /* 深森林绿按钮阴影 */
+}
+
+.about-page .get-quote:hover {
+  background: var(--about-forest-deep, var(--primary-dark));
+  border-color: var(--about-forest-deep, var(--primary-dark));
+  box-shadow: 0 5px 20px rgba(6, 95, 70, 0.3); /* 深森林绿按钮悬停阴影 */
+}
+
+/* ===== 全屏沉浸式画廊样式 ===== */
+
+/* 1. 全屏画廊容器 */
+.fullscreen-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+    width: 100%;
+  height: 100%;
+  background-color: rgba(80, 80, 80, 0.95); /* 深邃的半透明深灰色背景 */
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* 默认隐藏，用于动画 */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen-gallery.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 2. 主图片样式 */
+.gallery-image {
+  max-width: 90vw; /* 图片最大宽度为视窗的90% */
+  max-height: 85vh; /* 图片最大高度为视窗的85% */
+  object-fit: contain; /* 保证图片完整显示 */
+  transform: scale(0.8); /* 用于入场动画 */
+  transition: transform 0.3s ease;
+}
+
+.fullscreen-gallery.is-active .gallery-image {
+  transform: scale(1); /* 激活时放大到正常尺寸 */
+}
+
+/* 3. 导航箭头和关闭按钮 */
+.gallery-close, .gallery-prev, .gallery-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 2001;
+}
+
+.gallery-close:hover, .gallery-prev:hover, .gallery-next:hover {
+  color: white;
+}
+
+.gallery-close { 
+  top: 20px; 
+  right: 30px; 
+  font-size: 50px; 
+}
+
+.gallery-prev { 
+  top: 50%; 
+  left: 20px; 
+  transform: translateY(-50%); 
+}
+
+.gallery-next { 
+  top: 50%; 
+  right: 20px; 
+  transform: translateY(-50%); 
+}
+
+/* 4. 图片标题 - 隐藏不显示 */
+.gallery-caption {
+  display: none; /* 不显示图片标题 */
+}
+
+/* 相册卡片样式 - 保留必要的预览卡片样式 */
+/* 保留原有的单一卡片展示样式 */
+.gallery-showcase {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* ===== 双栏网格布局容器 ===== */
+
+/* 1. 网格容器样式 */
+.gallery-grid-container {
+  display: grid; /* 启用网格布局 */
+  grid-template-columns: repeat(2, 1fr); /* 创建两列，每列占据可用空间的一半 */
+  gap: 30px; /* 设置列与列、行与行之间的间距 */
+  max-width: 1200px; /* 设定一个最大宽度，避免在超宽屏上拉伸过度 */
+  margin: 0 auto; /* 让整个网格容器在页面中水平居中 */
+  padding: 0 20px; /* 页面左右两边的留白 */
+}
+
+/* 2. 响应式设计：在移动设备上变为单列 */
+@media (max-width: 768px) {
+  .gallery-grid-container {
+    grid-template-columns: 1fr; /* 在平板及以下设备，变为单列布局 */
+    gap: 20px; /* 移动设备上缩小间距 */
+    padding: 0 15px; /* 移动设备上减少左右留白 */
+  }
+}
+
+/* 3. 额外的响应式优化 */
+@media (max-width: 992px) and (min-width: 769px) {
+  .gallery-grid-container {
+    gap: 25px; /* 中等屏幕设备稍小的间距 */
+    padding: 0 15px;
+  }
+}
+
+/* ===== 现代化moment-card设计 ===== */
+
+/* 1. 卡片整体容器 */
+.moment-card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* 更柔和的阴影 */
+  overflow: hidden; /* 隐藏图片溢出的部分 */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%; /* 确保卡片填充网格单元格 */
+  margin: 0; /* 移除任何可能的居中边距 */
+}
+
+.moment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. 封面图片区域 */
+.moment-cover {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 280px;
+}
+
+.moment-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* 为图片放大添加动画 */
+}
+
+/* 3. 悬停时的遮罩和图标 */
+.moment-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.4s ease;
+}
+
+.moment-card:hover .moment-cover img {
+  transform: scale(1.05); /* 悬停时图片放大 */
+}
+
+.moment-card:hover .moment-overlay {
+  opacity: 1; /* 悬停时遮罩浮现 */
+}
+
+/* 4. 卡片下方的文字内容区 */
+.moment-content {
+  padding: 30px;
+}
+
+.moment-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  font-size: 24px;
+  font-weight: 400; /* 取消加粗 */
+  font-style: italic;
+  color: #2A2E2E;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
+/* 标题下的装饰性短线 */
+.moment-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--about-forest-main, var(--primary-color)) 0%, var(--about-forest-light, var(--primary-color)) 100%); /* 深森林绿渐变 */
+  margin-top: 15px;
+  box-shadow: 0 2px 6px var(--about-forest-shadow, rgba(0,0,0,0.15)); /* 深森林绿阴影 */
+}
+
+.moment-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 25px 0;
+}
+
+/* 5. "查看相册" 链接 */
+.moment-link {
+  color: #555; /* 使用与副标题相同的灰色 */
+  text-decoration: none;
+  font-weight: 400; /* 取消加粗 */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* 文字和箭头的间距 */
+  transition: gap 0.3s ease;
+}
+
+.moment-link:hover {
+  gap: 15px; /* 悬停时箭头向右移动 */
+}
+
+.moment-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* 额外的卡片优化 */
+.moment-card:active {
+  transform: translateY(-4px);
+}
+
+.moment-overlay .fas {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* 确保在小屏幕上图标尺寸适中 */
+@media (max-width: 480px) {
+  .moment-overlay {
+    font-size: 32px;
+  }
+  
+  .moment-title::after {
+    width: 30px;
+    height: 2px;
+    margin-top: 12px;
+  }
+}
+
+/* 全屏画廊响应式设计 */
+@media (max-width: 768px) {
+  .gallery-close, .gallery-prev, .gallery-next {
+    font-size: 30px;
+  }
+  
+  .gallery-close { 
+    top: 10px; 
+    right: 15px; 
+    font-size: 40px; 
+  }
+  
+  .gallery-prev { 
+    left: 10px; 
+  }
+  
+  .gallery-next { 
+    right: 10px; 
+  }
+  
+
+  
+  .moment-card {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .moment-cover {
+    height: 220px;
+  }
+  
+  .moment-content {
+    padding: 24px;
+  }
+  
+  .moment-title {
+    font-size: 20px;
+  }
+  
+  .moment-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}

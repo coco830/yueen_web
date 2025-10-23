@@ -1,0 +1,112 @@
+/* 图片查看器样式 */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    transition: transform 0.1s ease-out; /* 平滑的缩放过渡 */
+    transform-origin: center center;
+    cursor: zoom-in;
+    user-select: none; /* 防止选中 */
+}
+
+#imageCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: auto;
+    min-height: 50px;
+    font-size: 1.2rem;
+}
+
+/* 添加操作提示 */
+.image-controls-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ccc;
+    font-size: 0.9rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.image-controls-hint::before {
+    content: "🖱️ 滚轮缩放 | 拖拽移动 | 双击重置 | ESC关闭";
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 添加放大镜图标提示点击 */
+.qual-image {
+    position: relative;
+}
+
+.qual-image::after {
+    content: '🔍';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.qual-image:hover::after {
+    opacity: 1;
+}
+
+/* 响应式设计 */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}

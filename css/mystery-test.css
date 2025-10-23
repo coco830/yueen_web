@@ -1,0 +1,366 @@
+/* 悬疑探案测试样式 */
+
+.mystery-test-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.mystery-test-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mystery-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 空房间背景 */
+.mystery-container.empty-room {
+    background-image: url('../空无一物的房间.png');
+}
+
+/* 图书管理员背景 */
+.mystery-container.librarian {
+    background-image: url('../沉默的图书管理员.png');
+}
+
+/* 关闭按钮 */
+.mystery-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #fff;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.mystery-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* 主要内容区域 */
+.mystery-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #00ff41;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* 终端风格标题 */
+.mystery-title {
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+    letter-spacing: 2px;
+}
+
+.mystery-subtitle {
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* 状态指示器 */
+.mystery-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.case-info {
+    color: #00ff41;
+    font-size: 14px;
+}
+
+.difficulty-stars {
+    color: #ffff00;
+    font-size: 16px;
+}
+
+/* 内容显示区域 */
+.mystery-text-container {
+    min-height: 400px;
+    padding: 20px;
+    background: rgba(0, 20, 0, 0.7);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+.mystery-text {
+    color: #fff;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+/* 打字机光标效果 */
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background-color: #00ff41;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* 操作按钮区域 */
+.mystery-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mystery-btn {
+    background: linear-gradient(145deg, #001a00, #003300);
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mystery-btn:hover {
+    background: linear-gradient(145deg, #003300, #004d00);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+    transform: translateY(-2px);
+}
+
+.mystery-btn:active {
+    transform: translateY(0);
+}
+
+.mystery-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 案件切换器 */
+.case-switcher {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.case-tab {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.case-tab.active {
+    background: rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.case-tab:hover:not(.active) {
+    background: rgba(0, 255, 65, 0.1);
+}
+
+/* 答案输入区域 */
+.answer-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(0, 30, 0, 0.8);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 5px;
+    display: none;
+}
+
+.answer-section.active {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.answer-textarea {
+    width: 100%;
+    min-height: 150px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff41;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.answer-textarea:focus {
+    outline: none;
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.answer-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* 提交按钮 */
+.submit-answer-btn {
+    background: linear-gradient(145deg, #1a4d1a, #2d7d2d);
+    border: 2px solid #00ff41;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-answer-btn:hover {
+    background: linear-gradient(145deg, #2d7d2d, #40a040);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .mystery-content {
+        max-width: 95%;
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .mystery-title {
+        font-size: 20px;
+    }
+    
+    .mystery-text {
+        font-size: 14px;
+    }
+    
+    .case-switcher {
+        position: static;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .mystery-close-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .mystery-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mystery-btn {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+/* 加载状态 */
+.loading-dots {
+    color: #00ff41;
+    animation: loadingDots 2s infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    80%, 100% { opacity: 0; }
+}
+
+/* 特殊效果 */
+.glitch-effect {
+    animation: glitch 0.3s;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}

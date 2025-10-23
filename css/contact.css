@@ -1,0 +1,556 @@
+/* 联系我们页面样式 */
+
+/* 局部字体与抗锯齿，仅作用于本页 */
+body {
+  font-family: "HarmonyOS Sans SC","PingFang SC","MiSans","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 联系页面主标题样式 - 统一全局样式 */
+.contact-main-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E !important; /* 强制应用企业标准灰黑色 */
+  font-style: italic;
+  font-size: 2.125rem;
+  margin-bottom: 16px;
+  font-weight: 300 !important; /* 使用更纤细的字体粗细 */
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  text-align: left;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 为联系方式标题添加森林深绿色下划线 */
+.contact-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #065F46;
+  border-radius: 2px;
+}
+
+/* 表单标题样式 - 统一全局样式 */
+.contact-form-title {
+  font-family: 'HarmonyOS Sans', 'M Ying Hei', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+  color: #2A2E2E !important; /* 强制应用企业标准灰黑色 */
+  font-style: italic;
+  font-size: 2.125rem;
+  margin-bottom: 16px;
+  font-weight: 300 !important; /* 使用更纤细的字体粗细 */
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  text-align: left;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 为在线留言标题添加森林深绿色下划线 */
+.contact-form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #065F46;
+  border-radius: 2px;
+}
+
+/* 联系信息项目现代化卡片设计 */
+.contact-item {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 
+    0 4px 16px rgba(6, 95, 70, 0.08),
+    0 2px 8px rgba(6, 95, 70, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 悬停效果 - 参照services页面 */
+.contact-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 40px rgba(6, 95, 70, 0.15),
+    0 6px 20px rgba(6, 95, 70, 0.1);
+  border-color: rgba(6, 95, 70, 0.2);
+}
+
+/* 联系详情内容动画 */
+.contact-details {
+  margin-left: 20px;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-details h4 {
+  transform: translateX(6px);
+  color: #065F46;
+}
+
+.contact-item:hover .contact-details p {
+  transform: translateX(4px);
+  color: #2d3748;
+}
+
+/* 联系详情标题样式 */
+.contact-details h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #2A2E2E;
+  transition: all 0.3s ease;
+}
+
+/* 联系详情描述样式 */
+.contact-details p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+/* 所有联系图标的基础样式 - 无边框、无背景 */
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-right: 15px;
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  color: #2A2E2E; /* 灰黑色 */
+}
+
+/* 邮箱图标特殊样式 - 确保为灰黑色 */
+.contact-item:nth-child(3) .contact-icon {
+  color: #2A2E2E; /* 灰黑色 */
+}
+
+/* 标题样式统一 - 去除全局加粗 */
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #555555;
+  margin-bottom: 1.5rem;
+}
+
+/* 联系我们页头可读性增强：仅本页生效 */
+.header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* 调整logo布局，参考腾讯设计：logo和公司名称同行 */
+.header-container {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  position: static;
+  left: auto;
+  top: auto;
+}
+
+.logo a {
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-img {
+  margin-right: 15px;
+}
+
+.header .logo-text,
+.header .logo-subtitle {
+  color: #000000;
+  text-shadow: none;
+}
+
+.header .logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.header .logo-subtitle {
+  font-size: 0.7rem;
+  color: #64748B;
+  font-weight: 400;
+}
+
+/* 调整导航容器位置，避免与logo重叠 */
+.nav-container {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: saturate(1.2) blur(6px);
+  -webkit-backdrop-filter: saturate(1.2) blur(6px);
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f6f6f6;
+  position: static;
+  top: auto;
+  right: auto;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-menu {
+  justify-content: center;
+}
+
+.nav-link {
+  color: #222 !important;
+}
+.nav-link:hover {
+  color: #111 !important;
+  text-shadow: none;
+}
+.nav-link.active {
+  color: var(--primary-color) !important;
+  text-shadow: none;
+}
+.nav-link.active::after {
+  background-color: var(--primary-color) !important;
+}
+
+/* 调整获取报价按钮位置，避免遮挡导航 */
+.get-quote {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  transform: none;
+  background: var(--primary-color);
+  color: #fff !important;
+  border-color: var(--primary-color);
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  letter-spacing: normal;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.mobile-toggle {
+  color: #222;
+}
+
+/* 页面横幅 */
+.page-banner {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../联系我们.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--white);
+  margin-top: 120px;
+  padding-left: 80px;
+}
+
+.banner-title {
+  font-size: 3.5rem;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 联系我们内容 */
+.contact-content {
+  background-color: var(--white);
+  padding: 80px 0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* 联系信息 */
+.contact-info {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+}
+
+/* 移除重复的contact-icon样式，使用上面定义的无边框样式 */
+
+.contact-details h4 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--dark-gray);
+}
+
+.contact-details p {
+  color: #666;
+  margin: 0;
+}
+
+/* 地图区域 */
+.map-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 300px;
+  margin-top: 30px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* 在线留言表单 */
+.contact-form {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-btn:hover {
+  background-color: #3d8b40;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* 工作时间 */
+.business-hours {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-top: 30px;
+}
+
+.hours-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.hours-list {
+  list-style: none;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.hours-list li:last-child {
+  border-bottom: none;
+}
+
+.day {
+  font-weight: 500;
+}
+
+.time {
+  color: #666;
+}
+
+/* ===== 静态地图相关样式 ===== */
+
+/* 地图容器悬停效果 */
+.static-map-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.15);
+}
+
+.static-map-wrapper:hover .map-overlay {
+  opacity: 1;
+}
+
+/* 位置标记脉动动画 */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 地图图片加载动画 */
+.static-map-wrapper img {
+  transition: all 0.3s ease;
+}
+
+.static-map-wrapper:hover img {
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* 必填项目标记样式 - 红色asterisk */
+.form-label .required {
+  color: #e53e3e;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* 通用必填项asterisk样式 */
+.form-label::after {
+  content: '';
+}
+
+.form-label[data-required="true"]::after {
+  content: ' *';
+  color: #e53e3e;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info, .contact-form {
+    padding: 30px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info, .contact-form {
+    padding: 20px;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    margin: 0 auto 15px;
+  }
+}

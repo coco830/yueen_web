@@ -1,0 +1,69 @@
+/* 自定义样式覆盖 */
+
+/* 设置底图铺满整个首页 */
+.hero {
+    min-height: 100vh !important; /* 确保至少铺满一个屏幕高度 */
+    margin-top: 0 !important;
+    padding-top: 120px; /* 为顶部导航留出空间 */
+}
+
+.hero .carousel-slide {
+    min-height: 100vh !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* 导航栏样式优化 */
+.header {
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* 确保logo文字在深色背景上可见 */
+.header .logo-text {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.header .logo-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 导航菜单链接颜色 */
+.nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* 设置环策、环协、环责的细体高级文字效果 */
+.service-name,
+.service-description {
+  font-weight: 100 !important; /* 使用最细的字重 */
+  letter-spacing: 0.05em; /* 增加字间距提升质感 */
+}
+
+h2.service-name {
+  font-weight: 100 !important;
+}
+
+/* 设置描述文字为白色并微调样式 */
+.slide-description p {
+  color: rgba(255, 255, 255, 0.95) !important; /* 使用略微透明的白色 */
+  font-weight: 300 !important; /* 使用较细的字重 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* 添加细微阴影提高可读性 */
+}
+
+/* 将页脚版权信息文字颜色改为白色 */
+.copyright p {
+  color: #ffffff !important;
+}
