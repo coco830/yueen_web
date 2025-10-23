@@ -29,6 +29,14 @@ body {
   font-weight: 200; /* 超细字重，保持原有斜体和其他样式 */
 }
 
+/* 为什么选择悦恩、英雄帖、工作空间、环保管家DNA测试标题纤细字体样式 */
+.why-choose-us .section-title,
+#hero-post .jobs-section-title,
+#workspace .jobs-section-title,
+#dna-test .jobs-section-title {
+  font-weight: 200; /* 超细字重，与开启之路标题保持一致 */
+}
+
 /* 为主标题添加森林深绿色下划线 */
 .section-title::after,
 .jobs-section-title::after {
@@ -950,10 +958,19 @@ p {
   position: relative;
 }
 
+/* 职位卡片图标 */
+.job-card-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #6B7280; /* 浅灰黑色 */
+}
+
 /* 职位卡片标题 */
 .job-card-title {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: normal;
   color: #2c2c2c;
   margin-bottom: 12px;
   font-family: 'HarmonyOS Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -1890,7 +1907,7 @@ p {
 
 .benefit-title {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: normal;
   color: #2A2E2E;
   margin-bottom: 15px;
 }

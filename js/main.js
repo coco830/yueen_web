@@ -374,7 +374,7 @@ function showJobDetails(jobId) {
             <div class="job-detail-actions">
                 <a href="#dna-test" class="btn-apply-job" onclick="closeJobModal()">完成更多探索</a>
                 <div class="contact-info">
-                    <p>联系方式：2475634516@qq.com | 0871-67174013</p>
+                    <p>联系方式：yueenrs@yueentech.cn | 0871-67174013</p>
                 </div>
             </div>
         </div>
